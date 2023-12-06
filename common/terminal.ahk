@@ -45,7 +45,7 @@ class Terminal {
 		key := this._terminalEdit.Value
 		this.ClearAndHide()
 		
-		if (this._prevWinId) {
+		if this._prevWinId {
 			WinWaitActive(this._prevWinId, , 1)
 			this._prevWinId := 0
 		}

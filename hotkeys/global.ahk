@@ -34,7 +34,7 @@
 	case Rider.IsActive:  Rider.ToggleTerminal()
 	case Goland.IsActive: Goland.ToggleTerminal()
 	case VsCode.IsActive: VsCode.OpenTerminal()
-}
+	}
 }
 
 ^3:: {
@@ -42,7 +42,7 @@
 	case Rider.IsActive:    Rider.ToggleDebug()
 	case Goland.IsActive:   Goland.ToggleDebug()
 	case Obsidian.IsActive: Obsidian.ShowOutline()
-}
+	}
 }
 
 ^4:: {
@@ -55,7 +55,7 @@
 ^5:: {
 	switch {
 	case Rider.IsActive: Rider.ToggleUnitTests()
-}
+	}
 }
 
 ^6:: {
