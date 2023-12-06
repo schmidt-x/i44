@@ -1,0 +1,77 @@
+#SuspendExempt True ; allow hotkeys to be hit even if it's suspended
+
+^0:: {
+	Suspend()
+}
+
+#SuspendExempt False
+
+^+s:: {
+	switch {
+	case Rider.IsActive:    Rider.OpenSettings()
+	case Goland.IsActive:   Goland.OpenSettings()
+	case VsCode.IsActive:   VsCode.OpenSettings()
+	case Obsidian.IsActive: Obsidian.OpenSettings()
+	case OperaGX.IsActive:  OperaGX.OpenSettings()
+	}
+}
+
+^g:: {
+	Terminal.Show()
+}
+
+^1:: {
+	switch {
+	case Rider.IsActive:    Rider.ToggleExplorer()
+	case Goland.IsActive:   Goland.ToggleExplorer()
+	case VsCode.IsActive:   VsCode.ToggleExplorerFocus()
+	case Obsidian.IsActive: Obsidian.ExplorerFocus()
+	}
+}
+
+^2:: {
+	switch {
+	case Rider.IsActive:  Rider.ToggleTerminal()
+	case Goland.IsActive: Goland.ToggleTerminal()
+	case VsCode.IsActive: VsCode.OpenTerminal()
+}
+}
+
+^3:: {
+	switch {
+	case Rider.IsActive:    Rider.ToggleDebug()
+	case Goland.IsActive:   Goland.ToggleDebug()
+	case Obsidian.IsActive: Obsidian.ShowOutline()
+}
+}
+
+^4:: {
+	switch {
+	case Rider.IsActive:  Rider.ToggleDbExplorer()
+	case Goland.IsActive: Goland.ToggleDbExplorer()
+	}
+}
+
+^5:: {
+	switch {
+	case Rider.IsActive: Rider.ToggleUnitTests()
+}
+}
+
+^6:: {
+	switch {
+	case Rider.IsActive: Rider.ILViewer()
+	}
+}
+
+^7:: {
+	switch {
+	case Rider.IsActive: Rider.ToggleServices()
+	}
+}
+
+*F14::Mode.SetInsert()
+
+*F15::Mode.SetNormal()
+
+*F17::Mode.SetMouse()
