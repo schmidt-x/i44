@@ -90,6 +90,7 @@ class Rider {
 		SendInput("^{F1}") ; Other/Refresh/ ('refresh Database Explorer' is derived)
 	}
 	
+	static SearchEverywhere() => SendInput("^n")
 	
 	; --- Debugger ---
 	

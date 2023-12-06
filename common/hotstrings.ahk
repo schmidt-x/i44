@@ -106,3 +106,7 @@
 :?::tz:: {
 	ClipSend("https://www.timeanddate.com/time/zone/")
 }
+
+:?::urb:: {
+	ClipSend("https://www.urbandictionary.com/")
+}

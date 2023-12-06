@@ -3,10 +3,10 @@
 #UseHook
 
 ; set the ToolTip position relative to the screen
-CoordMode("ToolTip", "Screen")
+CoordMode("ToolTip")
 
 ; do the same for the Mouse
-CoordMode("Mouse", "Screen")
+CoordMode("Mouse")
 
 #Include hotkeys\global.ahk
 #Include hotkeys\apps.ahk

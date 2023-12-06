@@ -106,4 +106,14 @@ class VsCode {
 	static ParameterHints() => SendInput("^+{Space}")
 	
 	static GoToBracket() => SendInput("^+\")
+	
+	static ShowNextChange() => SendInput("!{F3}") ; git
+	
+	static ShowPreviousChange() => SendInput("!+{F3}") ; git
+	
+	static GotoNextProblem() => SendInput("!{F8}")
+	
+	static GotoPreviousProblem() => SendInput("!+{F8}")
+	
+	static GotoFile() => SendInput("^p")
 }

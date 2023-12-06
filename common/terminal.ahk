@@ -81,6 +81,8 @@ class Terminal {
 			"tgl",   this.tgl,
 			"obsid", this.obsid,
 			"exp",   this.exp,
+			"tg-",   this.tg_minus,
+			"tg",    this.tg,
 		)
 		
 		this._funcs.Default := this.default
@@ -183,5 +185,13 @@ class Terminal {
 	
 	static exp(folder := "") {
 		Explorer.Run(folder)
+	}
+	
+	static tg(*) {
+		Telegram.Open()
+	}
+	
+	static tg_minus(*) {
+		Telegram.Close()
 	}
 }

@@ -20,12 +20,22 @@
 	Terminal.Show()
 }
 
+^p:: {
+	switch {
+	case Rider.IsActive:  Rider.SearchEverywhere()
+	case VsCode.IsActive: VsCode.GotoFile()
+	}
+}
+
+; --- NUMS ---
+
 ^1:: {
 	switch {
 	case Rider.IsActive:    Rider.ToggleExplorer()
 	case Goland.IsActive:   Goland.ToggleExplorer()
 	case VsCode.IsActive:   VsCode.ToggleExplorerFocus()
 	case Obsidian.IsActive: Obsidian.ExplorerFocus()
+	case OperaGX.IsActive : OperaGX.ToMainWorkspace()
 	}
 }
 
@@ -34,6 +44,7 @@
 	case Rider.IsActive:  Rider.ToggleTerminal()
 	case Goland.IsActive: Goland.ToggleTerminal()
 	case VsCode.IsActive: VsCode.OpenTerminal()
+	case OperaGX.IsActive : OperaGX.ToChillWorkspace()
 	}
 }
 
@@ -69,6 +80,8 @@
 	case Rider.IsActive: Rider.ToggleServices()
 	}
 }
+
+; --- F<> ---
 
 *F14::Mode.SetInsert()
 

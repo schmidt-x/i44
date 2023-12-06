@@ -161,6 +161,8 @@ Insert:: {
 	}
 }
 
+
+
 4:: {
 	switch {
 	case Rider.IsActive:  Rider.CopyCursorUp()
@@ -246,6 +248,30 @@ Insert:: {
 	}
 }
 
+[:: {
+	switch {
+	case VsCode.IsActive: VsCode.ShowPreviousChange()
+	}
+}
+
+]:: {
+	switch {
+	case VsCode.IsActive: VsCode.ShowNextChange()
+	}
+}
+
+(:: {
+	switch {
+	case VsCode.IsActive: VsCode.GotoPreviousProblem()
+	}
+}
+
+):: {
+	switch {
+	case VsCode.IsActive: VsCode.GotoNextProblem()
+	}
+}
+
 
 ; --- SHIFT ---
 
@@ -266,7 +292,6 @@ Insert:: {
 
 +Right:: { ; inverted (ctrl + right)
 	switch {
-	; case VsCode.IsActive:   VsCode.GoToBracket()
 	case OperaGX.IsActive:  OperaGX.FindNext()
 	case Obsidian.IsActive: Obsidian.FindNext()
 	}

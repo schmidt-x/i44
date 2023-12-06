@@ -58,4 +58,8 @@ class OperaGX {
 		static oxLink := "https://www.oxfordlearnersdictionaries.com/us/search/english/?q="
 		Run(Format('"{1}" "{2}{3}"', this._pathExe, oxLink, word))
 	}
+	
+	static ToMainWorkspace() => SendInput("^9")
+	
+	static ToChillWorkspace() => SendInput("^8")
 }
