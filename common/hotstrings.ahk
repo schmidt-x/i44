@@ -56,7 +56,7 @@
 }
 
 :?O::aaa:: {
-	SendInput("// Arrange{Enter 3}// Act{Enter 3}// Assert{Enter 2}{Up 7}")
+	SendInput("// Arrange{Enter 3}// Act{Enter 3}// Assert{Enter}{Up 6}")
 }
 
 ; personal account

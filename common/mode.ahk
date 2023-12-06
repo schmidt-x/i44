@@ -18,7 +18,7 @@ class Mode {
 		this._display.BackColor := "000000"
 		WinSetTransColor(this._display.BackColor, this._display.Hwnd)
 		this._display.SetFont("s16 c0x5c5c5c", "JetBrains Mono Regular")
-		this._displayEdit := this._display.AddEdit("Background000000 -E0x255 w120 h32 Disabled")
+		this._displayEdit := this._display.Add("Text", "Background000000 -E0x255 w120 h32")
 	}
 	
 	static IsInsert => this._current = ModeType.Insert
@@ -80,7 +80,7 @@ class Mode {
 	}
 	
 	static show() {
-		this._display.Show("x-23 y1033 NoActivate")
+		this._display.Show("x-17 y1033 NoActivate")
 	}
 	
 }

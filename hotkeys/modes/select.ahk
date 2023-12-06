@@ -31,6 +31,21 @@ x::Windows.Cut()
 
 ^Right::Windows.SelectRightByWord()
 
+^Up:: {
+	switch {
+	case Rider.IsActive: Rider.ExpandSelection()
+	}
+}
+
+^Down:: {
+	switch {
+	case Rider.IsActive: Rider.ShrinkSelection()
+	}
+}
+
+
+; --- SHIFT ---
+
 +Up::Windows.ScrollUp()
 
 +Down::Windows.ScrollDown()

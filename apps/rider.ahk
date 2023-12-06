@@ -17,33 +17,33 @@ class Rider {
 	
 	static ErrorDescription() => SendInput("^{F1}")
 	
-	static GoToDeclaration() => SendInput("^b") ; go to declaration or usages
+	static GoToDeclarationOrUsages() => SendInput("^b")
 	
-	static GoToImplementation() => SendInput("^!b") ; go to implementation
+	static GoToImplementation() => SendInput("^!b")
 	
-	static CopyCursorUp() => SendInput("^w") ; copy caret above
+	static CloneCaretAboveWithVirtualSpace() => SendInput("!+{up}")
 	
-	static CopyCursorDown() => SendInput("^e") ; copy caret below
+	static CloneCaretBelowWithVirtualSpace() => SendInput("!+{down}")
 	
-	static GoBack() => SendInput("^{NumpadSub}") ; go back
+	static GoBack() => SendInput("^{NumpadSub}")
 	
-	static GoForward() => SendInput("^+{NumpadSub}") ; go forward
+	static GoForward() => SendInput("^+{NumpadSub}")
 	
-	static QuickDocumentation() => SendInput("^q") ; quick documentation
+	static QuickDocumentation() => SendInput("^q")
 	
-	static CommentLine() => SendInput("^/") ; comment line
+	static CommentLine() => SendInput("^/")
 	
-	static ContextActions() => SendInput("!{Enter}") ; context actions
+	static ContextActions() => SendInput("!{Enter}")
 	
 	static NextTab() => SendInput("!{right}")
 	
 	static PreviousTab() => SendInput("!{left}")
 	
-	static MoveLineUp() => SendInput("!+{up}")
+	static MoveLineUp() => SendInput("^+!{F4}")
 	
-	static MoveLineDown() => SendInput("!+{down}")
+	static MoveLineDown() => SendInput("^+!{F5}")
 	
-	static ReopenLastClosedTab() => SendInput("^+t") ; reopen last closed tab
+	static ReopenLastClosedTab() => SendInput("^+t")
 	
 	static NewFile() => SendInput("^{insert}") ; insert new file/code
 	
@@ -96,6 +96,8 @@ class Rider {
 	
 	static SearchEverywhere() => SendInput("^n")
 	
+	static ToggleInlayHints() => SendInput("^+!{F1}")
+	
 	; --- Debugger ---
 	
 	static RerunDebugger() => SendInput("^+{F5}") ; Other/Touchbar/Debugger/Rerun
@@ -110,6 +112,14 @@ class Rider {
 	
 	; --- ---
 	
+	static PreviousMethod() => SendInput("^!+{F3}") ; remapped from 'Alt + Up' because of the 'alt problems' (buggy focus)
 	
+	static NextMethod() => SendInput("^!+{F2}") ; remapped from 'Alt + Down'
+	
+	static MoveCaretToMatchingBrace() => SendInput("^]") ; works only if tapped twice
+	
+	static ExpandSelection() => SendInput("^w")
+	
+	static ShrinkSelection() => SendInput("^+w")
 	
 }

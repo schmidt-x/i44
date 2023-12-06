@@ -80,7 +80,7 @@ s:: {
 
 t:: {
 	switch {
-	case Rider.IsActive:  Rider.GoToDeclaration()
+	case Rider.IsActive:  Rider.GoToDeclarationOrUsages()
 	case Goland.IsActive:	Goland.GoToDeclaration()
 	case VsCode.IsActive:	VsCode.GoToDeclaration()
 	}
@@ -165,7 +165,7 @@ Insert:: {
 
 4:: {
 	switch {
-	case Rider.IsActive:  Rider.CopyCursorUp()
+	case Rider.IsActive:  Rider.CloneCaretAboveWithVirtualSpace()
 	case Goland.IsActive: Goland.CopyCursorUp()
 	case VsCode.IsActive: VsCode.CopyCursorUp()
 	}
@@ -173,7 +173,7 @@ Insert:: {
 
 5:: {
 	switch {
-	case Rider.IsActive:  Rider.CopyCursorDown()
+	case Rider.IsActive:  Rider.CloneCaretBelowWithVirtualSpace()
 	case Goland.IsActive: Goland.CopyCursorDown()
 	case VsCode.IsActive: VsCode.CopyCursorDown()
 	}
@@ -285,15 +285,17 @@ Insert:: {
 	Windows.ScrollDown()
 }
 
-+Left:: { ; inverted (ctrl + left)
++Left:: { ; inverted ^Left
 	switch {
+	case Rider.IsActive:   Rider.PreviousMethod()
 	case OperaGX.IsActive:  OperaGX.FindPrevious()
 	case Obsidian.IsActive: Obsidian.FindPrevious()
 	}
 }
 
-+Right:: { ; inverted (ctrl + right)
++Right:: { ; inverted ^Right
 	switch {
+	case Rider.IsActive:   Rider.NextMethod()
 	case OperaGX.IsActive:  OperaGX.FindNext()
 	case Obsidian.IsActive: Obsidian.FindNext()
 	}
@@ -337,6 +339,12 @@ Insert:: {
 	switch {
 	case Rider.IsActive:  Rider.GoToImplementation()
 	case Goland.IsActive: Goland.GoToImplementation()
+	}
+}
+
++b:: {
+	switch {
+	case Rider.IsActive: Rider.MoveCaretToMatchingBrace()
 	}
 }
 

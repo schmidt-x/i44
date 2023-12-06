@@ -26,7 +26,7 @@ class Terminal {
 		* Choose the screen to display Gui on, depending on the center of the active window.
 		*/
 		
-		if (x + w/2) < 0 {
+		if (x + w/2) < 0 { ; the center of the active window
 			pos := "y1020 x-1073" ; -960 - (226/2) = middle of the left screen
 		} else {
 			pos := "y1020 x847"   ;  960 - (226/2) = middle of the right screen
@@ -83,6 +83,7 @@ class Terminal {
 			"exp",   this.exp,
 			"tg-",   this.tg_minus,
 			"tg",    this.tg,
+			"inlh",  this.inlh,
 		)
 		
 		this._funcs.Default := this.default
@@ -193,5 +194,9 @@ class Terminal {
 	
 	static tg_minus(*) {
 		Telegram.Close()
+	}
+	
+	static inlh(*) {
+		Rider.ToggleInlayHints()
 	}
 }
