@@ -262,12 +262,14 @@ Insert:: {
 
 (:: {
 	switch {
+	case Rider.IsActive:  Rider.GotoPreviousError()
 	case VsCode.IsActive: VsCode.GotoPreviousProblem()
 	}
 }
 
 ):: {
 	switch {
+	case Rider.IsActive:  Rider.GotoNextError()
 	case VsCode.IsActive: VsCode.GotoNextProblem()
 	}
 }
