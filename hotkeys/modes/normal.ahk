@@ -133,9 +133,9 @@ Insert:: {
 }
 
 
-; --- NUMBERS ---
+; --- NUMS ---
 
-1:: {
+<+1:: {
 	switch {
 	case Rider.IsActive:    Rider.GoBack()
 	case Goland.IsActive:   Goland.GoBack()
@@ -148,7 +148,7 @@ Insert:: {
 	}
 }
 
-2:: {
+<+2:: {
 	switch {
 	case Rider.IsActive:    Rider.GoForward()
 	case Goland.IsActive:   Goland.GoForward()
@@ -163,7 +163,7 @@ Insert:: {
 
 
 
-4:: {
+<+4:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretAboveWithVirtualSpace()
 	case Goland.IsActive: Goland.CopyCursorUp()
@@ -171,7 +171,7 @@ Insert:: {
 	}
 }
 
-5:: {
+<+5:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretBelowWithVirtualSpace()
 	case Goland.IsActive: Goland.CopyCursorDown()
@@ -260,14 +260,14 @@ Insert:: {
 	}
 }
 
-(:: {
+>+9:: { ; (
 	switch {
 	case Rider.IsActive:  Rider.GotoPreviousError()
 	case VsCode.IsActive: VsCode.GotoPreviousProblem()
 	}
 }
 
-):: {
+>+0:: { ; )
 	switch {
 	case Rider.IsActive:  Rider.GotoNextError()
 	case VsCode.IsActive: VsCode.GotoNextProblem()

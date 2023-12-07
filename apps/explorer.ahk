@@ -55,11 +55,11 @@ class Explorer {
 		}
 		
 		switch folder {
-		case "desk" : path := A_Desktop
-		case "study": path := "C:\Study"
-		case "torr":  path := "D:\Torrent"
-		case "edit":  path := A_ScriptDir
-		default:      path := "C:\"
+		case "desk":   path := A_Desktop
+		case "std":    path := "C:\Study"
+		case "torr":   path := "D:\Torrent"
+		case "radeon": path := "D:\Radeon ReLive\unknown"
+		default:       path := "C:\"
 		}
 		
 		Run(Format('"{1}" "{2}"', this._pathExe, path))

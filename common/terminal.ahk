@@ -84,6 +84,8 @@ class Terminal {
 			"tg-",   this.tg_minus,
 			"tg",    this.tg,
 			"inlh",  this.inlh,
+			"recs",  this.recs,
+			"stm-",  this.stm_minus,
 		)
 		
 		this._funcs.Default := this.default
@@ -197,6 +199,18 @@ class Terminal {
 	}
 	
 	static inlh(*) {
-		Rider.ToggleInlayHints()
+		switch {
+		case Rider.IsActive: Rider.ToggleInlayHints()
+		}
+	}
+	
+	static recs(*) {
+		AmdAdrenalin.SaveInstantReplay()
+	}
+	
+	static stm_minus(*) {
+		if ProcessExist("steam.exe")
+			ProcessClose("steam.exe")
 	}
 }
+
