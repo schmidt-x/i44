@@ -85,6 +85,7 @@ class Terminal {
 			"tg",    this.tg,
 			"inlh",  this.inlh,
 			"recs",  this.recs,
+			"stm+",  this.stm_plus,
 			"stm-",  this.stm_minus,
 		)
 		
@@ -148,13 +149,7 @@ class Terminal {
 		Run("D:\Files\123.sesx")
 	}
 	
-	static rec(*) {
-		AmdAdrenalin.ToggleRecording()
-	}
-	
-	static info(*) {
-		DisplayInfoOnHover()
-	}
+	static info(*) => DisplayInfoOnHover()
 	
 	static rat(*) {
 		switch {
@@ -174,29 +169,17 @@ class Terminal {
 		}
 	}
 
-	static ox(word := "") {
-		OperaGX.OxfordSearch(word)
-	}
+	static ox(word := "") => OperaGX.OxfordSearch(word)
 	
-	static tgl(*) {
-		Mode.ToggleDisplay()
-	}
+	static tgl(*) => Mode.ToggleDisplay()
 	
-	static obsid(*) {
-		Obsidian.Run()
-	}
+	static obsid(*) => Obsidian.Run()
 	
-	static exp(folder := "") {
-		Explorer.Run(folder)
-	}
+	static exp(folder := "") => Explorer.Run(folder)
 	
-	static tg(*) {
-		Telegram.Open()
-	}
+	static tg(*) => Telegram.Open()
 	
-	static tg_minus(*) {
-		Telegram.Close()
-	}
+	static tg_minus(*) => Telegram.Close()
 	
 	static inlh(*) {
 		switch {
@@ -204,13 +187,12 @@ class Terminal {
 		}
 	}
 	
-	static recs(*) {
-		AmdAdrenalin.SaveInstantReplay()
-	}
+	static rec(*) => AmdAdrenalin.ToggleRecording()
 	
-	static stm_minus(*) {
-		if ProcessExist("steam.exe")
-			ProcessClose("steam.exe")
-	}
+	static recs(*) => AmdAdrenalin.SaveInstantReplay()
+	
+	static stm_plus(*) => Steam.Run()
+	
+	static stm_minus(*) => Steam.Close()
 }
 

@@ -31,3 +31,4 @@ CoordMode("Mouse")
 #Include apps\vscode.ahk
 #Include apps\chrome.ahk
 #Include apps\rider.ahk
+#Include apps\steam.ahk
