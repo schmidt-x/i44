@@ -21,7 +21,6 @@ CoordMode("Mouse")
 #Include common\mode.ahk
 #Include common\paths.ahk
 
-#Include apps\amdAdrenalin.ahk
 #Include apps\telegram.ahk
 #Include apps\obsidian.ahk
 #Include apps\explorer.ahk

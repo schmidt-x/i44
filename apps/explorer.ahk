@@ -46,18 +46,26 @@ class Explorer {
 		return false
 	}
 	
-	static Run(folder) {
-		if !StrLen(folder) {
+	static Run(folder := "", path := "") {
+		isFolder := StrLen(folder)
+		isPath := StrLen(path)
+		
+		if !isFolder && !isPath {
 			SendInput("#e")
 			return
 		}
 		
-		if !Paths.TryFind(folder, &p) {
-			ToolTip("path not found", 0, 1050)
-			HideTooltipDelayed()
+		if isFolder && Paths.TryFind(folder, &p) {
+			Run(Format('"{1}" "{2}"', this._fullProcessName, p))
 			return
 		}
 		
-		Run(Format('"{1}" "{2}"', this._fullProcessName, p))
+		if isPath {
+			Run(Format('"{1}" "{2}"', this._fullProcessName, path))
+			return
+		}
+		
+		ToolTip("path not found", 0, 1050)
+		HideTooltipDelayed()
 	}
 }

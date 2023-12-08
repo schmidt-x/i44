@@ -46,7 +46,7 @@ class Terminal {
 		this.ClearAndHide()
 		
 		if this._prevWinId {
-			WinWaitActive(this._prevWinId, , 1)
+			WinWaitActive(this._prevWinId, , 2)
 			this._prevWinId := 0
 		}
 		
@@ -72,7 +72,6 @@ class Terminal {
 			"tb",    this.tb,
 			"rf",    this.rf,
 			"mic",   this.mic,
-			"rec",   this.rec,
 			"info",  this.info,
 			"rat",   this.rat,
 			"bs",    this.bs,
@@ -84,7 +83,6 @@ class Terminal {
 			"tg-",   this.tg_minus,
 			"tg",    this.tg,
 			"inlh",  this.inlh,
-			"recs",  this.recs,
 			"stm+",  this.stm_plus,
 			"stm-",  this.stm_minus,
 		)
@@ -180,10 +178,6 @@ class Terminal {
 		case Rider.IsActive: Rider.ToggleInlayHints()
 		}
 	}
-	
-	static rec(*) => AmdAdrenalin.ToggleRecording()
-	
-	static recs(*) => AmdAdrenalin.SaveInstantReplay()
 	
 	static stm_plus(*) => Steam.Run()
 	

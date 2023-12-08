@@ -18,16 +18,24 @@ class VsCode {
 		}
 		
 		if folder = "." {
-			if Explorer.TryGetPath(&p) ; it might return a special path though...
-				Run(Format('"{1}" "{2}"', this._fullProcessName, p))
-			else
-				Run(this._fullProcessName)
+			if !Explorer.TryGetPath(&p) {
+				ToolTip("path not found", 0, 1050)
+				HideTooltipDelayed()
+				return
+			}
 			
+			if SubStr(p, 1, 2) = "::" {
+				ToolTip("path is special", 0, 1050)
+				HideTooltipDelayed()
+				return
+			}
+			
+			Run(Format('"{1}" "{2}"', this._fullProcessName, p))
 			return
 		}
 		
 		if !Paths.TryFind(folder, &p) {
-			ToolTip("path not found")
+			ToolTip("path not found", 0, 1050)
 			HideTooltipDelayed()
 			return
 		}
