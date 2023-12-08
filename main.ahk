@@ -19,6 +19,7 @@ CoordMode("Mouse")
 #Include common\functions.ahk
 #Include common\terminal.ahk
 #Include common\mode.ahk
+#Include common\paths.ahk
 
 #Include apps\amdAdrenalin.ahk
 #Include apps\telegram.ahk

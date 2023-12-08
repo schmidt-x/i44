@@ -50,18 +50,19 @@ class Windows {
 	
 	static ShutDown() => Run("shutdown /s /t 0")
 	
-	static RunCmd() {
-		/*
-		if !StrLen(path) {
-			ToolTip("path was empty")
-			path := A_Desktop
-		} else if SubStr(path, 1, 2) = "::" {
-			ToolTip("it's special path. TODO!") ; TODO
+	static RunCmd(folder) {
+		if !StrLen(folder) {
+			Run("cmd", "C:\")
 			return
 		}
-		*/
 		
-		Run("cmd", "C:\")
+		if !Paths.TryFind(folder, &p) {
+			ToolTip("path not found", 0, 1050)
+			HideTooltipDelayed()
+			return
+		}
+		
+		Run("cmd", p)
 	}
 	
 	static MoveToWholeBeginning() => SendInput("^{Home}")

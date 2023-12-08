@@ -1,9 +1,9 @@
 class Steam {
 	
-	static _processName := "steam.exe"
-	static _processPath := "C:\Program Files (x86)\Steam\steam.exe"
+	static _processName     := "steam.exe"
+	static _fullProcessName := "C:\Program Files (x86)\Steam\steam.exe"
 	
-	static Run() => Run(this._processPath)
+	static Run() => Run(this._fullProcessName)
 	
 	static Close() {
 		steamPID := ProcessExist(this._processName)

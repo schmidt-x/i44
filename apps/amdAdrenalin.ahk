@@ -1,8 +1,8 @@
 class AmdAdrenalin {
 	
-	static _processName := "RadeonSoftware.exe"
-	static _processNameAhk := "ahk_exe RadeonSoftware.exe"
-	static _processPath := "C:\Program Files\AMD\CNext\CNext\RadeonSoftware.exe"
+	static _processName     := "RadeonSoftware.exe"
+	static _winProcessName  := "ahk_exe RadeonSoftware.exe"
+	static _fullProcessName := "C:\Program Files\AMD\CNext\CNext\RadeonSoftware.exe"
 	
 	static ToggleRecording() => SendInput("^+d")
 	
@@ -12,12 +12,12 @@ class AmdAdrenalin {
 		if !amdPID
 			return
 		
-		Run(this._processPath)
+		Run(this._fullProcessName)
 		
 		if !WinWaitActive("ahk_pid " . amdPID, , 2)
 			return
 		
 		SendInput("^+s")
-		Explorer.Run("radeon")
+		Explorer.Run(Paths.Radeon)
 	}
 }

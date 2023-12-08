@@ -1,38 +1,38 @@
 class VsCode {
 	
-	static _processName := "ahk_exe Code.exe"
-	static _pathExe := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Microsoft VS Code\Code.exe"
+	static _winProcessName  := "ahk_exe Code.exe"
+	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 	
-	
-	static PathExe => this._pathExe
-	static ProcessName => this._processName
-	static IsActive => WinActive(this._processName)
+	static IsActive => WinActive(this._winProcessName)
 	
 	
 	static OpenCurrentScript() {
-		command := Format('"{1}" "{2}"', this._pathExe, A_ScriptDir)
+		command := Format('"{1}" "{2}"', this._fullProcessName, A_ScriptDir)
 		Run(command)
 	}
 	
-	static Run(path) {
-		if !StrLen(path) {
-			Run(this._pathExe)
+	static Run(folder) {
+		if !StrLen(folder) {
+			Run(this._fullProcessName)
 			return
 		}
 		
-		if path = "." {
-			if Explorer.TryGetPath(&p)
-				Run(Format('"{1}" "{2}"', this._pathExe, p))
+		if folder = "." {
+			if Explorer.TryGetPath(&p) ; it might return a special path though...
+				Run(Format('"{1}" "{2}"', this._fullProcessName, p))
 			else
-				Run(this._pathExe)
+				Run(this._fullProcessName)
 			
 			return
 		}
 		
-		if IsQuoted(path)
-			Run(Format('"{1}" {2}', this._pathExe, path))
-		else
-			Run(Format('"{1}" "{2}"', this._pathExe, path))
+		if !Paths.TryFind(folder, &p) {
+			ToolTip("path not found")
+			HideTooltipDelayed()
+			return
+		}
+		
+		Run(Format('"{1}" "{2}"', this._fullProcessName, p))
 	}
 	
 	static OpenSelected() {
@@ -49,7 +49,7 @@ class VsCode {
 		path := A_Clipboard
 		SetTimer(() => A_Clipboard := prevClip, -50)
 		
-		Run(Format('"{1}" {2}', this._pathExe, path))
+		Run(Format('"{1}" {2}', this._fullProcessName, path))
 	}
 	
 	static NewFile() => SendInput("^+{Insert}") ; explorer.newFile
