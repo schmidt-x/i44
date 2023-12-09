@@ -9,10 +9,6 @@ class Explorer {
 	
 	static CloseTab() => SendInput("^w")
 	
-	static GoBack() => SendInput("!{left}")
-	
-	static GoForward() => SendInput("!{right}") ; go forward
-	
 	static NextTab() => SendInput("^{tab}") ; next tab
 	
 	static PreviousTab() => SendInput("^+{tab}") ; previous tab

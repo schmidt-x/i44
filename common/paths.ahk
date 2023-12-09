@@ -2,6 +2,8 @@ class Paths {
 	
 	static _paths := Map()
 	
+	static C        => "C:\"
+	static D        => "D:\"
 	static Desktop  => A_Desktop
 	static Radeon   => "D:\Radeon ReLive\unknown"
 	static Projects => "C:\Projects"
@@ -15,6 +17,8 @@ class Paths {
 			"torr",   this.Torrent,
 			"radeon", this.Radeon,
 			"prj",    this.Projects,
+			"C",      this.C,
+			"D",      this.D,
 		)
 	}
 	

@@ -143,7 +143,6 @@ Insert:: {
 	case Obsidian.IsActive: Obsidian.GoBack()
 	case OperaGX.IsActive:  OperaGX.GoBack()
 	case Chrome.IsActive:   Chrome.GoBack()
-	case Explorer.IsActive: Explorer.GoBack()
 	case Discord.IsActive:  Discord.GoBack()
 	}
 }
@@ -156,7 +155,6 @@ Insert:: {
 	case Obsidian.IsActive: Obsidian.GoForward()
 	case OperaGX.IsActive:  OperaGX.GoForward()
 	case Chrome.IsActive:   Chrome.GoForward()
-	case Explorer.IsActive: Explorer.GoForward()
 	case Discord.IsActive:  Discord.GoForward()
 	}
 }
