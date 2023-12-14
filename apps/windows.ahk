@@ -52,13 +52,12 @@ class Windows {
 	
 	static RunCmd(folder) {
 		if !StrLen(folder) {
-			Run("cmd", "C:\")
+			Run("cmd", Paths.C)
 			return
 		}
 		
 		if !Paths.TryFind(folder, &p) {
-			ToolTip("path not found", 0, 1050)
-			HideTooltipDelayed()
+			Display("key not found")
 			return
 		}
 		

@@ -13,9 +13,9 @@ class Terminal {
 	static IsActive => WinActive(this._terminal.Hwnd)
 	
 	static Show() {
-		/*
 		this._prevWinId := WinActive("A")
 		
+		/*
 		if this._prevWinId ; it will be zero if there is no window opened
 			WinGetPos(&x, , &w, , this._prevWinId)
 		else
@@ -42,20 +42,24 @@ class Terminal {
 	}
 	
 	static ExecuteAndHide() {
-		key := this._terminalEdit.Value
+		input := this._terminalEdit.Value
 		this.ClearAndHide()
 		
 		if this._prevWinId {
-			WinWaitActive(this._prevWinId, , 2)
+			if !WinWaitActive(this._prevWinId, , 1) {
+				MsgBox("Focus was stolen!!!")
+				this._prevWinId := 0
+				return
+			}
 			this._prevWinId := 0
 		}
 		
-		parts := StrSplit(key, "`s", , 2)
+		parts := StrSplit(input, "`s", , 2)
 		
 		if parts.Length > 1 {
 			this._funcs[parts[1]](this, parts[2])
 		} else {
-			this._funcs[key](this)
+			this._funcs[input](this)
 		}
 	}
 	
@@ -102,8 +106,7 @@ class Terminal {
 	; --- FUNCS ---
 	
 	static default(*) {
-		ToolTip("key not found", 0, 1050)
-		HideTooltipDelayed(2000)
+		Display("key not found")
 	}
 	
 	static code(folder := "") => VsCode.Run(folder)

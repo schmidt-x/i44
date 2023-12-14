@@ -2,7 +2,7 @@ class Mode {
 	
 	static _current         := -1
 	static _display         := Gui()
-	static _displayEdit     := ""
+	static _displayEdit     := unset
 	static _enabled         := false
 	
 	static __New() {
@@ -16,9 +16,9 @@ class Mode {
 	static init_display() {
 		this._display.Opt("AlwaysOnTop -Caption +ToolWindow")
 		this._display.BackColor := "000000"
-		WinSetTransColor(this._display.BackColor, this._display.Hwnd)
+		WinSetTransColor(this._display.BackColor . " 240", this._display.Hwnd)
 		this._display.SetFont("s16 c0x5c5c5c", "JetBrains Mono Regular")
-		this._displayEdit := this._display.Add("Text", "Background000000 -E0x255 w120 h32")
+		this._displayEdit := this._display.Add("Text", "Background171717 -E0x255 w82 h32")
 	}
 	
 	static IsInsert => this._current = ModeType.Insert
@@ -80,7 +80,7 @@ class Mode {
 	}
 	
 	static show() {
-		this._display.Show("x-17 y1033 NoActivate")
+		this._display.Show("x-20 y987 NoActivate")
 	}
 	
 }

@@ -1,4 +1,9 @@
-HideTooltipDelayed(delay := 1000) =>	SetTimer(ToolTip, -delay)
+HideTooltipDelayed(delay := 1000) => SetTimer(ToolTip, -delay)
+
+Display(text, X := 0, Y := 1050, removeAfter := 1000) {
+	ToolTip(text, X, Y)
+	HideTooltipDelayed(removeAfter)
+}
 
 GetProcessName() {
 	processName := WinGetProcessName("A")
@@ -27,8 +32,6 @@ SaveAndRunScript() {
 }
 
 DisplayInfoOnHover() {
-	Mode.DisplayLayer := false
-	
 	xPrev := 0
 	yPrev := 0
 	
@@ -56,7 +59,6 @@ DisplayInfoOnHover() {
 		
 		if GetKeyState("Esc") {
 			ToolTip() ; turn off the ToolTip
-			Mode.DisplayLayer := true
 			return
 		}
 	}

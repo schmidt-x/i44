@@ -33,13 +33,15 @@ x::Windows.Cut()
 
 ^Up:: {
 	switch {
-	case Rider.IsActive: Rider.ExpandSelection()
+	case Rider.IsActive:  Rider.ExpandSelection()
+	case VsCode.IsActive: VsCode.ExpandSelection()
 	}
 }
 
 ^Down:: {
 	switch {
-	case Rider.IsActive: Rider.ShrinkSelection()
+	case Rider.IsActive:  Rider.ShrinkSelection()
+	case VsCode.IsActive: VsCode.ShrinkSelection()
 	}
 }
 

@@ -113,7 +113,7 @@ class VsCode {
 	
 	static ParameterHints() => SendInput("^+{Space}")
 	
-	static GoToBracket() => SendInput("^+\")
+	static GotoBracket() => SendInput("^+\")
 	
 	static ShowNextChange() => SendInput("!{F3}") ; git
 	
@@ -124,4 +124,12 @@ class VsCode {
 	static GotoPreviousProblem() => SendInput("!+{F8}")
 	
 	static GotoFile() => SendInput("^p")
+	
+	static ExpandSelection() => SendInput("+!{Right}")
+	
+	static ShrinkSelection() => SendInput("+!{Left}")
+	
+	static GotoNextMember() => SendInput("^{Down}") ; Go to Next/Previous Member extension
+	
+	static GotoPrevMember() => SendInput("^{Up}") ; Go to Next/Previous Member extension
 }

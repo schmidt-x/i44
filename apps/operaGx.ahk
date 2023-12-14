@@ -1,11 +1,15 @@
 class OperaGX {
 	
-	static _processName := "ahk_exe opera.exe"
-	static _pathExe := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Opera GX\opera.exe"
+	static _processName := "opera.exe"
+	static _winProcessName := "ahk_exe opera.exe"
+	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Opera GX\opera.exe"
 	
-	static PathExe => this._pathExe
 	static ProcessName => this._processName
-	static IsActive => WinActive(this._processName)
+	static WinProcessName => this._winProcessName
+	static FullProcessName => this._fullProcessName
+	
+	static IsActive => WinActive(this._winProcessName)
+	
 	
 	static FocusOnAddressBar() => SendInput("^l")
 	
@@ -56,7 +60,7 @@ class OperaGX {
 	
 	static OxfordSearch(word := "") {
 		static oxLink := "https://www.oxfordlearnersdictionaries.com/us/search/english/?q="
-		Run(Format('"{1}" "{2}{3}"', this._pathExe, oxLink, word))
+		Run(Format('"{1}" "{2}{3}"', this._fullProcessName, oxLink, word))
 	}
 	
 	static ToMainWorkspace() => SendInput("^9")
