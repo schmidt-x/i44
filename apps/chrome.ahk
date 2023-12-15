@@ -1,8 +1,10 @@
 class Chrome {
-	static _processName := "ahk_exe chrome.exe"
+	
+	static _processName    := "chrome.exe"
+	static _winProcessName := "ahk_exe chrome.exe"
 	
 	static ProcessName => this._processName
-	static IsActive => WinActive(this._processName)
+	static IsActive => WinActive(this._winProcessName)
 	
 	static NewTab() => SendInput("^t")
 	
@@ -22,6 +24,4 @@ class Chrome {
 	
 	static GoForward() => SendInput("!{right}")
 	
-	
-	; static FocusOnAddressBar() => SendInput("^{F5}") ; Move cursor to the address bar
 }

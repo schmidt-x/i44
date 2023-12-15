@@ -1,7 +1,10 @@
 class Goland {
 	
-	static ProcessName => "ahk_exe goland64.exe"
-	static IsActive => WinActive(this.ProcessName)
+	static _processName    := "goland64.exe"
+	static _winProcessName := "ahk_exe goland64.exe"
+	
+	static ProcessName => this._processName
+	static IsActive => WinActive(this._winProcessName)
 	
 	static ToggleBreakpoint() => SendInput("^{F8}")
 	
@@ -19,21 +22,21 @@ class Goland {
 	
 	static GoToImplementation() => SendInput("^!b")
 	
-	static CopyCursorUp() => SendInput("^w") ; copy caret above
+	static CopyCursorUp() => SendInput("^w")
 	
-	static CopyCursorDown() => SendInput("^e") ; copy caret below
+	static CopyCursorDown() => SendInput("^e")
 	
-	static GoBack() => SendInput("^!{left}") ; go back
+	static GoBack() => SendInput("^!{left}")
 	
-	static GoForward() => SendInput("^!{right}") ; go forward
+	static GoForward() => SendInput("^!{right}")
 	
-	static QuickDocumentation() => SendInput("^q") ; quick documentation
+	static QuickDocumentation() => SendInput("^q")
 	
-	static Redo() => SendInput("^+z") ; redo
+	static Redo() => SendInput("^+z")
 	
-	static CommentLine() => SendInput("^/") ; comment line
+	static CommentLine() => SendInput("^/")
 	
-	static ContextActions() => SendInput("!{Enter}") ; context actions
+	static ContextActions() => SendInput("!{Enter}")
 	
 	static NextTab() => SendInput("!{right}")
 	
@@ -49,7 +52,7 @@ class Goland {
 	
 	static ToggleExplorer() => SendInput("!1")
 	
-	static ToggleTerminal() => SendInput("!{F12}") ; toggle Terminal
+	static ToggleTerminal() => SendInput("!{F12}")
 	
 	static ToggleDebug() => SendInput("!5")
 	

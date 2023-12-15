@@ -1,9 +1,11 @@
 class Obsidian {
-	static _processName := "ahk_exe Obsidian.exe"
-	static _pathExe := "C:\Users\" . A_UserName . "\AppData\Local\Obsidian\Obsidian.exe"
+	
+	static _processName     := "Obsidian.exe"
+	static _winProcessName  := "ahk_exe Obsidian.exe"
+	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Obsidian\Obsidian.exe"
 	
 	static ProcessName => this._processName
-	static IsActive => WinActive(this._processName)
+	static IsActive => WinActive(this._winProcessName)
 	
 	static UnfoldBlockOfCode() => SendInput("^=")
 	
@@ -44,6 +46,6 @@ class Obsidian {
 	static SendSpoilerBlock() => SendInput("``````spoiler-block`n")
 	
 	static Run() {
-		Run(this._pathExe)
+		Run(this._fullProcessName)
 	}
 }

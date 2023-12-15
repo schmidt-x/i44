@@ -1,8 +1,10 @@
 class Explorer {
 	
+	static _processName     := "explorer.exe"
 	static _winProcessName  := "ahk_exe explorer.exe"
 	static _fullProcessName := "C:\Windows\explorer.exe"
 	
+	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
 	static FocusOnAddressBar() => SendInput("!d")

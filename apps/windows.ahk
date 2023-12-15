@@ -1,6 +1,6 @@
 class Windows {
 	
-	static OpenClipboard() => SendInput("#v") ; open clipboard
+	static OpenClipboard() => SendInput("#v")
 	
 	static Redo() => SendInput("^y")
 	

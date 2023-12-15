@@ -1,8 +1,10 @@
 class VsCode {
 	
+	static _processName     := "Code.exe"
 	static _winProcessName  := "ahk_exe Code.exe"
 	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Microsoft VS Code\Code.exe"
 	
+	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
 	
@@ -19,14 +21,12 @@ class VsCode {
 		
 		if folder = "." {
 			if !Explorer.TryGetPath(&p) {
-				ToolTip("path not found", 0, 1050)
-				HideTooltipDelayed()
+				Display("path not found")
 				return
 			}
 			
 			if SubStr(p, 1, 2) = "::" {
-				ToolTip("path is special", 0, 1050)
-				HideTooltipDelayed()
+				Display("path is special")
 				return
 			}
 			
@@ -35,8 +35,7 @@ class VsCode {
 		}
 		
 		if !Paths.TryFind(folder, &p) {
-			ToolTip("path not found", 0, 1050)
-			HideTooltipDelayed()
+			Display("folder not found")
 			return
 		}
 		
@@ -49,8 +48,7 @@ class VsCode {
 		SendInput("^+c")
 		
 		if !ClipWait(1) {
-			ToolTip("time out", 0, 1050)
-			HideTooltipDelayed()
+			Display("time out")
 			return
 		}
 		

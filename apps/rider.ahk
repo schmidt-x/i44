@@ -1,9 +1,11 @@
 class Rider {
 	
-	static _processName := "ahk_exe rider64.exe"
+	static _processName     := "rider64.exe"
+	static _winProcessName  := "ahk_exe rider64.exe"
+	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\JetBrains\Toolbox\apps\Rider\ch-0\232.10203.29\bin\rider64.exe"
 	
 	static ProcessName => this._processName
-	static IsActive => WinActive(this._processName)
+	static IsActive  => WinActive(this._winProcessName)
 	
 	static ToggleBreakpoint() => SendInput("{F9}")
 	
@@ -112,10 +114,23 @@ class Rider {
 	
 	; --- ---
 	
-	static PreviousMethod() => SendInput("^!+{F3}") ; remapped from 'Alt + Up' because of the 'alt problems' (buggy focus)
-	
-	static NextMethod() => SendInput("^!+{F2}") ; remapped from 'Alt + Down'
-	
+	static PreviousMethod() {
+		/*
+		* Alt problem - it gets focused on Alt-panel (same as for OperaGx GoBack/GoForward)
+		*/
+		
+		SendInput("{Alt Down}")
+		SendInput("{Up}")
+		SendInput("{Alt up}")
+	}	
+		
+	static NextMethod() {
+		SendInput("{Alt Down}")
+		SendInput("{Down}")
+		SendInput("{Alt up}")
+	}
+		
+		
 	static MoveCaretToMatchingBrace() => SendInput("^]") ; works only if tapped twice
 	
 	static ExpandSelection() => SendInput("^w")

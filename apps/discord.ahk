@@ -1,9 +1,10 @@
 class Discord {
 	
-	static _processName := "ahk_exe Discord.exe"
+	static _processName    := "Discord.exe"
+	static _winProcessName := "ahk_exe Discord.exe"
 	
 	static ProcessName => this._processName
-	static IsActive => WinActive(this._processName)
+	static IsActive => WinActive(this._winProcessName)
 	
 	static GoBack() => SendInput("!{left}")
 	

@@ -15,10 +15,10 @@ class Mode {
 	
 	static init_display() {
 		this._display.Opt("AlwaysOnTop -Caption +ToolWindow")
-		this._display.BackColor := "000000"
+		this._display.BackColor := "000000" ; any color (since we're gonna make it transparent)
 		WinSetTransColor(this._display.BackColor . " 240", this._display.Hwnd)
 		this._display.SetFont("s16 c0x5c5c5c", "JetBrains Mono Regular")
-		this._displayEdit := this._display.Add("Text", "Background171717 -E0x255 w82 h32")
+		this._displayEdit := this._display.AddText("Background171717 -E0x255 w90 h27 Center")
 	}
 	
 	static IsInsert => this._current = ModeType.Insert
