@@ -10,9 +10,8 @@ a:: {
 
 b:: {
 	switch {
-	case Rider.IsActive:  Rider.ToggleBreakpoint()
-	case Goland.IsActive: Goland.ToggleBreakpoint()
-	case VsCode.IsActive: VsCode.ToggleBreakpoint()
+	case Rider.IsActive:  Rider.MoveCaretToMatchingBrace()
+	case VsCode.IsActive: VsCode.GotoBracket()
 	}
 }
 
@@ -146,6 +145,14 @@ Insert:: {
 
 
 ; --- CTRL ---
+
+^b:: {
+	switch {
+	case Rider.IsActive:  Rider.ToggleBreakpoint()
+	case Goland.IsActive: Goland.ToggleBreakpoint()
+	case VsCode.IsActive: VsCode.ToggleBreakpoint()
+	}
+}
 
 ^End:: {
 	switch {
@@ -282,13 +289,6 @@ Insert:: {
 	}
 }
 
-+b:: {
-	switch {
-	case Rider.IsActive:  Rider.MoveCaretToMatchingBrace()
-	case VsCode.IsActive: VsCode.GotoBracket()
-	}
-}
-
 <+1:: {
 	switch {
 	case Rider.IsActive:    Rider.GoBack()
@@ -298,6 +298,7 @@ Insert:: {
 	case OperaGX.IsActive:  OperaGX.GoBack()
 	case Chrome.IsActive:   Chrome.GoBack()
 	case Discord.IsActive:  Discord.GoBack()
+	case Explorer.IsActive: Explorer.GoBack()
 	}
 }
 
@@ -310,6 +311,7 @@ Insert:: {
 	case OperaGX.IsActive:  OperaGX.GoForward()
 	case Chrome.IsActive:   Chrome.GoForward()
 	case Discord.IsActive:  Discord.GoForward()
+	case Explorer.IsActive: Explorer.GoForward()
 	}
 }
 

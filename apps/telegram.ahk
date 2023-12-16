@@ -22,7 +22,9 @@ class Telegram {
 	}
 	
 	static Close() {
-		if ProcessExist(this._processName)
-			ProcessClose(this._processName)
+		tgPID := ProcessExist(this._processName)
+		
+		if tgPID
+			ProcessClose(tgPID)
 	}
 }

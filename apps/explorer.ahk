@@ -63,7 +63,10 @@ class Explorer {
 			return
 		}
 		
-		ToolTip("path not found", 0, 1050)
-		HideTooltipDelayed()
+		Display("path not found")
 	}
+	
+	static GoBack() => SendInput("!{Left}")
+	
+	static GoForward() => SendInput("!{Right}")
 }
