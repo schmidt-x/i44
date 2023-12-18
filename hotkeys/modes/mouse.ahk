@@ -1,5 +1,9 @@
 #HotIf Mode.IsMouse
 
+*F13::Mode.SetNormal()
+
+*F14::Mode.SetInsert()
+
 F3:: {
 	switch {
 	case Rider.IsActive: Rider.StopDebugger()

@@ -9,16 +9,18 @@ class Paths {
 	static Projects => "C:\Projects"
 	static Study    => "C:\Study"
 	static Torrent  => "D:\Torrent"
+	static VialQmk  => "C:\Users\" . A_UserName . "\vial-qmk"
 	
 	static __New() {
 		this._paths.Set(
-			"desk",   A_Desktop,
-			"std",    this.Study,
-			"torr",   this.Torrent,
-			"radeon", this.Radeon,
-			"prj",    this.Projects,
-			"C",      this.C,
-			"D",      this.D,
+			"desk",     A_Desktop,
+			"std",      this.Study,
+			"torr",     this.Torrent,
+			"radeon",   this.Radeon,
+			"prj",      this.Projects,
+			"C",        this.C,
+			"D",        this.D,
+			"vial-qmk", this.VialQmk
 		)
 	}
 	

@@ -1,5 +1,15 @@
 #HotIf Mode.IsSelect
 
+*F13::Mode.SetNormal()
+
+*F14::Mode.SetInsert()
+
+*F15::Mode.SetSymbol()
+
+*F16::Mode.SetMouse()
+
+*~Esc::Mode.SetNormal()
+
 Up::Windows.SelectUp()
 
 Down::Windows.SelectDown()
@@ -24,9 +34,6 @@ v::Windows.Paste()
 
 x::Windows.Cut()
 
-
-; --- CTRL ---
-
 ^Left::Windows.SelectLeftByWord()
 
 ^Right::Windows.SelectRightByWord()
@@ -44,9 +51,6 @@ x::Windows.Cut()
 	case VsCode.IsActive: VsCode.ShrinkSelection()
 	}
 }
-
-
-; --- SHIFT ---
 
 +Up::Windows.ScrollUp()
 

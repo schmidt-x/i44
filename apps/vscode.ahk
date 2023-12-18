@@ -130,4 +130,6 @@ class VsCode {
 	static GotoNextMember() => SendInput("^{Down}") ; Go to Next/Previous Member extension
 	
 	static GotoPrevMember() => SendInput("^{Up}") ; Go to Next/Previous Member extension
+	
+	static ToggleSourceControl() => SendInput("^+g")
 }

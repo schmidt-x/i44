@@ -23,8 +23,6 @@ ClipSend(strToSend) {
 }
 
 SaveAndRunScript() {
-	SendInput("^s") ; save the changes
-	Sleep(100)
 	Run(A_ScriptFullPath) ; run the current script
 }
 

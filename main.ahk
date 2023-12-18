@@ -14,6 +14,7 @@ CoordMode("Mouse")
 #Include hotkeys\modes\normal.ahk
 #Include hotkeys\modes\select.ahk
 #Include hotkeys\modes\mouse.ahk
+#Include hotkeys\modes\symbol.ahk
 
 #Include common\hotstrings.ahk
 #Include common\functions.ahk

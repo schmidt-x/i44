@@ -63,7 +63,7 @@ class Explorer {
 			return
 		}
 		
-		Display("path not found")
+		Display("folder/path not found")
 	}
 	
 	static GoBack() => SendInput("!{Left}")

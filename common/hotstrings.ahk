@@ -27,10 +27,6 @@
 :?O::wl::Console.WriteLine();{left 2}
 :?O::pl::fmt.Println(){left}
 
-:?::grs:: {
-	ClipSend("git reset --soft HEAD~")
-}
-
 :?::rk:: {
 	ClipSend("Console.ReadKey();")
 }
@@ -39,6 +35,25 @@
 	ClipSend("dotnet watch --no-hot-reload")
 }
 
+; --- Github ---
+
+:?::grs:: {
+	ClipSend("git reset --soft ")
+}
+
+:?::grh:: {
+	ClipSend("git reset --hard ")
+}
+
+:?::-rs:: {
+	ClipSend("--recurse-submodules")
+}
+
+; --- ---
+
+
+; --- Youtube ---
+
 :?::yt:: {
 	ClipSend("https://www.youtube.com/")
 }
@@ -46,6 +61,12 @@
 :?::ywl:: {
 	ClipSend("https://www.youtube.com/playlist?list=WL")
 }
+
+:?::yhis:: {
+	ClipSend("https://www.youtube.com/feed/history")
+}
+
+; --- ---
 
 :?::maps:: {
 	ClipSend("https://www.google.com/maps/@32.8047169,51.095706,15508839m/data=!3m1!1e3?entry=ttu")

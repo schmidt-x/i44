@@ -87,7 +87,7 @@ class Terminal {
 			"tg-",   this.tg_minus,
 			"tg",    this.tg,
 			"inlh",  this.inlh,
-			"stm+",  this.stm_plus,
+			"stm",   this.stm,
 			"stm-",  this.stm_minus,
 		)
 		
@@ -182,7 +182,7 @@ class Terminal {
 		}
 	}
 	
-	static stm_plus(*) => Steam.Run()
+	static stm(*) => Steam.Run()
 	
 	static stm_minus(*) => Steam.Close()
 }

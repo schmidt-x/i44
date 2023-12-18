@@ -1,13 +1,13 @@
 class Mode {
 	
-	static _current         := -1
-	static _display         := Gui()
-	static _displayEdit     := unset
-	static _enabled         := false
+	static _current     := -1
+	static _display     := Gui()
+	static _displayEdit := unset
+	static _enabled     := true
 	
 	static __New() {
 		this.init_display()
-		this.SetInsert()
+		this.setDefault()
 		
 		if this._enabled
 			this.show()
@@ -21,18 +21,20 @@ class Mode {
 		this._displayEdit := this._display.AddText("Background171717 -E0x255 w90 h27 Center")
 	}
 	
-	static IsInsert => this._current = ModeType.Insert
-	static IsNormal => this._current = ModeType.Normal
-	static IsMouse  => this._current = ModeType.Mouse
-	static IsSelect => this._current = ModeType.Select
-	
+	static IsInsert  => this._current = ModeType.Insert
+	static IsNormal  => this._current = ModeType.Normal
+	static IsMouse   => this._current = ModeType.Mouse
+	static IsSelect  => this._current = ModeType.Select
+	static IsSSymbol => this._current = (ModeType.Select | ModeType.Symbol)
+	static IsNSymbol => this._current = (ModeType.Normal | ModeType.Symbol)
+	static IsISymbol => this._current = (ModeType.Insert | ModeType.Symbol)
 	
 	static SetInsert() {
 		if this.IsInsert
 			return
 		
 		this._current := ModeType.Insert
-		this.display("Insert")
+		this.displayInsert()
 	}
 
 	static SetNormal() {
@@ -40,7 +42,7 @@ class Mode {
 			return
 		
 		this._current := ModeType.Normal
-		this.display("Normal")
+		this.displayNormal()
 	}
 	
 	static SetMouse() {
@@ -48,7 +50,7 @@ class Mode {
 			return
 		
 		this._current := ModeType.Mouse
-		this.display("Mouse")
+		this.displayMouse()
 	}
 	
 	static SetSelect() {
@@ -56,9 +58,40 @@ class Mode {
 			return
 		
 		this._current := ModeType.Select
-		this.display("Select")
+		this.displaySelect()
 	}
 	
+	static SetSymbol() {
+		if this._current & ModeType.Symbol {
+			return
+		}
+		
+		this._current |= ModeType.Symbol
+		
+		switch {
+		case this._current & ModeType.Normal: this.displayNSymbol()
+		case this._current & ModeType.Insert: this.displayISymbol()
+		case this._current & ModeType.Select: this.displaySSymbol()
+		default: this.displayUndef()
+		}
+	}
+	
+	static UnsetSybmol() {
+		if !(this._current & ModeType.Symbol) {
+			return
+		}
+		
+		this._current ^= ModeType.Symbol
+		
+		switch this._current {
+		case ModeType.Normal: this.displayNormal()
+		case ModeType.Insert: this.displayInsert()
+		case ModeType.Select: this.displaySelect()
+		default: this.displayUndef()
+		}
+	}
+	
+	static setDefault() => this.SetNormal()
 	
 	; --- DISPLAY ---
 	
@@ -83,11 +116,23 @@ class Mode {
 		this._display.Show("x-20 y987 NoActivate")
 	}
 	
+	static displayNormal() => this.display("Normal")
+	static displayInsert() => this.display("Insert")
+	static displaySymbol() => this.display("Symbol")
+	static displayMouse()  => this.display("Mouse")
+	static displaySelect() => this.display("Select")
+	
+	static displayNSymbol() => this.display("N_Symb")
+	static displayISymbol() => this.display("I_Symb")
+	static displaySSymbol() => this.display("S_Symb")
+	
+	static displayUndef() => this.display("Undef")
 }
 
 class ModeType {
-	static Insert => 0
 	static Normal => 1
-	static Mouse  => 4
-	static Select => 5
+	static Insert => 2
+	static Symbol => 4
+	static Mouse  => 8
+	static Select => 16
 }

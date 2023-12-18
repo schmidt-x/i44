@@ -27,8 +27,6 @@
 	}
 }
 
-; --- NUMS ---
-
 ^1:: {
 	switch {
 	case Rider.IsActive:    Rider.ToggleExplorer()
@@ -71,7 +69,7 @@
 
 ^6:: {
 	switch {
-	case Rider.IsActive: Rider.ILViewer()
+	case VsCode.IsActive: VsCode.ToggleSourceControl()
 	}
 }
 
@@ -81,10 +79,8 @@
 	}
 }
 
-; --- F<> ---
-
-*F14::Mode.SetInsert()
-
-*F15::Mode.SetNormal()
-
-*F17::Mode.SetMouse()
+^8:: {
+	switch {
+	case Rider.IsActive: Rider.ILViewer()
+	}
+}
