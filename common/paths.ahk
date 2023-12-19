@@ -10,6 +10,7 @@ class Paths {
 	static Study    => "C:\Study"
 	static Torrent  => "D:\Torrent"
 	static VialQmk  => "C:\Users\" . A_UserName . "\vial-qmk"
+	static QmkK02   => "C:\Users\" . A_UserName . "\vial-qmk\keyboards\ergohaven\k02"
 	
 	static __New() {
 		this._paths.Set(
@@ -20,17 +21,22 @@ class Paths {
 			"prj",      this.Projects,
 			"C",        this.C,
 			"D",        this.D,
-			"vial-qmk", this.VialQmk
+			"vial_qmk", this.VialQmk,
+			"qmk_k02",  this.QmkK02,
 		)
+		
+		this._paths.Default := ""
 	}
 	
 	static TryFind(folderName, &path) {
-		if !this._paths.Has(folderName) {
+		p := this._paths[folderName]
+		
+		if p == this._paths.Default {
 			path := ""
 			return false
 		}
 		
-		path := this._paths[folderName]
+		path := p
 		return true
 	}
 }

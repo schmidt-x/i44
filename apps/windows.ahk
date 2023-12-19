@@ -50,8 +50,8 @@ class Windows {
 	
 	static ShutDown() => Run("shutdown /s /t 0")
 	
-	static RunCmd(folder) {
-		if !StrLen(folder) {
+	static RunCmd(folder := "") {
+		if StrIsEmptyOrWhiteSpace(folder) {
 			Run("cmd", Paths.C)
 			return
 		}

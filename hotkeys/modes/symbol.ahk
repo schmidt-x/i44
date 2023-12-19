@@ -2,18 +2,6 @@
 
 *F13::Mode.UnsetSybmol()
 
-[:: {
-	switch {
-	case VsCode.IsActive: VsCode.ShowPreviousChange()
-	}
-}
-
-]:: {
-	switch {
-	case VsCode.IsActive: VsCode.ShowNextChange()
-	}
-}
-
 Insert:: {
 	switch {
 	case Rider.IsActive:  Rider.NewFile()

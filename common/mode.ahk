@@ -21,13 +21,14 @@ class Mode {
 		this._displayEdit := this._display.AddText("Background171717 -E0x255 w90 h27 Center")
 	}
 	
-	static IsInsert  => this._current = ModeType.Insert
 	static IsNormal  => this._current = ModeType.Normal
+	static IsInsert  => this._current = ModeType.Insert
 	static IsMouse   => this._current = ModeType.Mouse
 	static IsSelect  => this._current = ModeType.Select
-	static IsSSymbol => this._current = (ModeType.Select | ModeType.Symbol)
-	static IsNSymbol => this._current = (ModeType.Normal | ModeType.Symbol)
-	static IsISymbol => this._current = (ModeType.Insert | ModeType.Symbol)
+	static IsNSymbol => this._current = ModeType.Normal | ModeType.Symbol
+	static IsISymbol => this._current = ModeType.Insert | ModeType.Symbol
+	static IsSSymbol => this._current = ModeType.Select | ModeType.Symbol
+	
 	
 	static SetInsert() {
 		if this.IsInsert

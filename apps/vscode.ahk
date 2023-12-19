@@ -13,8 +13,8 @@ class VsCode {
 		Run(command)
 	}
 	
-	static Run(folder) {
-		if !StrLen(folder) {
+	static Run(folder := "") {
+		if StrIsEmptyOrWhiteSpace(folder) {
 			Run(this._fullProcessName)
 			return
 		}

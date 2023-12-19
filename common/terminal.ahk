@@ -54,9 +54,15 @@ class Terminal {
 			this._prevWinId := 0
 		}
 		
+		if StrIsEmptyOrWhiteSpace(input) {
+			return
+		}
+		
+		; Divide it into just 2 parts and pass the arguments (if any) as a single string,
+		; allowing further functions to handle those arguments the way they need to.
 		parts := StrSplit(input, "`s", , 2)
 		
-		if parts.Length > 1 {
+		if parts.Length == 2 {
 			this._funcs[parts[1]](this, parts[2])
 		} else {
 			this._funcs[input](this)

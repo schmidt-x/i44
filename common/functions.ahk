@@ -64,3 +64,19 @@ IsQuoted(str) {
 	return SubStr(str, 1, 1) = '"' 
 		&& SubStr(str, StrLen(str), 1) = '"'
 }
+
+StrIsEmptyOrWhiteSpace(str) {
+	len := StrLen(str)
+	
+	if !len {
+		return true
+	}
+	
+	Loop len {
+		if SubStr(str, A_Index, 1) != "`s" {
+			return false
+		}
+	}
+	
+	return true
+}

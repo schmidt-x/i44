@@ -33,7 +33,7 @@
 	case Goland.IsActive:   Goland.ToggleExplorer()
 	case VsCode.IsActive:   VsCode.ToggleExplorerFocus()
 	case Obsidian.IsActive: Obsidian.ExplorerFocus()
-	case OperaGX.IsActive : OperaGX.ToMainWorkspace()
+	case OperaGX.IsActive:  OperaGX.ToMainWorkspace()
 	}
 }
 
