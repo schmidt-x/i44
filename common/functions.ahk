@@ -3,13 +3,6 @@ Display(text, removeAfter := 1000, whichTooltip := 1, X := 0, Y := 1050) {
 	SetTimer(() => ToolTip(, , , whichTooltip), -removeAfter)
 }
 
-GetProcessName() {
-	processName := WinGetProcessName("A")
-	A_Clipboard := processName
-	
-	Display("Process name is saved into clipboard")
-}
-
 MoveMouseToCenter() {
 	WinGetPos(&x, &y, &width, &height, "A")
 	MouseMove(x + width/2, y + height/2) ; move mouse to the center
@@ -22,8 +15,8 @@ ClipSend(strToSend) {
 	SetTimer(() => A_Clipboard := prevClip, -50)
 }
 
-SaveAndRunScript() {
-	Run(A_ScriptFullPath) ; run the current script
+RunCurrentScript() {
+	Run(Paths.ScriptFullPath) ; run the current script
 }
 
 DisplayInfoOnHover() {

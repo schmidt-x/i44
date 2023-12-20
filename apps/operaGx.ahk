@@ -33,6 +33,7 @@ class OperaGX {
 			SendInput("{Alt up}")
 		* It's typically 'Alt' problems in windows.
 		* So I decided to change the shortcut in Opera GX
+		* Same is done for GoForward()
 		*/
 		SendInput("{F11}") ; back
 	

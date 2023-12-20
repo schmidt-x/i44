@@ -2,15 +2,17 @@ class Paths {
 	
 	static _paths := Map()
 	
-	static C        => "C:\"
-	static D        => "D:\"
-	static Desktop  => A_Desktop
-	static Radeon   => "D:\Radeon ReLive\unknown"
-	static Projects => "C:\Projects"
-	static Study    => "C:\Study"
-	static Torrent  => "D:\Torrent"
-	static VialQmk  => "C:\Users\" . A_UserName . "\vial-qmk"
-	static QmkK02   => "C:\Users\" . A_UserName . "\vial-qmk\keyboards\ergohaven\k02"
+	static C              => "C:\"
+	static D              => "D:\"
+	static Desktop        => A_Desktop
+	static Radeon         => "D:\Radeon ReLive\unknown"
+	static Projects       => "C:\Projects"
+	static Study          => "C:\Study"
+	static Torrent        => "D:\Torrent"
+	static VialQmk        => "C:\Users\" . A_UserName . "\vial-qmk"
+	static QmkK02         => "C:\Users\" . A_UserName . "\vial-qmk\keyboards\ergohaven\k02"
+	static ScriptFullPath => A_ScriptFullPath
+	static ScriptDir      => A_ScriptDir
 	
 	static __New() {
 		this._paths.Set(
@@ -21,8 +23,9 @@ class Paths {
 			"prj",      this.Projects,
 			"C",        this.C,
 			"D",        this.D,
-			"vial_qmk", this.VialQmk,
-			"qmk_k02",  this.QmkK02,
+			"vial-qmk", this.VialQmk,
+			"qmk/k02",  this.QmkK02,
+			"ahk/.",    this.ScriptDir,
 		)
 		
 		this._paths.Default := ""

@@ -8,11 +8,6 @@ class VsCode {
 	static IsActive => WinActive(this._winProcessName)
 	
 	
-	static OpenCurrentScript() {
-		command := Format('"{1}" "{2}"', this._fullProcessName, A_ScriptDir)
-		Run(command)
-	}
-	
 	static Run(folder := "") {
 		if StrIsEmptyOrWhiteSpace(folder) {
 			Run(this._fullProcessName)

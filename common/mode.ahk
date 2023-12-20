@@ -1,13 +1,13 @@
 class Mode {
 	
-	static _current     := -1
+	static _current     := unset
 	static _display     := Gui()
 	static _displayEdit := unset
 	static _enabled     := true
 	
 	static __New() {
 		this.init_display()
-		this.setDefault()
+		this.inti_default_mode()
 		
 		if this._enabled
 			this.show()
@@ -21,17 +21,22 @@ class Mode {
 		this._displayEdit := this._display.AddText("Background171717 -E0x255 w90 h27 Center")
 	}
 	
-	static IsNormal  => this._current = ModeType.Normal
-	static IsInsert  => this._current = ModeType.Insert
-	static IsMouse   => this._current = ModeType.Mouse
-	static IsSelect  => this._current = ModeType.Select
-	static IsNSymbol => this._current = ModeType.Normal | ModeType.Symbol
-	static IsISymbol => this._current = ModeType.Insert | ModeType.Symbol
-	static IsSSymbol => this._current = ModeType.Select | ModeType.Symbol
+	static inti_default_mode() {
+		this._current := ModeType.Normal
+		this.displayNormal()
+	}
+	
+	static IsNormal  => this._current == ModeType.Normal
+	static IsInsert  => this._current == ModeType.Insert
+	static IsMouse   => this._current == ModeType.Mouse
+	static IsSelect  => this._current == ModeType.Select
+	static IsNSymbol => this._current == ModeType.Normal | ModeType.Symbol
+	static IsISymbol => this._current == ModeType.Insert | ModeType.Symbol
+	static IsSSymbol => this._current == ModeType.Select | ModeType.Symbol
 	
 	
 	static SetInsert() {
-		if this.IsInsert
+		if this._current == ModeType.Insert
 			return
 		
 		this._current := ModeType.Insert
@@ -39,7 +44,7 @@ class Mode {
 	}
 
 	static SetNormal() {
-		if this.IsNormal
+		if this._current == ModeType.Normal
 			return
 		
 		this._current := ModeType.Normal
@@ -47,7 +52,7 @@ class Mode {
 	}
 	
 	static SetMouse() {
-		if this.IsMouse
+		if this._current == ModeType.Mouse
 			return
 		
 		this._current := ModeType.Mouse
@@ -55,7 +60,7 @@ class Mode {
 	}
 	
 	static SetSelect() {
-		if this.IsSelect
+		if this._current == ModeType.Select
 			return
 		
 		this._current := ModeType.Select
@@ -63,9 +68,8 @@ class Mode {
 	}
 	
 	static SetSymbol() {
-		if this._current & ModeType.Symbol {
+		if this._current & ModeType.Symbol
 			return
-		}
 		
 		this._current |= ModeType.Symbol
 		
@@ -78,9 +82,8 @@ class Mode {
 	}
 	
 	static UnsetSybmol() {
-		if !(this._current & ModeType.Symbol) {
+		if !(this._current & ModeType.Symbol)
 			return
-		}
 		
 		this._current ^= ModeType.Symbol
 		
@@ -91,8 +94,6 @@ class Mode {
 		default: this.displayUndef()
 		}
 	}
-	
-	static setDefault() => this.SetNormal()
 	
 	; --- DISPLAY ---
 	

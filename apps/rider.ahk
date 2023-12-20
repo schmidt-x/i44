@@ -49,7 +49,6 @@ class Rider {
 	
 	static NewFile() => SendInput("^{insert}") ; insert new file/code
 	
-	
 	; --- Tool Windows ---
 	
 	static ToggleExplorer() => SendInput("!1")
@@ -67,7 +66,6 @@ class Rider {
 	static ToggleServices() => SendInput("^!4")
 	
 	; --- ---
-	
 	
 	static OpenSettings() => SendInput("^!s")
 	
@@ -115,9 +113,7 @@ class Rider {
 	; --- ---
 	
 	static PreviousMethod() {
-		/*
-		* Alt problem - it gets focused on Alt-panel (same as for OperaGx GoBack/GoForward)
-		*/
+		; Alt problem - it gets focused on Alt-panel (same as for OperaGx GoBack/GoForward)
 		
 		SendInput("{Alt Down}")
 		SendInput("{Up}")
@@ -129,7 +125,6 @@ class Rider {
 		SendInput("{Down}")
 		SendInput("{Alt up}")
 	}
-		
 		
 	static MoveCaretToMatchingBrace() => SendInput("^]") ; works only if tapped twice
 	
