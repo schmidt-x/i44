@@ -13,6 +13,7 @@
 }
 
 :?O::dusi::dotnet user-secrets init
+
 :?O::duss::dotnet user-secrets set "" ""{left 4}
 
 :?::dr:: {
@@ -24,7 +25,9 @@
 }
 
 :?O::cg::<font color=gray></font>{left}^{left}{left 2}
+
 :?O::wl::Console.WriteLine();{left 2}
+
 :?O::pl::fmt.Println(){left}
 
 :?::rk:: {
@@ -58,12 +61,16 @@
 	ClipSend("https://www.youtube.com/")
 }
 
-:?::ywl:: {
+:?::ytwl:: {
 	ClipSend("https://www.youtube.com/playlist?list=WL")
 }
 
-:?::yhis:: {
+:?::ythis:: {
 	ClipSend("https://www.youtube.com/feed/history")
+}
+
+:?::ytp1:: {
+	ClipSend("https://www.youtube.com/playlist?list=PLKRJNM-FYYn5cVrzOf7PKa4IPZSC8_v9y")
 }
 
 ; --- ---

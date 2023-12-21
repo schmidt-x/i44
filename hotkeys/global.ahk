@@ -4,6 +4,10 @@
 	Suspend()
 }
 
+*~Esc:: {
+	Mode.SetDefault()
+}
+
 #SuspendExempt False
 
 ^+s:: {

@@ -53,7 +53,7 @@ DisplayInfoOnHover() {
 	}
 }
 
-IsQuoted(str) {
+StrIsQuoted(str) {
 	return SubStr(str, 1, 1) = '"' 
 		&& SubStr(str, StrLen(str), 1) = '"'
 }
@@ -66,7 +66,7 @@ StrIsEmptyOrWhiteSpace(str) {
 	}
 	
 	Loop len {
-		if SubStr(str, A_Index, 1) != "`s" {
+		if SubStr(str, A_Index, 1) != A_Space {
 			return false
 		}
 	}

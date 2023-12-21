@@ -73,6 +73,16 @@ Insert:: {
 
 *F14::Mode.UnsetSybmol()
 
+<+8::SendInput("->")
+
+<+9::SendInput("=>")
+
+<+-::SendInput(":=")
+
+<+>+[::SendInput("«") ; LSft + {
+
+<+>+]::SendInput("»") ; LSft + }
+
 #HotIf
 
 

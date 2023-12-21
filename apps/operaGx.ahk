@@ -59,9 +59,14 @@ class OperaGX {
 	
 	static ReloadAllTabs() => SendInput("^+r")
 	
-	static OxfordSearch(word := "") {
-		static oxLink := "https://www.oxfordlearnersdictionaries.com/us/search/english/?q="
-		Run(Format('"{1}" "{2}{3}"', this._fullProcessName, oxLink, word))
+	static OxfordSearch(word) {
+		static oxSearchLink := "https://www.oxfordlearnersdictionaries.com/us/search/english/?q="
+		static oxLink := "https://www.oxfordlearnersdictionaries.com/us"
+		
+		if StrIsEmptyOrWhiteSpace(word)
+			Run(Format('"{1}" {2}', this._fullProcessName, oxLink))
+		else
+			Run(Format('"{1}" "{2}{3}"', this._fullProcessName, oxSearchLink, word))
 	}
 	
 	static ToMainWorkspace() => SendInput("^9")

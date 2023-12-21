@@ -7,7 +7,9 @@ class Mode {
 	
 	static __New() {
 		this.init_display()
-		this.inti_default_mode()
+		
+		this._current := ModeType.Normal
+		this.displayNormal()
 		
 		if this._enabled
 			this.show()
@@ -21,10 +23,6 @@ class Mode {
 		this._displayEdit := this._display.AddText("Background171717 -E0x255 w90 h27 Center")
 	}
 	
-	static inti_default_mode() {
-		this._current := ModeType.Normal
-		this.displayNormal()
-	}
 	
 	static IsNormal  => this._current == ModeType.Normal
 	static IsInsert  => this._current == ModeType.Insert
@@ -34,6 +32,14 @@ class Mode {
 	static IsISymbol => this._current == ModeType.Insert | ModeType.Symbol
 	static IsSSymbol => this._current == ModeType.Select | ModeType.Symbol
 	
+	
+	static SetDefault() {
+		if this._current == ModeType.Normal
+			return
+		
+		this._current := ModeType.Normal
+		this.displayNormal()
+	}
 	
 	static SetInsert() {
 		if this._current == ModeType.Insert

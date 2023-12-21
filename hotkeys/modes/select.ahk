@@ -8,8 +8,6 @@
 
 *F16::Mode.SetMouse()
 
-*~Esc::Mode.SetNormal()
-
 Up::Windows.SelectUp()
 
 Down::Windows.SelectDown()

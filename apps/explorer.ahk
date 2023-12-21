@@ -11,14 +11,14 @@ class Explorer {
 	
 	static CloseTab() => SendInput("^w")
 	
-	static NextTab() => SendInput("^{tab}") ; next tab
+	static NextTab() => SendInput("^{tab}")
 	
-	static PreviousTab() => SendInput("^+{tab}") ; previous tab
+	static PreviousTab() => SendInput("^+{tab}")
 	
 	static NewTab() => SendInput("^t")
 	
 	static TryGetPath(&path) {
-		explorerHwnd := this.IsActive
+		explorerHwnd := WinActive(this._winProcessName)
 		
 		if !explorerHwnd {
 			path := ""
@@ -44,26 +44,18 @@ class Explorer {
 		return false
 	}
 	
-	static Run(folder := "", path := "") {
-		isFolder := StrLen(folder)
-		isPath := StrLen(path)
-		
-		if !isFolder && !isPath {
+	static Run(folder := "") {
+		if StrIsEmptyOrWhiteSpace(folder) {
 			SendInput("#e")
 			return
 		}
 		
-		if isFolder && Paths.TryFind(folder, &p) {
-			Run(Format('"{1}" "{2}"', this._fullProcessName, p))
+		if !Paths.TryFind(folder, &path) {
+			Display("folder not found")
 			return
 		}
 		
-		if isPath {
-			Run(Format('"{1}" "{2}"', this._fullProcessName, path))
-			return
-		}
-		
-		Display("folder/path not found")
+		Run(Format('"{1}" "{2}"', this._fullProcessName, path))
 	}
 	
 	static GoBack() => SendInput("!{Left}")

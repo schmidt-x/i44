@@ -13,6 +13,8 @@ class Paths {
 	static QmkK02         => "C:\Users\" . A_UserName . "\vial-qmk\keyboards\ergohaven\k02"
 	static ScriptFullPath => A_ScriptFullPath
 	static ScriptDir      => A_ScriptDir
+	static User           => "C:\Users\" . A_UserName
+	static Git            => A_ProgramFiles . "\Git"
 	
 	static __New() {
 		this._paths.Set(
@@ -20,26 +22,21 @@ class Paths {
 			"std",      this.Study,
 			"torr",     this.Torrent,
 			"radeon",   this.Radeon,
-			"prj",      this.Projects,
+			"proj",     this.Projects,
 			"C",        this.C,
 			"D",        this.D,
 			"vial-qmk", this.VialQmk,
 			"qmk/k02",  this.QmkK02,
 			"ahk/.",    this.ScriptDir,
+			"me",       this.User,
+			"git",      this.Git,
 		)
 		
 		this._paths.Default := ""
 	}
 	
 	static TryFind(folderName, &path) {
-		p := this._paths[folderName]
-		
-		if p == this._paths.Default {
-			path := ""
-			return false
-		}
-		
-		path := p
-		return true
+		path := this._paths[folderName]
+		return path != ""
 	}
 }
