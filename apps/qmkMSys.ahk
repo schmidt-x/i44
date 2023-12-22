@@ -1,10 +1,10 @@
 class QmkMSys {
-	
-	static _fullProcessName := "C:\QMK_MSYS\conemu\ConEmu64.exe"
+	static _fullProcessName         := "C:\QMK_MSYS\conemu\ConEmu64.exe"
+	static _fullProcessNameWithArgs := 'C:\QMK_MSYS\conemu\ConEmu64.exe -NoSingle -NoUpdate -icon "C:\QMK_MSYS\icon.ico" -title "QMK MSYS" -run "C:\QMK_MSYS\usr\bin\bash.exe" -l -i -cur_console:m:""'
 	
 	static Run(folder := "") {
 		if StrIsEmptyOrWhiteSpace(folder) {
-			Run(this._fullProcessName, Paths.VialQmk)
+			Run(this._fullProcessNameWithArgs, Paths.VialQmk)
 			return
 		}
 		
@@ -19,7 +19,7 @@ class QmkMSys {
 				return
 			}
 			
-			Run(this._fullProcessName, path)
+			Run(this._fullProcessNameWithArgs, path)
 			return
 		}
 		
@@ -28,7 +28,7 @@ class QmkMSys {
 			return
 		}
 		
-		Run(this._fullProcessName, p)
+		Run(this._fullProcessNameWithArgs, p)
 	}
 	
 }

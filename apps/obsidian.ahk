@@ -1,5 +1,4 @@
 class Obsidian {
-	
 	static _processName     := "Obsidian.exe"
 	static _winProcessName  := "ahk_exe Obsidian.exe"
 	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Obsidian\Obsidian.exe"
@@ -15,27 +14,27 @@ class Obsidian {
 	
 	static ToggleReadingMode() => SendInput("^e")
 	
-	static GoBack() => SendInput("^!{left}") ; go back
+	static GoBack() => SendInput("^!{left}")
 	
-	static GoForward() => SendInput("^!{right}") ; go forward
+	static GoForward() => SendInput("^!{right}")
 	
-	static NextTab() => SendInput("^{PgDn}") ; next tab
+	static NextTab() => SendInput("^{PgDn}")
 	
-	static PreviousTab() => SendInput("^{PgUp}") ; previous tab
+	static PreviousTab() => SendInput("^{PgUp}")
 	
-	static MoveLineUp() => SendInput("!+{up}") ; move line up
+	static MoveLineUp() => SendInput("!+{up}")
 	
-	static MoveLineDown() => SendInput("!+{down}") ; move line down
+	static MoveLineDown() => SendInput("!+{down}")
 	
-	static FindPrevious() => SendInput("+{F3}") ; find previous
+	static FindPrevious() => SendInput("+{F3}")
 	
-	static FindNext() => SendInput("{F3}") ; find next
+	static FindNext() => SendInput("{F3}")
 	
-	static ExplorerFocus() => SendInput("!1") ; open explorer
+	static ExplorerFocus() => SendInput("!1")
 	
 	static ShowOutline() => SendInput("!3") ; show outline (focus on the right side bar)
 	
-	static OpenSettings() => SendInput("^,") ; open settings
+	static OpenSettings() => SendInput("^,")
 	
 	static FoldAll() => SendInput("^+-")
 	

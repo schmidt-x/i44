@@ -30,6 +30,8 @@
 
 :?O::pl::fmt.Println(){left}
 
+:?O::pf::fmt.Printf("", ){left 4}
+
 :?::rk:: {
 	ClipSend("Console.ReadKey();")
 }
@@ -38,7 +40,7 @@
 	ClipSend("dotnet watch --no-hot-reload")
 }
 
-; --- Github ---
+; --- git/github ---
 
 :?::grs:: {
 	ClipSend("git reset --soft ")
@@ -50,6 +52,14 @@
 
 :?::-rs:: {
 	ClipSend("--recurse-submodules")
+}
+
+:?O::ghm:: {
+	ClipSend("https://github.com/schmidt-x")
+}
+
+:?O::ghr:: {
+	ClipSend("https://github.com/schmidt-x?tab=repositories")
 }
 
 ; --- ---

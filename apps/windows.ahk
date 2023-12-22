@@ -57,7 +57,7 @@ class Windows {
 		}
 		
 		if !Paths.TryFind(folder, &p) {
-			Display("key not found")
+			Display("folder not found")
 			return
 		}
 		

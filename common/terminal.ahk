@@ -198,9 +198,9 @@ class Terminal {
 	
 	static stm_minus(*) => Steam.Close()
 	
-	static sleep() => Windows.Sleep()
+	static sleep(*) => Windows.Sleep()
 	
-	static shdown() => Windows.ShutDown()
+	static shdown(*) => Windows.ShutDown()
 	
 	static msys(args := "") => QmkMSys.Run(args)
 }
