@@ -46,11 +46,20 @@ class Terminal {
 		this.ClearAndHide()
 		
 		if this._prevWinId {
-			if !WinWaitActive(this._prevWinId, , 1) {
-				MsgBox("Focus was stolen!!!")
-				this._prevWinId := 0
-				return
+			prevWinId := this._prevWinId
+			
+			; sometimes, explorer.exe might steal the focus
+			if !WinWaitActive(prevWinId, , 0.25) {
+				WinActivate(prevWinId)
+				
+				if !WinWaitActive(prevWinId, , 0.25) {
+					; give up
+					MsgBox("Focus was stolen!!!")
+					this._prevWinId := 0
+					return
+				}
 			}
+			
 			this._prevWinId := 0
 		}
 		
@@ -62,11 +71,10 @@ class Terminal {
 		; allowing further functions to handle those arguments the way they need to.
 		parts := StrSplit(input, "`s", , 2)
 		
-		if parts.Length == 2 {
-			this._funcs[parts[1]](this, parts[2])
-		} else {
+		if parts.Length == 1
 			this._funcs[input](this)
-		}
+		else
+			this._funcs[parts[1]](this, parts[2])
 	}
 	
 	
@@ -96,6 +104,7 @@ class Terminal {
 			"stm-",   this.stm_minus,
 			"sleep",  this.sleep,
 			"shdown", this.shdown,
+			"msys",   this.msys,
 		)
 		
 		this._funcs.Default := this.default
@@ -116,9 +125,9 @@ class Terminal {
 		Display("key not found")
 	}
 	
-	static code(folder := "") => VsCode.Run(folder)
+	static code(args := "") => VsCode.Run(args)
 	
-	static cmd(folder := "") => Windows.RunCmd(folder)
+	static cmd(args := "") => Windows.RunCmd(args)
 
 	static sv(*) => RunCurrentScript()
 	
@@ -173,7 +182,7 @@ class Terminal {
 	
 	static obsid(*) => Obsidian.Run()
 	
-	static exp(folder := "") => Explorer.Run(folder)
+	static exp(args := "") => Explorer.Run(args)
 	
 	static tg(*) => Telegram.Open()
 	
@@ -192,5 +201,7 @@ class Terminal {
 	static sleep() => Windows.Sleep()
 	
 	static shdown() => Windows.ShutDown()
+	
+	static msys(args := "") => QmkMSys.Run(args)
 }
 

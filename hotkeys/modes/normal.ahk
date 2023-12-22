@@ -1,5 +1,7 @@
 #HotIf Mode.IsNormal
 
+F13::return
+
 *F14::Mode.SetInsert()
 
 *F15::Mode.SetSymbol()

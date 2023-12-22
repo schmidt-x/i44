@@ -91,7 +91,7 @@ class Mode {
 		if !(this._current & ModeType.Symbol)
 			return
 		
-		this._current ^= ModeType.Symbol
+		this._current &= ~ModeType.Symbol
 		
 		switch this._current {
 		case ModeType.Normal: this.displayNormal()
