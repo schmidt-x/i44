@@ -54,6 +54,7 @@
 	switch {
 	case Rider.IsActive:    Rider.ToggleDebug()
 	case Goland.IsActive:   Goland.ToggleDebug()
+	case VsCode.IsActive:   VsCode.ToggleDebugFocus()
 	case Obsidian.IsActive: Obsidian.ShowOutline()
 	}
 }

@@ -86,9 +86,15 @@ class VsCode {
 	
 	static OpenSettings() => SendInput("^,")
 	
-	static ToggleExplorerFocus() => SendInput("^+e") ; toggle explorer focus
+	; --- Tool Windows ---
 	
-	static OpenTerminal() => SendInput("^j") ; toggle Terminal
+	static ToggleExplorerFocus() => SendInput("^+e")
+	
+	static ToggleDebugFocus() => SendInput("^+d")
+	
+	static OpenTerminal() => SendInput("^j")
+	
+	; --- ---
 	
 	static ToggleBreakpoint() => SendInput("{F9}")
 	

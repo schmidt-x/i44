@@ -14,11 +14,11 @@ Enter:: {
 #HotIf Terminal.IsActive
 
 Enter:: {
-	Terminal.ExecuteAndHide()
+	Terminal.Execute()
 }
 
 Escape:: {
-	Terminal.ClearAndHide()
+	Terminal.Close()
 }
 
 #HotIf

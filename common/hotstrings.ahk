@@ -54,11 +54,11 @@
 	ClipSend("--recurse-submodules")
 }
 
-:?O::ghm:: {
+:?O::ghm:: { ; me
 	ClipSend("https://github.com/schmidt-x")
 }
 
-:?O::ghr:: {
+:?O::ghr:: { ; repos
 	ClipSend("https://github.com/schmidt-x?tab=repositories")
 }
 
@@ -71,15 +71,15 @@
 	ClipSend("https://www.youtube.com/")
 }
 
-:?::ytwl:: {
+:?::ytwl:: { ; watch later
 	ClipSend("https://www.youtube.com/playlist?list=WL")
 }
 
-:?::ythis:: {
+:?::ythis:: { ; history
 	ClipSend("https://www.youtube.com/feed/history")
 }
 
-:?::ytp1:: {
+:?::ytp:: { ; playlist
 	ClipSend("https://www.youtube.com/playlist?list=PLKRJNM-FYYn5cVrzOf7PKa4IPZSC8_v9y")
 }
 

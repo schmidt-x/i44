@@ -1,5 +1,4 @@
 class Mode {
-	
 	static _current     := unset
 	static _display     := Gui()
 	static _displayEdit := unset

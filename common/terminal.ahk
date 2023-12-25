@@ -1,5 +1,4 @@
 class Terminal {
-	
 	static _terminal     := Gui()
 	static _terminalEdit := unset
 	static _funcs        := Map()
@@ -35,15 +34,15 @@ class Terminal {
 		this._terminal.Show("y1020 x847")
 	}
 	
-	static ClearAndHide() {
+	static Close() {
 		this._terminalEdit.Value := ""
 		Sleep(1)
 		this._terminal.Hide()
 	}
 	
-	static ExecuteAndHide() {
+	static Execute() {
 		input := this._terminalEdit.Value
-		this.ClearAndHide()
+		this.Close()
 		
 		if this._prevWinId {
 			prevWinId := this._prevWinId
@@ -63,9 +62,8 @@ class Terminal {
 			this._prevWinId := 0
 		}
 		
-		if StrIsEmptyOrWhiteSpace(input) {
+		if StrIsEmptyOrWhiteSpace(input)
 			return
-		}
 		
 		; Divide it into just 2 parts and pass the arguments (if any) as a single string,
 		; allowing further functions to handle those arguments the way they need to.
