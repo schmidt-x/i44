@@ -1,5 +1,4 @@
 class VsCode {
-	
 	static _processName     := "Code.exe"
 	static _winProcessName  := "ahk_exe Code.exe"
 	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Microsoft VS Code\Code.exe"
@@ -17,11 +16,6 @@ class VsCode {
 		if folder = "." {
 			if !Explorer.TryGetPath(&p) {
 				Display("path not found")
-				return
-			}
-			
-			if SubStr(p, 1, 2) = "::" {
-				Display("path is special")
 				return
 			}
 			

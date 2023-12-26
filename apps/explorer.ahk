@@ -1,5 +1,4 @@
 class Explorer {
-	
 	static _processName     := "explorer.exe"
 	static _winProcessName  := "ahk_exe explorer.exe"
 	static _fullProcessName := "C:\Windows\explorer.exe"
@@ -17,7 +16,7 @@ class Explorer {
 	
 	static NewTab() => SendInput("^t")
 	
-	static TryGetPath(&path) {
+	static TryGetPath(&path, clsid := false) {
 		explorerHwnd := WinActive(this._winProcessName)
 		
 		if !explorerHwnd {
@@ -36,7 +35,14 @@ class Explorer {
 			if window.hwnd != explorerHwnd || window.Document.Folder.Self.Name != title
 				continue
 			
-			path := window.Document.Folder.Self.Path
+			p := window.Document.Folder.Self.Path
+		
+			if !clsid && SubStr(p, 1, 2) == "::" {
+				path := ""
+				return false
+			}
+		
+			path := p
 			return true
 		}
 		

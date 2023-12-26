@@ -4,7 +4,7 @@ class QmkMSys {
 	
 	static Run(folder := "") {
 		if StrIsEmptyOrWhiteSpace(folder) {
-			Run(this._fullProcessNameWithArgs, Paths.VialQmk)
+			Run(this._fullProcessNameWithArgs, Paths.Qmk)
 			return
 		}
 		
@@ -13,11 +13,6 @@ class QmkMSys {
 				Display("path not found")
 				return
 			} 
-			
-			if SubStr(path, 1, 2) == "::" {
-				Display("path is special")
-				return
-			}
 			
 			Run(this._fullProcessNameWithArgs, path)
 			return
