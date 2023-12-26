@@ -1,5 +1,4 @@
 class OperaGX {
-	
 	static _processName     := "opera.exe"
 	static _winProcessName  := "ahk_exe opera.exe"
 	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Opera GX\opera.exe"

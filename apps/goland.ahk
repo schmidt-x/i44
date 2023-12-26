@@ -1,5 +1,4 @@
 class Goland {
-	
 	static _processName    := "goland64.exe"
 	static _winProcessName := "ahk_exe goland64.exe"
 	

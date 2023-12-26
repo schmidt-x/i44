@@ -1,5 +1,4 @@
 class Chrome {
-	
 	static _processName    := "chrome.exe"
 	static _winProcessName := "ahk_exe chrome.exe"
 	

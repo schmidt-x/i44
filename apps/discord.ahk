@@ -1,5 +1,4 @@
 class Discord {
-	
 	static _processName    := "Discord.exe"
 	static _winProcessName := "ahk_exe Discord.exe"
 	

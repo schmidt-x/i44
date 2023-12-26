@@ -52,7 +52,7 @@ class Windows {
 	
 	static RunCmd(folder := "") {
 		if StrIsEmptyOrWhiteSpace(folder) {
-			Run("cmd", Paths.C)
+			Run("cmd", Paths.User)
 			return
 		}
 		

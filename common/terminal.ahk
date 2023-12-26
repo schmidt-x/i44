@@ -12,25 +12,7 @@ class Terminal {
 	static IsActive => WinActive(this._terminal.Hwnd)
 	
 	static Show() {
-		this._prevWinId := WinActive("A")
-		
-		/*
-		if this._prevWinId ; it will be zero if there is no window opened
-			WinGetPos(&x, , &w, , this._prevWinId)
-		else
-			x := 0, w := 0
-		
-		* xCenter = 1920/2 => +-960 -- center of a screen.
-		* 180 + 46 -- width of an Edit + border of the main Gui (which is made transparent).
-		* Choose the screen to display Gui on, depending on the center of the active window.
-		
-		if (x + w/2) < 0 { ; the center of the active window
-			pos := "y1020 x-1073" ; -960 - (226/2) = middle of the left screen
-		} else {
-			pos := "y1020 x847"   ;  960 - (226/2) = middle of the right screen
-		}
-		*/
-		
+		this._prevWinId := WinGetID("A")
 		this._terminal.Show("y1020 x847")
 	}
 	

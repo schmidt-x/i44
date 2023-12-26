@@ -1,5 +1,4 @@
 class Telegram {
-	
 	static _processName     := "Telegram.exe"
 	static _winProcessName  := "ahk_exe Telegram.exe"
 	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Roaming\Telegram Desktop\Telegram.exe"
