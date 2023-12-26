@@ -1,6 +1,6 @@
 #SuspendExempt True ; allow hotkeys to be hit even if it's suspended
 
-^0:: {
+^<+0:: {
 	Suspend()
 }
 
@@ -74,18 +74,25 @@
 
 ^6:: {
 	switch {
+	case Rider.IsActive:  Rider.ToggleSourceControl()
 	case VsCode.IsActive: VsCode.ToggleSourceControl()
 	}
 }
 
 ^7:: {
 	switch {
-	case Rider.IsActive: Rider.ToggleServices()
+	case Rider.IsActive: Rider.ToggleStructure()
 	}
 }
 
 ^8:: {
 	switch {
 	case Rider.IsActive: Rider.ILViewer()
+	}
+}
+
+^9:: {
+	switch {
+	case Rider.IsActive: Rider.ToggleServices()
 	}
 }

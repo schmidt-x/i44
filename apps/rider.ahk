@@ -62,7 +62,11 @@ class Rider {
 	
 	static ILViewer() => SendInput("^!2")
 	
+	static ToggleStructure() => SendInput("^{F11}")
+	
 	static ToggleServices() => SendInput("^!4")
+	
+	static ToggleSourceControl() => SendInput("^+!2")
 	
 	; --- ---
 	
