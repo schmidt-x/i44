@@ -1,4 +1,5 @@
 #Requires AutoHotkey v2.0
+#Hotstring EndChars `t`s
 ; #NoTrayIcon
 #SingleInstance
 #UseHook

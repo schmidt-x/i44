@@ -58,7 +58,7 @@ class Terminal {
 	}
 	
 	
-	; --- initialization ---
+	; --- init ---
 	
 	static init_funcs() {
 		this._funcs.Set(
@@ -88,6 +88,7 @@ class Terminal {
 			"docker",  this.docker,
 			"chrome",  this.chrome,
 			"gx",      this.gx,
+			"discord", this.discord,
 		)
 		
 		this._funcs.Default := this.default
@@ -192,5 +193,6 @@ class Terminal {
 	static chrome(*) => Chrome.Run()
 	
 	static gx(*) => OperaGX.Run()
+	
+	static discord(*) => Discord.Run()
 }
-

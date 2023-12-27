@@ -89,6 +89,33 @@
 
 ; --- ---
 
+
+; --- Qmk ---
+
+:?O::qmk:: { ; docs
+	ClipSend("https://docs.qmk.fm/#/")
+}
+
+:?O::qmkk:: { ; list of keys
+	ClipSend("https://docs.qmk.fm/#/keycodes")
+}
+
+:?O::qmkmk:: { ; mod keys
+	ClipSend("https://docs.qmk.fm/#/feature_advanced_keycodes")
+}
+
+:?O::qmktd:: { ; tap dance
+	ClipSend("https://docs.qmk.fm/#/feature_tap_dance")
+}
+
+:?O::qmkmac:: { ; macros
+	ClipSend("https://docs.qmk.fm/#/feature_macros")
+}
+
+; --- ---
+
+
+
 :?::maps:: {
 	ClipSend("https://www.google.com/maps/@32.8047169,51.095706,15508839m/data=!3m1!1e3?entry=ttu")
 }
@@ -100,10 +127,6 @@
 :?O::aaa:: {
 	SendInput("// Arrange{Enter 3}// Act{Enter 3}// Assert{Enter}{Up 6}")
 }
-
-; personal account
-; login - haa1
-:?O::psopas::{raw}W211231#g55
 
 :?::bl:: {
 	switch {
