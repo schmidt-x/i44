@@ -68,5 +68,4 @@ class Windows {
 	
 	static MoveToWholeEnd() => SendInput("^{End}")
 	
-	
 }

@@ -1,9 +1,23 @@
 class Chrome {
-	static _processName    := "chrome.exe"
-	static _winProcessName := "ahk_exe chrome.exe"
+	static _processName     := "chrome.exe"
+	static _winProcessName  := "ahk_exe chrome.exe"
+	static _fullProcessName := "C:\Program Files\Google\Chrome\Application\chrome.exe"
 	
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
+	
+	
+	static Run() {
+		if winHwnd := WinExist(this._winProcessName) {
+			WinActivate(winHwnd)
+			return
+		}
+		
+		Run(this._fullProcessName)
+	}
+	
+	
+	; --- Keybindings ---
 	
 	static NewTab() => SendInput("^t")
 	

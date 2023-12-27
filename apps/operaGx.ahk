@@ -3,12 +3,24 @@ class OperaGX {
 	static _winProcessName  := "ahk_exe opera.exe"
 	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Opera GX\opera.exe"
 	
-	static ProcessName => this._processName
-	static WinProcessName => this._winProcessName
+	static ProcessName     => this._processName
+	static WinProcessName  => this._winProcessName
 	static FullProcessName => this._fullProcessName
 	
 	static IsActive => WinActive(this._winProcessName)
 	
+	
+	static Run() {
+		if hwnd := WinExist(this._winProcessName) {
+			WinActivate(hwnd)
+			return
+		}
+		
+		Run(this._fullProcessName)
+	}
+	
+	
+	; --- Keybindings ---
 	
 	static FocusOnAddressBar() => SendInput("^l")
 	
@@ -57,16 +69,6 @@ class OperaGX {
 	static OpenSettings() => SendInput("^{F12}")
 	
 	static ReloadAllTabs() => SendInput("^+r")
-	
-	static OxfordSearch(word) {
-		static oxSearchLink := "https://www.oxfordlearnersdictionaries.com/us/search/english/?q="
-		static oxLink := "https://www.oxfordlearnersdictionaries.com/us"
-		
-		if StrIsEmptyOrWhiteSpace(word)
-			Run(Format('"{1}" {2}', this._fullProcessName, oxLink))
-		else
-			Run(Format('"{1}" "{2}{3}"', this._fullProcessName, oxSearchLink, word))
-	}
 	
 	static ToMainWorkspace() => SendInput("^9")
 	

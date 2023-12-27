@@ -73,7 +73,6 @@ class Terminal {
 			"rat",     this.rat,
 			"bs",      this.bs,
 			"rp",      this.rp,
-			"ox",      this.ox,
 			"tgl",     this.tgl,
 			"obsid",   this.obsid,
 			"exp",     this.exp,
@@ -87,6 +86,8 @@ class Terminal {
 			"msys",    this.msys,
 			"rider",   this.rider,
 			"docker",  this.docker,
+			"chrome",  this.chrome,
+			"gx",      this.gx,
 		)
 		
 		this._funcs.Default := this.default
@@ -158,8 +159,6 @@ class Terminal {
 		}
 	}
 
-	static ox(word := "") => OperaGX.OxfordSearch(word)
-	
 	static tgl(*) => Mode.ToggleDisplay()
 	
 	static obsid(*) => Obsidian.Run()
@@ -189,5 +188,9 @@ class Terminal {
 	static rider(args := "") => Rider.Run(args)
 	
 	static docker(*) => Docker.Run()
+	
+	static chrome(*) => Chrome.Run()
+	
+	static gx(*) => OperaGX.Run()
 }
 

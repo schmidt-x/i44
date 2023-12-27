@@ -9,7 +9,7 @@ class Rider {
 	}
 	
 	static ProcessName => this._processName
-	static IsActive    => WinActive(this._winProcessName)
+	static IsActive => WinActive(this._winProcessName)
 	
 	static Run(projName := "") {
 		if StrIsEmptyOrWhiteSpace(projName) {
