@@ -33,5 +33,6 @@ CoordMode("Mouse")
 #Include apps\goland.ahk
 #Include apps\vscode.ahk
 #Include apps\chrome.ahk
+#Include apps\docker.ahk
 #Include apps\rider.ahk
 #Include apps\steam.ahk

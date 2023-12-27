@@ -62,29 +62,31 @@ class Terminal {
 	
 	static init_funcs() {
 		this._funcs.Set(
-			"code",   this.code,
-			"cmd",    this.cmd,
-			"sv",     this.sv,
-			"tt",     this.tt,
-			"tb",     this.tb,
-			"rf",     this.rf,
-			"mic",    this.mic,
-			"info",   this.info,
-			"rat",    this.rat,
-			"bs",     this.bs,
-			"rp",     this.rp,
-			"ox",     this.ox,
-			"tgl",    this.tgl,
-			"obsid",  this.obsid,
-			"exp",    this.exp,
-			"tg-",    this.tg_minus,
-			"tg",     this.tg,
-			"inlh",   this.inlh,
-			"stm",    this.stm,
-			"stm-",   this.stm_minus,
-			"sleep",  this.sleep,
-			"shdown", this.shdown,
-			"msys",   this.msys,
+			"code",    this.code,
+			"cmd",     this.cmd,
+			"sv",      this.sv,
+			"tt",      this.tt,
+			"tb",      this.tb,
+			"rf",      this.rf,
+			"mic",     this.mic,
+			"info",    this.info,
+			"rat",     this.rat,
+			"bs",      this.bs,
+			"rp",      this.rp,
+			"ox",      this.ox,
+			"tgl",     this.tgl,
+			"obsid",   this.obsid,
+			"exp",     this.exp,
+			"tg-",     this.tg_minus,
+			"tg",      this.tg,
+			"inlh",    this.inlh,
+			"stm",     this.stm,
+			"stm-",    this.stm_minus,
+			"sleep",   this.sleep,
+			"shdown",  this.shdown,
+			"msys",    this.msys,
+			"rider",   this.rider,
+			"docker",  this.docker,
 		)
 		
 		this._funcs.Default := this.default
@@ -183,5 +185,9 @@ class Terminal {
 	static shdown(*) => Windows.ShutDown()
 	
 	static msys(args := "") => QmkMSys.Run(args)
+	
+	static rider(args := "") => Rider.Run(args)
+	
+	static docker(*) => Docker.Run()
 }
 

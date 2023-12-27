@@ -83,6 +83,10 @@
 	ClipSend("https://www.youtube.com/playlist?list=PLKRJNM-FYYn5cVrzOf7PKa4IPZSC8_v9y")
 }
 
+:?::yts:: { ; search
+	ClipSend("https://www.youtube.com/results?search_query=")
+}
+
 ; --- ---
 
 :?::maps:: {

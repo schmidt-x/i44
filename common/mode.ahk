@@ -1,3 +1,11 @@
+class ModeType {
+	static Normal => 1
+	static Insert => 2
+	static Symbol => 4
+	static Mouse  => 8
+	static Select => 16
+}
+
 class Mode {
 	static _current     := unset
 	static _display     := Gui()
@@ -134,12 +142,4 @@ class Mode {
 	static displaySSymbol() => this.display("S_Symb")
 	
 	static displayUndef() => this.display("Undef")
-}
-
-class ModeType {
-	static Normal => 1
-	static Insert => 2
-	static Symbol => 4
-	static Mouse  => 8
-	static Select => 16
 }

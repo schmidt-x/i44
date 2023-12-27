@@ -2,9 +2,51 @@ class Rider {
 	static _processName     := "rider64.exe"
 	static _winProcessName  := "ahk_exe rider64.exe"
 	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\JetBrains\Toolbox\apps\Rider\ch-0\232.10203.29\bin\rider64.exe"
+	static _projects        := Map()
+	
+	static __New() {
+		this.init_projects()
+	}
 	
 	static ProcessName => this._processName
-	static IsActive  => WinActive(this._winProcessName)
+	static IsActive    => WinActive(this._winProcessName)
+	
+	static Run(projName := "") {
+		if StrIsEmptyOrWhiteSpace(projName) {
+			; It doesn't seem to have a way to open the welcome page
+			; (if at least one solution is already opened)
+			if !WinExist(this._winProcessName)
+				Run(this._fullProcessName)
+			
+			return
+		}
+		
+		proj := this._projects[projName]
+		
+		if proj == "" {
+			Display("project not found")
+			return
+		} 
+		
+		Run(Format('"{1}" "{2}"', this._fullProcessName, proj))
+	}
+	
+	
+	; --- init ---
+	
+	static init_projects() {
+		this._projects.Set(
+			"console", "C:\Projects\CSharp\TestConsole\TestConsole.sln",
+			"web",     "C:\Projects\CSharp\TestWeb\TestWeb.sln",
+			"web2",    "C:\Projects\CSharp\TestWeb2\TestWeb2.sln",
+			"tgbot",   "C:\Projects\CSharp\TestTgBot\TestTgBot.sln"
+		)
+		
+		this._projects.Default := ""
+	}
+	
+	
+	; --- Keybindings ---
 	
 	static ToggleBreakpoint() => SendInput("{F9}")
 	
