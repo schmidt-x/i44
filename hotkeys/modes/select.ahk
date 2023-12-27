@@ -8,33 +8,33 @@
 
 *F16::Mode.SetMouse()
 
-Up::Windows.SelectUp()
+Up::OS.SelectUp()
 
-Down::Windows.SelectDown()
+Down::OS.SelectDown()
 
-Left::Windows.SelectLeft()
+Left::OS.SelectLeft()
 
-Right::Windows.SelectRight()
+Right::OS.SelectRight()
 
-Home::Windows.SelectToBeginning()
+Home::OS.SelectToLineBeginning()
 
-End::Windows.SelectToEnd()
+End::OS.SelectToLineEnd()
 
-PgUp::Windows.SelectToPageBeginning()
+PgUp::OS.SelectToPageBeginning()
 
-PgDn::Windows.SelectToPageEnd()
+PgDn::OS.SelectToPageEnd()
 
-c::Windows.Copy()
+c::OS.Copy()
 
 s::return
 
-v::Windows.Paste()
+v::OS.Paste()
 
-x::Windows.Cut()
+x::OS.Cut()
 
-^Left::Windows.SelectLeftByWord()
+^Left::OS.SelectLeftByWord()
 
-^Right::Windows.SelectRightByWord()
+^Right::OS.SelectRightByWord()
 
 ^Up:: {
 	switch {
@@ -50,8 +50,8 @@ x::Windows.Cut()
 	}
 }
 
-+Up::Windows.ScrollUp()
++Up::OS.ScrollUp()
 
-+Down::Windows.ScrollDown()
++Down::OS.ScrollDown()
 
 #HotIf

@@ -94,7 +94,7 @@ t:: {
 }
 
 v:: {
-	Windows.OpenClipboard()
+	OS.OpenClipboard()
 }
 
 w:: {
@@ -108,12 +108,12 @@ w:: {
 x:: {
 	switch {
 	case Goland.IsActive: Goland.Redo()
-	default:              Windows.Redo()
+	default:              OS.Redo()
 	}
 }
 
 z:: {
-	Windows.Undo()
+	OS.Undo()
 }
 
 ':: {
@@ -182,11 +182,11 @@ z:: {
 }
 
 ^PgDn:: {
-	Windows.MoveToWholeEnd()
+	OS.MoveToEnd()
 }
 
 ^PgUp:: {
-	Windows.MoveToWholeBeginning()
+	OS.MoveToBeginning()
 }
 
 ^,:: {
@@ -206,11 +206,11 @@ z:: {
 }
 
 +Up:: {
-	Windows.ScrollUp()
+	OS.ScrollUp()
 }
 
 +Down:: {
-	Windows.ScrollDown()
+	OS.ScrollDown()
 }
 
 +Left:: { ; inverted ^Left

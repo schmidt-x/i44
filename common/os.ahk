@@ -1,4 +1,27 @@
-class Windows {
+class OS {
+	
+	static Sleep() => Run("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
+	
+	static ShutDown() => Run("shutdown /s /t 0")
+	
+	static RunCmd(folder := "") {
+		if StrIsEmptyOrWhiteSpace(folder) {
+			Run("cmd", Paths.User)
+			return
+		}
+		
+		if !Paths.TryFind(folder, &p) {
+			Display("folder not found")
+			return
+		}
+		
+		Run("cmd", p)
+	}
+	
+	
+	; --- Keybindings ---
+	
+	static GetProcessName() => WinGetProcessName("A")
 	
 	static OpenClipboard() => SendInput("#v")
 	
@@ -38,34 +61,15 @@ class Windows {
 	
 	static SelectRightByWord() => SendInput("^+{right}")
 	
-	static SelectToBeginning() => SendInput("+{home}")
+	static SelectToLineBeginning() => SendInput("+{home}")
 	
-	static SelectToEnd() => SendInput("+{end}")
+	static SelectToLineEnd() => SendInput("+{end}")
 	
 	static SelectToPageBeginning() => SendInput("+{PgUp}")
 	
 	static SelectToPageEnd() => SendInput("+{PgDn}")
 	
-	static Sleep() => Run("rundll32.exe powrprof.dll,SetSuspendState 0,1,0")
+	static MoveToBeginning() => SendInput("^{Home}")
 	
-	static ShutDown() => Run("shutdown /s /t 0")
-	
-	static RunCmd(folder := "") {
-		if StrIsEmptyOrWhiteSpace(folder) {
-			Run("cmd", Paths.User)
-			return
-		}
-		
-		if !Paths.TryFind(folder, &p) {
-			Display("folder not found")
-			return
-		}
-		
-		Run("cmd", p)
-	}
-	
-	static MoveToWholeBeginning() => SendInput("^{Home}")
-	
-	static MoveToWholeEnd() => SendInput("^{End}")
-	
+	static MoveToEnd() => SendInput("^{End}")
 }

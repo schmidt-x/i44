@@ -12,7 +12,7 @@ class Terminal {
 	static IsActive => WinActive(this._terminal.Hwnd)
 	
 	static Show() {
-		this._prevWinId := WinGetID("A")
+		this._prevWinId := WinExist("A")
 		this._terminal.Show("y1020 x847")
 	}
 	
@@ -110,7 +110,7 @@ class Terminal {
 	
 	static code(args := "") => VsCode.Run(args)
 	
-	static cmd(args := "") => Windows.RunCmd(args)
+	static cmd(args := "") => OS.RunCmd(args)
 
 	static sv(*) => RunCurrentScript()
 	
@@ -179,9 +179,9 @@ class Terminal {
 	
 	static stm_minus(*) => Steam.Close()
 	
-	static sleep(*) => Windows.Sleep()
+	static sleep(*) => OS.Sleep()
 	
-	static shdown(*) => Windows.ShutDown()
+	static shdown(*) => OS.ShutDown()
 	
 	static msys(args := "") => QmkMSys.Run(args)
 	

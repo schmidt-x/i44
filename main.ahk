@@ -19,6 +19,7 @@ CoordMode("Mouse")
 
 #Include common\hotstrings.ahk
 #Include common\functions.ahk
+#Include common\os.ahk
 #Include common\terminal.ahk
 #Include common\mode.ahk
 #Include common\paths.ahk
@@ -27,7 +28,6 @@ CoordMode("Mouse")
 #Include apps\obsidian.ahk
 #Include apps\explorer.ahk
 #Include apps\discord.ahk
-#Include apps\windows.ahk
 #Include apps\operaGx.ahk
 #Include apps\qmkMSys.ahk
 #Include apps\goland.ahk
