@@ -271,4 +271,33 @@ z:: {
 	}
 }
 
+; --- Alt ---
+
+<!Left:: {
+	switch {
+	case Rider.IsActive:    Rider.GoBack()
+	case Goland.IsActive:   Goland.GoBack()
+	case Obsidian.IsActive: Obsidian.GoBack()
+	case VsCode.IsActive:   OS.NavigateBack()
+	case OperaGX.IsActive:  OS.NavigateBack()
+	case Chrome.IsActive:   OS.NavigateBack()
+	case Discord.IsActive:  OS.NavigateBack()
+	case Explorer.IsActive:	OS.NavigateBack()
+	}
+}
+
+<!Right:: {
+	switch {
+	case Rider.IsActive:    Rider.GoForward()
+	case Goland.IsActive:   Goland.GoForward()
+	case Obsidian.IsActive: Obsidian.GoForward()
+	case VsCode.IsActive:   OS.NavigateForward()
+	case OperaGX.IsActive:  OS.NavigateForward()
+	case Chrome.IsActive:   OS.NavigateForward()
+	case Discord.IsActive:  OS.NavigateForward()
+	case Explorer.IsActive:	OS.NavigateForward()
+	}
+}
+
+
 #HotIf

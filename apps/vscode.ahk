@@ -61,10 +61,6 @@ class VsCode {
 	
 	static CopyCursorDown() => SendInput("^!{down}") ; add cursor below
 	
-	static GoBack() => SendInput("!{left}")
-	
-	static GoForward() => SendInput("!{right}")
-	
 	; This shortcut does both: Quck documentation and Error description (if there's any)
 	static ShowHover() => SendInput("^k^i")
 	

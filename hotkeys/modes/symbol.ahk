@@ -10,32 +10,6 @@ Insert:: {
 	}
 }
 
-<+1:: {
-	switch {
-	case Rider.IsActive:    Rider.GoBack()
-	case Goland.IsActive:   Goland.GoBack()
-	case VsCode.IsActive:   VsCode.GoBack()
-	case Obsidian.IsActive: Obsidian.GoBack()
-	case OperaGX.IsActive:  OperaGX.GoBack()
-	case Chrome.IsActive:   Chrome.GoBack()
-	case Discord.IsActive:  Discord.GoBack()
-	case Explorer.IsActive: Explorer.GoBack()
-	}
-}
-
-<+2:: {
-	switch {
-	case Rider.IsActive:    Rider.GoForward()
-	case Goland.IsActive:   Goland.GoForward()
-	case VsCode.IsActive:   VsCode.GoForward()
-	case Obsidian.IsActive: Obsidian.GoForward()
-	case OperaGX.IsActive:  OperaGX.GoForward()
-	case Chrome.IsActive:   Chrome.GoForward()
-	case Discord.IsActive:  Discord.GoForward()
-	case Explorer.IsActive: Explorer.GoForward()
-	}
-}
-
 <+4:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretAboveWithVirtualSpace()

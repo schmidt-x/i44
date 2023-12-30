@@ -72,4 +72,8 @@ class OS {
 	static MoveToBeginning() => SendInput("^{Home}")
 	
 	static MoveToEnd() => SendInput("^{End}")
+	
+	static NavigateBack() => SendInput("!{Left}")
+	
+	static NavigateForward() => SendInput("!{Right}")
 }

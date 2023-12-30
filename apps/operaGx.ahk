@@ -32,24 +32,6 @@ class OperaGX {
 	
 	static ReloadTab() => SendInput("^r")
 	
-	static GoBack() =>
-		/*
-		* For some reason, in Opera Gx it opens the Alt menu (like when you tap Alt) if I do:
-			SendInput("!{Left/Right}")
-		* or even when:
-			SendInput("{Alt down}{Left/Right}{Alt up}")
-		* With the approach below, it also happens, but a little less often:
-			SendInput("{Alt down}")
-			SendInput("{left}")
-			SendInput("{Alt up}")
-		* It's typically 'Alt' problems in windows.
-		* So I decided to change the shortcut in Opera GX
-		* Same is done for GoForward()
-		*/
-		SendInput("{F11}") ; back
-	
-	static GoForward() =>	SendInput("{F12}") ; forward
-	
 	static NextTab() => SendInput("^{PgDn}") ; switch right through tabs
 	
 	static PreviousTab() => SendInput("^{PgUp}") ; switch left through tabs

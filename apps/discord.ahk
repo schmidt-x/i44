@@ -17,8 +17,4 @@ class Discord {
 	
 	
 	; --- Keybindings ---
-	
-	static GoBack() => SendInput("!{left}")
-	
-	static GoForward() => SendInput("!{right}")
 }

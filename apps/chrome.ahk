@@ -32,9 +32,4 @@ class Chrome {
 	static MoveTabRight() => SendInput("^+{PgDn}")
 	
 	static MoveTabLeft() => SendInput("^+{PgUp}")
-	
-	static GoBack() => SendInput("!{left}")
-	
-	static GoForward() => SendInput("!{right}")
-	
 }

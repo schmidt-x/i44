@@ -112,6 +112,10 @@
 	ClipSend("https://docs.qmk.fm/#/feature_macros")
 }
 
+:?O::qmkcp:: { ; compile
+	ClipSend("qmk compile -kb ergohaven/k02 -km schmidt-x")
+}
+
 ; --- ---
 
 

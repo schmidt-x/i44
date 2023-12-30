@@ -6,6 +6,20 @@ class Explorer {
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
+	static Run(folder := "") {
+		if StrIsEmptyOrWhiteSpace(folder) {
+			SendInput("#e")
+			return
+		}
+	
+		if !Paths.TryFind(folder, &path) {
+			Display("folder not found")
+			return
+		}
+		
+		Run(Format('"{1}" "{2}"', this._fullProcessName, path))
+	}
+
 	static FocusOnAddressBar() => SendInput("!d")
 	
 	static CloseTab() => SendInput("^w")
@@ -49,22 +63,4 @@ class Explorer {
 		path := ""
 		return false
 	}
-	
-	static Run(folder := "") {
-		if StrIsEmptyOrWhiteSpace(folder) {
-			SendInput("#e")
-			return
-		}
-		
-		if !Paths.TryFind(folder, &path) {
-			Display("folder not found")
-			return
-		}
-		
-		Run(Format('"{1}" "{2}"', this._fullProcessName, path))
-	}
-	
-	static GoBack() => SendInput("!{Left}")
-	
-	static GoForward() => SendInput("!{Right}")
 }
