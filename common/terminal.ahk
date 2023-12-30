@@ -85,6 +85,7 @@ class Terminal {
 			"shdown",  this.shdown,
 			"msys",    this.msys,
 			"rider",   this.rider,
+			"goland",  this.goland,
 			"docker",  this.docker,
 			"chrome",  this.chrome,
 			"gx",      this.gx,
@@ -187,6 +188,8 @@ class Terminal {
 	static msys(args := "") => QmkMSys.Run(args)
 	
 	static rider(args := "") => Rider.Run(args)
+	
+	static goland(args := "") => Goland.Run(args)
 	
 	static docker(*) => Docker.Run()
 	

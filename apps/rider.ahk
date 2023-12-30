@@ -24,7 +24,7 @@ class Rider {
 		proj := this._projects[projName]
 		
 		if proj == "" {
-			Display("project not found")
+			Display("Project not found")
 			return
 		} 
 		
