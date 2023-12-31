@@ -215,8 +215,6 @@ z:: {
 
 +Left:: { ; inverted ^Left
 	switch {
-	case Rider.IsActive:    Rider.PreviousMethod()
-	case VsCode.IsActive:   VsCode.GotoPrevMember()
 	case OperaGX.IsActive:  OperaGX.FindPrevious()
 	case Obsidian.IsActive: Obsidian.FindPrevious()
 	}
@@ -224,8 +222,6 @@ z:: {
 
 +Right:: { ; inverted ^Right
 	switch {
-	case Rider.IsActive:    Rider.NextMethod()
-	case VsCode.IsActive:   VsCode.GotoNextMember()
 	case OperaGX.IsActive:  OperaGX.FindNext()
 	case Obsidian.IsActive: Obsidian.FindNext()
 	}
@@ -270,8 +266,6 @@ z:: {
 	case Goland.IsActive: Goland.GoToImplementation()
 	}
 }
-
-; --- Alt ---
 
 <!Left:: {
 	switch {

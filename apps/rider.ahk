@@ -88,7 +88,12 @@ class Rider {
 	
 	static ReopenLastClosedTab() => SendInput("^+t")
 	
-	static NewFile() => SendInput("^{insert}") ; insert new file/code
+	static NewFile() {
+		; modified
+		; name: New...
+		; default: Alt + Insert
+		SendInput("^{Insert}")
+	}
 	
 	; --- Tool Windows ---
 	
@@ -157,20 +162,6 @@ class Rider {
 	
 	; --- ---
 	
-	static PreviousMethod() {
-		; Alt problem - it gets focused on Alt-panel (same as for OperaGx GoBack/GoForward)
-		
-		SendInput("{Alt Down}")
-		SendInput("{Up}")
-		SendInput("{Alt up}")
-	}	
-		
-	static NextMethod() {
-		SendInput("{Alt Down}")
-		SendInput("{Down}")
-		SendInput("{Alt up}")
-	}
-		
 	static MoveCaretToMatchingBrace() => SendInput("^]") ; works only if tapped twice
 	
 	static ExpandSelection() => SendInput("^w")

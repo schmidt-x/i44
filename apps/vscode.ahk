@@ -47,7 +47,12 @@ class VsCode {
 		Run(Format('"{1}" {2}', this._fullProcessName, path))
 	}
 	
-	static NewFile() => SendInput("^+{Insert}") ; explorer.newFile
+	static NewFile() {
+		; modified
+		; name: explorer.newFile
+		; default: none
+		SendInput("!{Insert}")
+	}
 
 	static UnfoldBlockOfCode() => SendInput("^=")
 

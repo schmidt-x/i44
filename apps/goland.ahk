@@ -87,7 +87,12 @@ class Goland {
 	
 	static ReopenLastClosedTab() => SendInput("^+t")
 	
-	static NewFile() => SendInput("^{insert}") ; insert new file/code
+	static NewFile() {
+		; modified
+		; name: New...
+		; default: Alt + Insert
+		SendInput("^{Insert}")
+	}
 	
 	static ToggleExplorer() => SendInput("!1")
 	

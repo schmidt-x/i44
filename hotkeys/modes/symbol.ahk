@@ -26,20 +26,6 @@ Insert:: {
 	}
 }
 
->+9:: { ; (
-	switch {
-	case Rider.IsActive:  Rider.GotoPreviousError()
-	case VsCode.IsActive: VsCode.GotoPreviousProblem()
-	}
-}
-
->+0:: { ; )
-	switch {
-	case Rider.IsActive:  Rider.GotoNextError()
-	case VsCode.IsActive: VsCode.GotoNextProblem()
-	}
-}
-
 #HotIf
 
 

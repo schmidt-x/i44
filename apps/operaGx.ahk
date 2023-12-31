@@ -24,7 +24,7 @@ class OperaGX {
 	
 	static FocusOnAddressBar() => SendInput("^l")
 	
-	static SpeedDial() => SendInput("!{Home}") ; (aka homepage)	
+	static SpeedDial() => SendInput("!{Home}")
 	
 	static NewTab() => SendInput("^t")
 	
@@ -40,13 +40,13 @@ class OperaGX {
 	
 	static MoveTabRight() => SendInput("^+.") ; move tab right (vimium)
 	
-	static FindPrevious() => SendInput("^+g") ; find previous
+	static FindPrevious() => SendInput("^+g")
 	
-	static FindNext() => SendInput("^g") ; find next
+	static FindNext() => SendInput("^g")
 	
-	static DuplicateTab() => SendInput("^1") ; duplicate tab
+	static DuplicateTab() => SendInput("^1")
 	
-	static ReopenLastClosedTab() => SendInput("^+t") ; reopen last closed tab or window
+	static ReopenLastClosedTab() => SendInput("^+t")
 	
 	static OpenSettings() => SendInput("^{F12}")
 	
