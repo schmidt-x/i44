@@ -44,7 +44,12 @@ class OperaGX {
 	
 	static FindNext() => SendInput("^g")
 	
-	static DuplicateTab() => SendInput("^1")
+	static DuplicateTab() {
+		; modified
+		; name: _
+		; default: none
+		SendInput("^1")
+	}
 	
 	static ReopenLastClosedTab() => SendInput("^+t")
 	
@@ -52,7 +57,17 @@ class OperaGX {
 	
 	static ReloadAllTabs() => SendInput("^+r")
 	
-	static ToMainWorkspace() => SendInput("^9")
+	static ToMainWorkspace() {
+		; modified
+		; name: Workspaces shortcuts (main)
+		; default: none
+		SendInput("^2")
+	}
 	
-	static ToChillWorkspace() => SendInput("^8")
+	static ToChillWorkspace() {
+		; modified
+		; name: Workspaces shortcuts (chill)
+		; default: none
+		SendInput("^3")
+	}
 }

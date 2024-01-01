@@ -36,7 +36,9 @@ e:: {
 	}
 }
 
-g::return
+g:: {
+	Terminal.Show()
+}
 
 m:: {
 	switch {

@@ -20,10 +20,6 @@
 	}
 }
 
-^g:: {
-	Terminal.Show()
-}
-
 ^p:: {
 	switch {
 	case Rider.IsActive:  Rider.SearchEverywhere()
