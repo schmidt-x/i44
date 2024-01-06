@@ -15,6 +15,13 @@ class Discord {
 		Run(this._fullProcessName)
 	}
 	
+	static EditMessage() => SendInput("e")
+	
+	static ReplyToMessage() => SendInput("r")
+	
+	static NextSection() => SendInput("{F6}")
+	
+	static PreviousSection() => SendInput("+{F6}")
 	
 	; --- Keybindings ---
 }

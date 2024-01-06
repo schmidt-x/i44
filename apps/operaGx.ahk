@@ -70,4 +70,11 @@ class OperaGX {
 		; default: none
 		SendInput("^3")
 	}
+	
+	static ForceDarkPage() {
+		; modified
+		; name: _
+		; default: none
+		SendInput("^0")
+	}
 }

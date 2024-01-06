@@ -33,6 +33,7 @@ e:: {
 	case Goland.IsActive:  Goland.ParameterInfo()
 	case VsCode.IsActive:  VsCode.ParameterHints()
 	case OperaGX.IsActive: OperaGX.SpeedDial()
+	case Discord.IsActive: Discord.EditMessage()
 	}
 }
 
@@ -80,6 +81,7 @@ r:: {
 	case Obsidian.IsActive: Obsidian.ToggleReadingMode()
 	case OperaGX.IsActive:  OperaGX.ReloadTab()
 	case Chrome.IsActive:   Chrome.ReloadTab()
+	case Discord.IsActive:  Discord.ReplyToMessage()
 	}
 }
 
@@ -295,5 +297,16 @@ z:: {
 	}
 }
 
+<!Home:: {
+	switch {
+	case Discord.IsActive: Discord.PreviousSection()
+	}
+}
+
+<!End:: {
+	switch {
+	case Discord.IsActive: Discord.NextSection()
+	}
+}
 
 #HotIf

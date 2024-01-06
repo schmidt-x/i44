@@ -90,6 +90,7 @@ class Terminal {
 			"chrome",  this.chrome,
 			"gx",      this.gx,
 			"discord", this.discord,
+			"fdp",     this.fdp,
 		)
 		
 		this._funcs.Default := this.default
@@ -198,4 +199,10 @@ class Terminal {
 	static gx(*) => OperaGX.Run()
 	
 	static discord(*) => Discord.Run()
+	
+	static fdp(*) {
+		switch {
+		case OperaGX.IsActive: OperaGX.ForceDarkPage()
+		}
+	}
 }

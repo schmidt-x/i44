@@ -43,6 +43,8 @@ Insert:: {
 
 <+>+]::SendInput("»") ; LSft + }
 
+<+\::SendInput("\n")
+
 #HotIf
 
 
