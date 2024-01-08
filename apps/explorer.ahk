@@ -20,16 +20,6 @@ class Explorer {
 		Run(Format('"{1}" "{2}"', this._fullProcessName, path))
 	}
 
-	static FocusOnAddressBar() => SendInput("!d")
-	
-	static CloseTab() => SendInput("^w")
-	
-	static NextTab() => SendInput("^{tab}")
-	
-	static PreviousTab() => SendInput("^+{tab}")
-	
-	static NewTab() => SendInput("^t")
-	
 	static TryGetPath(&path, clsid := false) {
 		explorerHwnd := WinActive(this._winProcessName)
 		
@@ -63,4 +53,17 @@ class Explorer {
 		path := ""
 		return false
 	}
+	
+	
+	; --- Shortcuts ---
+	
+	static FocusOnAddressBar() => SendInput("!d")
+	
+	static CloseTab() => SendInput("^w")
+	
+	static NextTab() => SendInput("^{tab}")
+	
+	static PreviousTab() => SendInput("^+{tab}")
+	
+	static NewTab() => SendInput("^t")
 }

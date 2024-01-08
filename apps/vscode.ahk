@@ -47,85 +47,84 @@ class VsCode {
 		Run(Format('"{1}" {2}', this._fullProcessName, path))
 	}
 	
-	static NewFile() {
-		; modified
-		; name: explorer.newFile
-		; default: none
-		SendInput("!{Insert}")
-	}
-
-	static UnfoldBlockOfCode() => SendInput("^=")
-
-	static FoldBlockOfCode() => SendInput("^-")
-
-	static CloseTab() => SendInput("^{F4}")
-
-	static GoToDeclaration() => SendInput("{F12}")
-
-	static CopyCursorUp() => SendInput("^!{up}") ; add cursor above
 	
-	static CopyCursorDown() => SendInput("^!{down}") ; add cursor below
-	
-	; This shortcut does both: Quck documentation and Error description (if there's any)
-	static ShowHover() => SendInput("^k^i")
-	
-	static CommentLine() => SendInput("^/")
-	
-	static NextTab() => SendInput("^{PgDn}")
-	
-	static PreviousTab() => SendInput("^{PgUp}")
-	
-	static MoveLineUp() => SendInput("!+{up}")
-	
-	static MoveLineDown() => SendInput("!+{down}")
+	; --- Shortcuts ---
 	
 	static OpenSettings() => SendInput("^,")
 	
-	; --- Tool Windows ---
+	static Fold() => SendInput("+^[")
 	
-	static ToggleExplorerFocus() => SendInput("^+e")
-	
-	static ToggleDebugFocus() => SendInput("^+d")
-	
-	static OpenTerminal() => SendInput("^j")
-	
-	; --- ---
-	
-	static ToggleBreakpoint() => SendInput("{F9}")
+	static Unfold() => SendInput("+^]")
 	
 	static FoldAll() => SendInput("^k^0")
 	
 	static UnfoldAll() => SendInput("^k^j")
 	
-	static ReopenLastClosedTab() => SendInput("^+t")
+	static GotoBracket() => SendInput("+^\")
 	
-	static MoveEditorLeft() => SendInput("^+{PgUp}")
+	static ParameterHints() => SendInput("+^{Space}")
 	
-	static MoveEditorRight() => SendInput("^+{PgDn}")
+	static CloseEditor() => SendInput("^{F4}")
 	
-	static ToTabs() => SendInput("^+4")
+	static GoToDefinition() => SendInput("{F12}")
 	
-	static ParameterHints() => SendInput("^+{Space}")
+	static GoToImplementation() => SendInput("^{F12}")
 	
-	static GotoBracket() => SendInput("^+\")
+	; This shortcut does both: Quck documentation and Error description (if there's any)
+	static ShowOrFocusHover() => SendInput("^k^i")
 	
-	static ShowNextChange() => SendInput("!{F3}") ; git
+	static CommentLine() => SendInput("^/")
 	
-	static ShowPreviousChange() => SendInput("!+{F3}") ; git
+	static QuickFix() => SendInput("^.")
 	
-	static GotoNextProblem() => SendInput("!{F8}")
+	static ToggleBreakpoint() => SendInput("{F9}") ; editor.debug.action.toggleBreakpoint
 	
-	static GotoPreviousProblem() => SendInput("!+{F8}")
+	static NextTab() => SendInput("^{PgDn}")
 	
-	static GotoFile() => SendInput("^p")
+	static PreviousTab() => SendInput("^{PgUp}")
+	
+	static ReopenLastClosedTab() => SendInput("+^t")
+	
+	static NewFile() {
+		; modified
+		; name: explorer.newFile
+		; default: none
+		SendInput("^{Insert}")
+	}
+	
+	static CopyCursorUp() => SendInput("^!{Up}") ; add cursor above
+	
+	static CopyCursorDown() => SendInput("^!{Down}") ; add cursor below
+	
+	static CopyLineDown() => SendInput("^d")
+	
+	; --- Tool Windows ---
+	
+	static ShowExplorer() => SendInput("^+e")
+	
+	static Debug() => SendInput("^+d")
+	
+	static Terminal() {
+		; name: «View: Toggle Terminal»
+		; command: workbench.action.terminal.toggleTerminal
+		SendInput("^``")
+	}
+	
+	; --- ---
 	
 	static ExpandSelection() => SendInput("+!{Right}")
 	
 	static ShrinkSelection() => SendInput("+!{Left}")
 	
-	static GotoNextMember() => SendInput("^{Down}") ; Go to Next/Previous Member extension
+	; --- ---
 	
-	static GotoPrevMember() => SendInput("^{Up}") ; Go to Next/Previous Member extension
+	
+	
+	; --- ---
+	
+	
+	static ToTabs() => SendInput("^+4")
+	
 	
 	static ToggleSourceControl() => SendInput("^+g")
 }

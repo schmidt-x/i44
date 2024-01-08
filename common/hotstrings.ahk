@@ -134,7 +134,7 @@
 
 :?::bl:: {
 	switch {
-	case Obsidian.IsActive: Obsidian.SendBoldLink()
+	case Obsidian.IsActive: Obsidian.PasteBoldLink()
 	}
 }
 
@@ -152,7 +152,7 @@
 
 :?::sb:: {
 	switch {
-	case Obsidian.IsActive: Obsidian.SendSpoilerBlock()
+	case Obsidian.IsActive: Obsidian.PasteSpoilerBlock()
 	}
 }
 

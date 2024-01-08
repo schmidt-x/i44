@@ -17,7 +17,7 @@ class Chrome {
 	}
 	
 	
-	; --- Keybindings ---
+	; --- Shortcuts ---
 	
 	static NewTab() => SendInput("^t")
 	
@@ -25,11 +25,11 @@ class Chrome {
 	
 	static ReloadTab() => SendInput("^r")
 	
-	static NextTab() => SendInput("^{PgDn}") ; next tab
+	static NextTab() => SendInput("^{PgDn}")
 	
-	static PreviousTab() => SendInput("^{PgUp}") ; previous tab
-	
-	static MoveTabRight() => SendInput("^+{PgDn}")
+	static PreviousTab() => SendInput("^{PgUp}")
 	
 	static MoveTabLeft() => SendInput("^+{PgUp}")
+	
+	static MoveTabRight() => SendInput("^+{PgDn}")
 }

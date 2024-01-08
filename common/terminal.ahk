@@ -158,7 +158,7 @@ class Terminal {
 
 	static rp(*) {
 		switch {
-		case Rider.IsActive: Rider.RestorePackages()
+		case Rider.IsActive: Rider.NugetRestore()
 		}
 	}
 

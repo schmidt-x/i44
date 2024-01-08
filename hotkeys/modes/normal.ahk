@@ -12,7 +12,6 @@ a:: {
 	switch {
 	case OperaGX.IsActive:  OperaGX.FocusOnAddressBar()
 	case Explorer.IsActive: Explorer.FocusOnAddressBar()
-	; case Chrome.IsActive:   Chrome.FocusOnAddressBar()
 	}
 }
 
@@ -20,10 +19,28 @@ b:: {
 	switch {
 	case Rider.IsActive:  Rider.MoveCaretToMatchingBrace()
 	case VsCode.IsActive: VsCode.GotoBracket()
+	case Goland.IsActive: Goland.MoveCaretToMatchingBrace()
+	}
+}
+
+^b:: {
+	switch {
+	case Rider.IsActive:  Rider.ToggleBreakpoint()
+	case Goland.IsActive: Goland.ToggleBreakpoint()
+	case VsCode.IsActive: VsCode.ToggleBreakpoint()
 	}
 }
 
 c::return
+
++c:: {
+	switch {
+	case Rider.IsActive:   Rider.DuplicateLineOrSelection()
+	case VsCode.IsActive:  VsCode.CopyLineDown()
+	case Goland.IsActive:  Goland.DuplicateLineOrSelection()
+	case OperaGX.IsActive: OperaGX.DuplicateTab()
+	}
+}
 
 d::return
 
@@ -37,28 +54,44 @@ e:: {
 	}
 }
 
-g:: {
-	Terminal.Show()
-}
+g::Terminal.Show()
 
 m:: {
 	switch {
-	case Rider.IsActive:    Rider.UnfoldBlockOfCode()
-	case Goland.IsActive:   Goland.UnfoldBlockOfCode()
-	case VsCode.IsActive:   VsCode.UnfoldBlockOfCode()
-	case Obsidian.IsActive: Obsidian.UnfoldBlockOfCode()
+	case Rider.IsActive:    Rider.Expand()
+	case Goland.IsActive:   Goland.Expand()
+	case VsCode.IsActive:   VsCode.Unfold()
+	case Obsidian.IsActive: Obsidian.FoldLess()
+	}
+}
+
++m:: {
+	switch {
+	case Rider.IsActive:    Rider.ExpandAll()
+	case Goland.IsActive:   Goland.ExpandAll()
+	case VsCode.IsActive:   VsCode.UnfoldAll()
+	case Obsidian.IsActive: Obsidian.UnfoldAllHeadingsAndLists()
 	}
 }
 
 n:: {
 	switch {
-	case Rider.IsActive:    Rider.FoldBlockOfCode()
-	case Goland.IsActive:   Goland.FoldBlockOfCode()
-	case VsCode.IsActive:   VsCode.FoldBlockOfCode()
-	case Obsidian.IsActive: Obsidian.FoldBlockOfCode()
+	case Rider.IsActive:    Rider.Collapse()
+	case Goland.IsActive:   Goland.Collapse()
+	case VsCode.IsActive:   VsCode.Fold()
+	case Obsidian.IsActive: Obsidian.FoldMore()
 	case OperaGX.IsActive:  OperaGX.NewTab()
 	case Chrome.IsActive:   Chrome.NewTab()
 	case Explorer.IsActive: Explorer.NewTab()
+	}
+}
+
++n:: {
+	switch {
+	case Rider.IsActive:    Rider.CollapseAll()
+	case Goland.IsActive:   Goland.CollapseAll()
+	case VsCode.IsActive:   VsCode.FoldAll()
+	case Obsidian.IsActive: Obsidian.FoldAllHeadingsAndLists()
 	}
 }
 
@@ -66,11 +99,20 @@ q:: {
 	switch {
 	case Rider.IsActive:    Rider.CloseTab()
 	case Goland.IsActive:   Goland.CloseTab()
-	case VsCode.IsActive:   VsCode.CloseTab()
-	case Obsidian.IsActive: Obsidian.CloseTab()
+	case VsCode.IsActive:   VsCode.CloseEditor()
+	case Obsidian.IsActive: Obsidian.CloseCurrentTab()
 	case OperaGX.IsActive:  OperaGX.CloseTab()
 	case Chrome.IsActive:   Chrome.CloseTab()
 	case Explorer.IsActive: Explorer.CloseTab()
+	}
+}
+
++q:: {
+	switch {
+	case Rider.IsActive:   Rider.ReopenLastClosedTab()
+	case OperaGX.IsActive: OperaGX.ReopenLastClosedTabOrWindow()
+	case Goland.IsActive:  Goland.ReopenLastClosedTab()
+	case VsCode.IsActive:  VsCode.ReopenLastClosedTab()
 	}
 }
 
@@ -78,47 +120,44 @@ r:: {
 	switch {
 	case Rider.IsActive:    Rider.ErrorDescription()
 	case Goland.IsActive:   Goland.ErrorDescription()
-	case Obsidian.IsActive: Obsidian.ToggleReadingMode()
+	case Obsidian.IsActive: Obsidian.ToggleReadingView()
 	case OperaGX.IsActive:  OperaGX.ReloadTab()
 	case Chrome.IsActive:   Chrome.ReloadTab()
 	case Discord.IsActive:  Discord.ReplyToMessage()
 	}
 }
 
-s:: {
-	Mode.SetSelect()
-}
+s::Mode.SetSelect()
 
 t:: {
 	switch {
 	case Rider.IsActive:  Rider.GoToDeclarationOrUsages()
-	case Goland.IsActive:	Goland.GoToDeclaration()
-	case VsCode.IsActive:	VsCode.GoToDeclaration()
+	case Goland.IsActive:	Goland.GoToDeclarationOrUsages()
+	case VsCode.IsActive:	VsCode.GoToDefinition()
 	}
 }
 
-v:: {
-	OS.OpenClipboard()
++t:: {
+	switch {
+	case Rider.IsActive:  Rider.GoToImplementation()
+	case Goland.IsActive: Goland.GoToImplementation()
+	case VsCode.IsActive: VsCode.GoToImplementation()
+	}
 }
+
+v::OS.OpenClipboard()
 
 w:: {
 	switch {
 	case Rider.IsActive:  Rider.QuickDocumentation()
 	case Goland.IsActive: Goland.QuickDocumentation()
-	case VsCode.IsActive: VsCode.ShowHover()
+	case VsCode.IsActive: VsCode.ShowOrFocusHover()
 	}
 }
 
-x:: {
-	switch {
-	case Goland.IsActive: Goland.Redo()
-	default:              OS.Redo()
-	}
-}
+x::OS.Redo()
 
-z:: {
-	OS.Undo()
-}
+z::OS.Undo()
 
 ':: {
 	switch {
@@ -132,90 +171,13 @@ z:: {
 	switch {
 	case Rider.IsActive:  Rider.ContextActions()
 	case Goland.IsActive: Goland.ContextActions()
+	case VsCode.IsActive: VsCode.QuickFix()
 	}
 }
 
-^b:: {
-	switch {
-	case Rider.IsActive:  Rider.ToggleBreakpoint()
-	case Goland.IsActive: Goland.ToggleBreakpoint()
-	case VsCode.IsActive: VsCode.ToggleBreakpoint()
-	}
-}
++Up::OS.ScrollUp()
 
-^End:: {
-	switch {
-	case Rider.IsActive:    Rider.NextTab()
-	case Goland.IsActive:   Goland.NextTab()
-	case VsCode.IsActive:   VsCode.NextTab()
-	case Obsidian.IsActive: Obsidian.NextTab()
-	case OperaGX.IsActive:  OperaGX.NextTab()
-	case Chrome.IsActive:   Chrome.NextTab()
-	case Explorer.IsActive: Explorer.NextTab()
-	}
-}
-
-^Home:: {
-	switch {
-	case Rider.IsActive:    Rider.PreviousTab()
-	case Goland.IsActive:   Goland.PreviousTab()
-	case VsCode.IsActive:   VsCode.PreviousTab()
-	case Obsidian.IsActive: Obsidian.PreviousTab()
-	case OperaGX.IsActive:  OperaGX.PreviousTab()
-	case Chrome.IsActive:   Chrome.PreviousTab()
-	case Explorer.IsActive: Explorer.PreviousTab()
-	}
-}
-
-^Up:: {
-	switch {
-	case Rider.IsActive:    Rider.MoveLineUp()
-	case Goland.IsActive:   Goland.MoveLineUp()
-	case VsCode.IsActive:   VsCode.MoveLineUp()
-	case Obsidian.IsActive: Obsidian.MoveLineUp()
-	}
-}
-
-^Down:: {
-	switch {
-	case Rider.IsActive:    Rider.MoveLineDown()
-	case Goland.IsActive:   Goland.MoveLineDown()
-	case VsCode.IsActive:   VsCode.MoveLineDown()
-	case Obsidian.IsActive: Obsidian.MoveLineDown()
-	}
-}
-
-^PgDn:: {
-	OS.MoveToEnd()
-}
-
-^PgUp:: {
-	OS.MoveToBeginning()
-}
-
-^,:: {
-	switch {
-	case VsCode.IsActive:  VsCode.MoveEditorLeft()
-	case OperaGX.IsActive: OperaGX.MoveTabLeft()
-	case Chrome.IsActive:  Chrome.MoveTabLeft()
-	}
-}
-
-^.:: {
-	switch {
-	case VsCode.IsActive:  VsCode.MoveEditorRight()
-	case OperaGX.IsActive: OperaGX.MoveTabRight()
-	case Chrome.IsActive:  Chrome.MoveTabRight()
-	}
-}
-
-+Up:: {
-	OS.ScrollUp()
-}
-
-+Down:: {
-	OS.ScrollDown()
-}
++Down::OS.ScrollDown()
 
 +Left:: { ; inverted ^Left
 	switch {
@@ -231,69 +193,27 @@ z:: {
 	}
 }
 
-+c:: {
+^Home:: {
 	switch {
-	case OperaGX.IsActive: OperaGX.DuplicateTab()
+	case Rider.IsActive:    Rider.PreviousTab()
+	case Goland.IsActive:   Goland.PreviousTab()
+	case VsCode.IsActive:   VsCode.PreviousTab()
+	case Obsidian.IsActive: Obsidian.PreviousTab()
+	case OperaGX.IsActive:  OperaGX.PreviousTab()
+	case Chrome.IsActive:   Chrome.PreviousTab()
+	case Explorer.IsActive: Explorer.PreviousTab()
 	}
 }
 
-+m:: {
+^End:: {
 	switch {
-	case Rider.IsActive:    Rider.UnfoldAll()
-	case Goland.IsActive:   Goland.UnfoldAll()
-	case VsCode.IsActive:   VsCode.UnfoldAll()
-	case Obsidian.IsActive: Obsidian.UnfoldAll()
-	}
-}
-
-+n:: {
-	switch {
-	case Rider.IsActive:    Rider.FoldAll()
-	case Goland.IsActive:   Goland.FoldAll()
-	case VsCode.IsActive:   VsCode.FoldAll()
-	case Obsidian.IsActive: Obsidian.FoldAll()
-	}
-}
-
-+q:: {
-	switch {
-	case Rider.IsActive:   Rider.ReopenLastClosedTab()
-	case OperaGX.IsActive: OperaGX.ReopenLastClosedTab()
-	case Goland.IsActive:  Goland.ReopenLastClosedTab()
-	case VsCode.IsActive:  VsCode.ReopenLastClosedTab()
-	}
-}
-
-+t:: {
-	switch {
-	case Rider.IsActive:  Rider.GoToImplementation()
-	case Goland.IsActive: Goland.GoToImplementation()
-	}
-}
-
-<!Left:: {
-	switch {
-	case Rider.IsActive:    Rider.GoBack()
-	case Goland.IsActive:   Goland.GoBack()
-	case Obsidian.IsActive: Obsidian.GoBack()
-	case VsCode.IsActive:   OS.NavigateBack()
-	case OperaGX.IsActive:  OS.NavigateBack()
-	case Chrome.IsActive:   OS.NavigateBack()
-	case Discord.IsActive:  OS.NavigateBack()
-	case Explorer.IsActive:	OS.NavigateBack()
-	}
-}
-
-<!Right:: {
-	switch {
-	case Rider.IsActive:    Rider.GoForward()
-	case Goland.IsActive:   Goland.GoForward()
-	case Obsidian.IsActive: Obsidian.GoForward()
-	case VsCode.IsActive:   OS.NavigateForward()
-	case OperaGX.IsActive:  OS.NavigateForward()
-	case Chrome.IsActive:   OS.NavigateForward()
-	case Discord.IsActive:  OS.NavigateForward()
-	case Explorer.IsActive:	OS.NavigateForward()
+	case Rider.IsActive:    Rider.NextTab()
+	case Goland.IsActive:   Goland.NextTab()
+	case VsCode.IsActive:   VsCode.NextTab()
+	case Obsidian.IsActive: Obsidian.NextTab()
+	case OperaGX.IsActive:  OperaGX.NextTab()
+	case Chrome.IsActive:   Chrome.NextTab()
+	case Explorer.IsActive: Explorer.NextTab()
 	}
 }
 
@@ -308,5 +228,9 @@ z:: {
 	case Discord.IsActive: Discord.NextSection()
 	}
 }
+
+^PgUp::OS.MoveToBeginning()
+
+^PgDn::OS.MoveToEnd()
 
 #HotIf

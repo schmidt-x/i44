@@ -20,18 +20,11 @@
 	}
 }
 
-^p:: {
-	switch {
-	case Rider.IsActive:  Rider.SearchEverywhere()
-	case VsCode.IsActive: VsCode.GotoFile()
-	}
-}
-
 ^1:: {
 	switch {
-	case Rider.IsActive:    Rider.ToggleExplorer()
-	case Goland.IsActive:   Goland.ToggleExplorer()
-	case VsCode.IsActive:   VsCode.ToggleExplorerFocus()
+	case Rider.IsActive:    Rider.Explorer()
+	case Goland.IsActive:   Goland.Project()
+	case VsCode.IsActive:   VsCode.ShowExplorer()
 	case Obsidian.IsActive: Obsidian.ExplorerFocus()
 	case OperaGX.IsActive:  OperaGX.ToMainWorkspace()
 	}
@@ -39,45 +32,47 @@
 
 ^2:: {
 	switch {
-	case Rider.IsActive:  Rider.ToggleTerminal()
-	case Goland.IsActive: Goland.ToggleTerminal()
-	case VsCode.IsActive: VsCode.OpenTerminal()
+	case Rider.IsActive:  Rider.Terminal()
+	case Goland.IsActive: Goland.Terminal()
+	case VsCode.IsActive: VsCode.Terminal()
 	case OperaGX.IsActive : OperaGX.ToChillWorkspace()
 	}
 }
 
 ^3:: {
 	switch {
-	case Rider.IsActive:    Rider.ToggleDebug()
-	case Goland.IsActive:   Goland.ToggleDebug()
-	case VsCode.IsActive:   VsCode.ToggleDebugFocus()
+	case Rider.IsActive:    Rider.Debug()
+	case Goland.IsActive:   Goland.Debug()
+	case VsCode.IsActive:   VsCode.Debug()
 	case Obsidian.IsActive: Obsidian.ShowOutline()
 	}
 }
 
 ^4:: {
 	switch {
-	case Rider.IsActive:  Rider.ToggleDbExplorer()
-	case Goland.IsActive: Goland.ToggleDbExplorer()
+	case Rider.IsActive:  Rider.Database()
+	case Goland.IsActive: Goland.Database()
 	}
 }
 
 ^5:: {
 	switch {
-	case Rider.IsActive: Rider.ToggleUnitTests()
+	case Rider.IsActive: Rider.UnitTests()
 	}
 }
 
 ^6:: {
 	switch {
-	case Rider.IsActive:  Rider.ToggleSourceControl()
+	case Rider.IsActive:  Rider.Commit()
+	case Goland.IsActive: Goland.Commit()
 	case VsCode.IsActive: VsCode.ToggleSourceControl()
 	}
 }
 
 ^7:: {
 	switch {
-	case Rider.IsActive: Rider.ToggleStructure()
+	case Rider.IsActive:  Rider.Structure()
+	case Goland.IsActive: Goland.Structure()
 	}
 }
 
@@ -87,8 +82,3 @@
 	}
 }
 
-^9:: {
-	switch {
-	case Rider.IsActive: Rider.ToggleServices()
-	}
-}

@@ -46,111 +46,114 @@ class Rider {
 	}
 	
 	
-	; --- Keybindings ---
+	; --- Shortcuts ---
 	
-	static ToggleBreakpoint() => SendInput("{F9}")
+	static OpenSettings() => SendInput("^,")
 	
-	static ParameterInfo() => SendInput("^p")
+	static Collapse() => SendInput("+^[")
 	
-	static UnfoldBlockOfCode() => SendInput("^=")
+	static Expand() => SendInput("+^]")
 	
-	static FoldBlockOfCode() => SendInput("^-")
+	static CollapseAll() => SendInput("^k^0")
 	
-	static CloseTab() => SendInput("^{F4}")
+	static ExpandAll() => SendInput("^k^j")
 	
+	static MoveCaretToMatchingBrace() => SendInput("+^\")
+	
+	static ParameterInfo() => SendInput("+^{Space}")
+	
+	static CloseTab() => SendInput("^w")
+	
+	/*
+	* Same shortcut for «Other/Refresh»
+	* Database Explorer/Refresh is also derived */
 	static ErrorDescription() => SendInput("^{F1}")
 	
-	static GoToDeclarationOrUsages() => SendInput("^b")
+	static GoToDeclarationOrUsages() => SendInput("{F12}")
 	
-	static GoToImplementation() => SendInput("^!b")
+	static GoToImplementation() => SendInput("^{F12}")
 	
-	static CloneCaretAboveWithVirtualSpace() => SendInput("!+{up}")
-	
-	static CloneCaretBelowWithVirtualSpace() => SendInput("!+{down}")
-	
-	static GoBack() => SendInput("^{NumpadSub}")
-	
-	static GoForward() => SendInput("^+{NumpadSub}")
-	
-	static QuickDocumentation() => SendInput("^q")
+	static QuickDocumentation() => SendInput("^k^i")
 	
 	static CommentLine() => SendInput("^/")
 	
-	static ContextActions() => SendInput("!{Enter}")
+	static ContextActions() => SendInput("^.")
 	
-	static NextTab() => SendInput("!{right}")
+	static ToggleBreakpoint() => SendInput("{F9}")
 	
-	static PreviousTab() => SendInput("!{left}")
+	static NextTab() => SendInput("^{PgDn}")
 	
-	static MoveLineUp() => SendInput("^+!{F4}")
+	static PreviousTab() => SendInput("^{PgUp}")
 	
-	static MoveLineDown() => SendInput("^+!{F5}")
-	
-	static ReopenLastClosedTab() => SendInput("^+t")
+	static ReopenLastClosedTab() => SendInput("+^t")
 	
 	static NewFile() {
 		; modified
 		; name: New...
-		; default: Alt + Insert
+		; default: !{Insert}
 		SendInput("^{Insert}")
 	}
 	
+	static ExtendSelection() => SendInput("+!{Right}")
+	
+	static ShrinkSelection() {
+		; modified
+		; name:
+		; default; +^w
+		SendInput("+!{Left}")
+	}
+	
+	static CloneCaretAboveWithVirtualSpace() {
+		; modified
+		; replaced instead: CloneCaretAbove
+		; name: 
+		; default: none
+		SendInput("!^{Up}")
+	}
+	
+	static CloneCaretBelowWithVirtualSpace() {
+		; modified
+		; replaced instead: CloneCaretBelow
+		; name: 
+		; default: none
+		SendInput("!^{Down}")
+	}
+	
+	static DuplicateLineOrSelection() => SendInput("^d")
+	
 	; --- Tool Windows ---
 	
-	static ToggleExplorer() => SendInput("!1")
+	static Explorer() => SendInput("+^e")
 	
-	static ToggleTerminal() => SendInput("^!1")
+	static Terminal() => SendInput("^``")
 	
-	static ToggleDebug() => SendInput("!5")
+	static Debug() => SendInput("+^d")
 	
-	static ToggleDbExplorer() => SendInput("^!3")
+	static Database() => SendInput("!1")
 	
-	static ToggleUnitTests() => SendInput("!8")
+	static UnitTests() => SendInput("+!8")
 	
-	static ILViewer() => SendInput("^!2")
+	static Commit() => SendInput("!0")
 	
-	static ToggleStructure() => SendInput("^{F11}")
+	static Structure() => SendInput("!7")
 	
-	static ToggleServices() => SendInput("^!4")
-	
-	static ToggleSourceControl() => SendInput("^+!2")
+	static ILViewer() => SendInput("!4")
 	
 	; --- ---
 	
-	static OpenSettings() => SendInput("^!s")
+	static ToTabs() => SendInput("^{Numpad0}")
 	
-	static RestorePackages() => SendInput("^{F9}")
-	
-	static BuildSolution() => SendInput("^!+o")
-	
-	static ReformatCode() => SendInput("^!i")
-	
-	static FoldAll() => SendInput("^ma")
-	
-	static UnfoldAll() => SendInput("^mx")
+	static BuildSolution() => SendInput("^{Numpad1}")
 	
 	static ToggleToolbar() => SendInput("^{Numpad2}")
 	
-	static ToTabs() => SendInput("^{6}") ; reformat spaces to tabs
+	static NugetRestore() => SendInput("^{Numpad3}")
 	
-	static Refresh() {
-		; It's the same key as for ErrorDescription. 
-		; Replace with ^!5 if something goes buggy
-		
-		SendInput("^{F1}") ; Other/Refresh/ ('refresh Database Explorer' is derived)
-	}
-	
-	static GotoNextError() => SendInput("{F12}")
-	
-	static GotoPreviousError() => SendInput("+{F12}")
-	
-	static SearchEverywhere() => SendInput("^n")
-	
-	static ToggleInlayHints() => SendInput("^+!{F1}")
+	static ToggleInlayHints() => SendInput("^{Numpad4}")
 	
 	; --- Debugger ---
 	
-	static RerunDebugger() => SendInput("^+{F5}") ; Other/Touchbar/Debugger/Rerun
+	static RerunDebugger() => SendInput("+^{F5}") ; Other/Touchbar/Debugger/Rerun
 	
 	static StopDebugger() => SendInput("+{F5}") ; Other/Touchbar/Debugger/Stop
 	
@@ -161,11 +164,4 @@ class Rider {
 	static StepInto() => SendInput("{F11}") ; Main Menu/Run/Debugger Actions/Step Into
 	
 	; --- ---
-	
-	static MoveCaretToMatchingBrace() => SendInput("^]") ; works only if tapped twice
-	
-	static ExpandSelection() => SendInput("^w")
-	
-	static ShrinkSelection() => SendInput("^+w")
-	
 }

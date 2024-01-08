@@ -20,15 +20,13 @@ class OperaGX {
 	}
 	
 	
-	; --- Keybindings ---
+	; --- Shortcuts ---
 	
-	static FocusOnAddressBar() => SendInput("^l")
-	
-	static SpeedDial() => SendInput("!{Home}")
-	
-	static NewTab() => SendInput("^t")
+	static OpenSettings() => SendInput("^{F12}")
 	
 	static CloseTab() => SendInput("^w")
+	
+	static ReopenLastClosedTabOrWindow() => SendInput("^+t")
 	
 	static ReloadTab() => SendInput("^r")
 	
@@ -36,26 +34,12 @@ class OperaGX {
 	
 	static PreviousTab() => SendInput("^{PgUp}") ; switch left through tabs
 	
-	static MoveTabLeft() => SendInput("^+,") ; move tab left (vimium)
-	
-	static MoveTabRight() => SendInput("^+.") ; move tab right (vimium)
-	
-	static FindPrevious() => SendInput("^+g")
-	
-	static FindNext() => SendInput("^g")
-	
 	static DuplicateTab() {
 		; modified
 		; name: _
 		; default: none
 		SendInput("^1")
 	}
-	
-	static ReopenLastClosedTab() => SendInput("^+t")
-	
-	static OpenSettings() => SendInput("^{F12}")
-	
-	static ReloadAllTabs() => SendInput("^+r")
 	
 	static ToMainWorkspace() {
 		; modified
@@ -77,4 +61,16 @@ class OperaGX {
 		; default: none
 		SendInput("^0")
 	}
+	
+	static FocusOnAddressBar() => SendInput("^l")
+	
+	static SpeedDial() => SendInput("!{Home}")
+	
+	static NewTab() => SendInput("^t")
+	
+	static ReloadAllTabs() => SendInput("^+r")
+	
+	static FindPrevious() => SendInput("^+g")
+	
+	static FindNext() => SendInput("^g")
 }

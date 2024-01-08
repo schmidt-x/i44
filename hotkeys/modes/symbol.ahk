@@ -2,6 +2,8 @@
 
 *F13::Mode.UnsetSybmol()
 
+*F15::return
+
 Insert:: {
 	switch {
 	case Rider.IsActive:  Rider.NewFile()
@@ -13,7 +15,7 @@ Insert:: {
 <+4:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretAboveWithVirtualSpace()
-	case Goland.IsActive: Goland.CopyCursorUp()
+	case Goland.IsActive: Goland.CloneCaretAbove()
 	case VsCode.IsActive: VsCode.CopyCursorUp()
 	}
 }
@@ -21,7 +23,7 @@ Insert:: {
 <+5:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretBelowWithVirtualSpace()
-	case Goland.IsActive: Goland.CopyCursorDown()
+	case Goland.IsActive: Goland.CloneCaretBelow()
 	case VsCode.IsActive: VsCode.CopyCursorDown()
 	}
 }
@@ -32,6 +34,8 @@ Insert:: {
 #HotIf Mode.IsISymbol
 
 *F14::Mode.UnsetSybmol()
+
+*F15::return
 
 <+8::SendInput("->")
 

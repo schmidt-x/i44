@@ -18,16 +18,16 @@ class OS {
 		Run("cmd", p)
 	}
 	
-	
-	; --- Keybindings ---
-	
 	static GetProcessName() => WinGetProcessName("A")
+	
+	
+	; --- Shortcuts ---
 	
 	static OpenClipboard() => SendInput("#v")
 	
-	static Redo() => SendInput("^y")
-	
 	static Undo() => SendInput("^z")
+	
+	static Redo() => SendInput("^y")
 	
 	static Copy() => SendInput("^c")
 	
@@ -73,7 +73,7 @@ class OS {
 	
 	static MoveToEnd() => SendInput("^{End}")
 	
-	static NavigateBack() => SendInput("!{Left}")
+	static SelectToBeginning() => SendInput("+^{Home}")
 	
-	static NavigateForward() => SendInput("!{Right}")
+	static SelectToEnd() => SendInput("+^{End}")
 }

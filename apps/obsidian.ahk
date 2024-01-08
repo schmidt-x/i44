@@ -6,45 +6,48 @@ class Obsidian {
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
-	static UnfoldBlockOfCode() => SendInput("^=")
+	static Run() {
+		Run(this._fullProcessName)
+	}
 	
-	static FoldBlockOfCode() => SendInput("^-")
 	
-	static CloseTab() => SendInput("^w")
+	; --- Shortcuts ---
 	
-	static ToggleReadingMode() => SendInput("^e")
+	static OpenSettings() => SendInput("^,")
 	
-	static GoBack() => SendInput("^!{left}")
+	static FoldMore() => SendInput("+^[")
 	
-	static GoForward() => SendInput("^!{right}")
+	static FoldLess() => SendInput("+^]")
+	
+	static FoldAllHeadingsAndLists() => SendInput("+!^[")
+	
+	static UnfoldAllHeadingsAndLists() => SendInput("+!^]")
+	
+	static CloseCurrentTab() => SendInput("^w")
+	
+	static UndoCloseTab() => SendInput("+^t")
+	
+	static ToggleReadingView() => SendInput("^e")
 	
 	static NextTab() => SendInput("^{PgDn}")
 	
 	static PreviousTab() => SendInput("^{PgUp}")
 	
-	static MoveLineUp() => SendInput("!+{up}")
-	
-	static MoveLineDown() => SendInput("!+{down}")
-	
-	static FindPrevious() => SendInput("+{F3}")
-	
-	static FindNext() => SendInput("{F3}")
-	
 	static ExplorerFocus() => SendInput("!1")
 	
 	static ShowOutline() => SendInput("!3") ; show outline (focus on the right side bar)
 	
-	static OpenSettings() => SendInput("^,")
 	
-	static FoldAll() => SendInput("^+-")
+	; --- Text paste ---
 	
-	static UnfoldAll() => SendInput("^+=")
+	static PasteBoldLink() => SendInput("[****]({left 4}")
 	
-	static SendBoldLink() => SendInput("[****]({left 4}")
+	static PasteSpoilerBlock() => SendInput("``````spoiler-block`n")
 	
-	static SendSpoilerBlock() => SendInput("``````spoiler-block`n")
+	; --- 
 	
-	static Run() {
-		Run(this._fullProcessName)
-	}
+	
+	static FindPrevious() => SendInput("+{F3}")
+	
+	static FindNext() => SendInput("{F3}")
 }

@@ -43,49 +43,44 @@ class Goland {
 		this._projects.Default := ""
 	}
 	
-	; --- ---
 	
-	static ToggleBreakpoint() => SendInput("^{F8}")
+	; --- Shortcuts ---
 	
-	static ParameterInfo() => SendInput("^p")
+	static OpenSettings() => SendInput("^,")
 	
-	static UnfoldBlockOfCode() => SendInput("^=")
+	static Collapse() => SendInput("+^[")
 	
-	static FoldBlockOfCode() => SendInput("^-")
+	static Expand() => SendInput("+^]")
 	
-	static CloseTab() => SendInput("^{F4}")
+	static CollapseAll() => SendInput("^k^0")
+	
+	static ExpandAll() => SendInput("^k^j")
+	
+	static MoveCaretToMatchingBrace() => SendInput("+^\")
+	
+	static ParameterInfo() => SendInput("+^{Space}")
+	
+	static CloseTab() => SendInput("^w")
 	
 	static ErrorDescription() => SendInput("^{F1}")
 	
-	static GoToDeclaration() => SendInput("^b") ; go to declaration or usages
+	static GoToDeclarationOrUsages() => SendInput("{F12}")
 	
-	static GoToImplementation() => SendInput("^!b")
+	static GoToImplementation() => SendInput("^{F12}")
 	
-	static CopyCursorUp() => SendInput("^w")
-	
-	static CopyCursorDown() => SendInput("^e")
-	
-	static GoBack() => SendInput("^!{left}")
-	
-	static GoForward() => SendInput("^!{right}")
-	
-	static QuickDocumentation() => SendInput("^q")
-	
-	static Redo() => SendInput("^+z")
+	static QuickDocumentation() => SendInput("^k^i")
 	
 	static CommentLine() => SendInput("^/")
 	
-	static ContextActions() => SendInput("!{Enter}")
+	static ContextActions() => SendInput("^.")
 	
-	static NextTab() => SendInput("!{right}")
+	static ToggleBreakpoint() => SendInput("{F9}")
 	
-	static PreviousTab() => SendInput("!{left}")
+	static NextTab() => SendInput("^{PgDn}")
 	
-	static MoveLineUp() => SendInput("!+{up}")
+	static PreviousTab() => SendInput("^{PgUp}")
 	
-	static MoveLineDown() => SendInput("!+{down}")
-	
-	static ReopenLastClosedTab() => SendInput("^+t")
+	static ReopenLastClosedTab() => SendInput("+^t")
 	
 	static NewFile() {
 		; modified
@@ -94,23 +89,40 @@ class Goland {
 		SendInput("^{Insert}")
 	}
 	
-	static ToggleExplorer() => SendInput("!1")
+	static ExtendSelection() => SendInput("+!{Right}")
 	
-	static ToggleTerminal() => SendInput("!{F12}")
+	static ShrinkSelection() {
+		; modified
+		; name:
+		; default: +^w
+		SendInput("+!{Left}")
+	}
 	
-	static ToggleDebug() => SendInput("!5")
+	static CloneCaretAbove() => SendInput("!^{Up}")
 	
-	static ToggleDbExplorer() => SendInput("^!3")
+	static CloneCaretBelow() => SendInput("!^{Down}")
 	
-	static OpenSettings() => SendInput("^!s")
+	static DuplicateLineOrSelection() => SendInput("^d")
 	
-	static FoldAll() => SendInput("^+-")
+	; --- Tool Windows ---
 	
-	static UnfoldAll() => SendInput("^+=")
+	static Project() => SendInput("+^e")
+	
+	static Terminal() => SendInput("^``")
+	
+	static Debug() => SendInput("+^d")
+	
+	static Database() => SendInput("!1")
+	
+	static Commit() => SendInput("!0")
+	
+	static Structure() => SendInput("!7")
+	
+	; --- ---
 	
 	static ToggleToolbar() => SendInput("^{Numpad2}")
 	
-	static ToTabs() => SendInput("^6") ; reformat spaces to tabs
+	static ToTabs() => SendInput("^{Numpad0}")
 	
 	
 }
