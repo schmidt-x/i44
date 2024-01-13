@@ -35,9 +35,9 @@ class Mode {
 	static IsInsert  => this._current == ModeType.Insert
 	static IsMouse   => this._current == ModeType.Mouse
 	static IsSelect  => this._current == ModeType.Select
-	static IsNSymbol => this._current == ModeType.Normal | ModeType.Symbol
-	static IsISymbol => this._current == ModeType.Insert | ModeType.Symbol
-	static IsSSymbol => this._current == ModeType.Select | ModeType.Symbol
+	static IsNSymbol => this._current == (ModeType.Normal | ModeType.Symbol)
+	static IsISymbol => this._current == (ModeType.Insert | ModeType.Symbol)
+	static IsSSymbol => this._current == (ModeType.Select | ModeType.Symbol)
 	
 	
 	static SetDefault() {

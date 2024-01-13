@@ -116,6 +116,10 @@
 	ClipSend("qmk compile -kb ergohaven/k02 -km schmidt-x")
 }
 
+:?O::qmkmods:: { ; mods
+	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/modifiers.h")
+}
+
 ; --- ---
 
 

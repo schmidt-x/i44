@@ -12,11 +12,11 @@ CoordMode("Mouse")
 
 #Include hotkeys\global.ahk
 #Include hotkeys\apps.ahk
-#Include hotkeys\modes\insert.ahk
 #Include hotkeys\modes\normal.ahk
-#Include hotkeys\modes\select.ahk
-#Include hotkeys\modes\mouse.ahk
+#Include hotkeys\modes\insert.ahk
 #Include hotkeys\modes\symbol.ahk
+#Include hotkeys\modes\mouse.ahk
+#Include hotkeys\modes\select.ahk
 
 #Include common\hotstrings.ahk
 #Include common\functions.ahk

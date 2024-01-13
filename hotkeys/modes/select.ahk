@@ -48,9 +48,9 @@ PgUp::OS.SelectToPageBeginning()
 
 PgDn::OS.SelectToPageEnd()
 
-^PgUp::OS.SelectToBeginning()
+^PgUp::OS.SelectToFileBeginning()
 
-^PgDn::OS.SelectToEnd()
+^PgDn::OS.SelectToFileEnd()
 
 c::OS.Copy()
 

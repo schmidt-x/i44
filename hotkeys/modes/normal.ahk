@@ -179,6 +179,20 @@ z::OS.Undo()
 
 +Down::OS.ScrollDown()
 
+^Up:: {
+	switch {
+	case Rider.IsActive:  Rider.MoveLineUp()
+	case VsCode.IsActive: VsCode.MoveLineUp()
+	}
+}
+
+^Down:: {
+	switch {
+	case Rider.IsActive:  Rider.MoveLineDown()
+	case VsCode.IsActive: VsCode.MoveLineDown()
+	}
+}
+
 +Left:: { ; inverted ^Left
 	switch {
 	case OperaGX.IsActive:  OperaGX.FindPrevious()
@@ -190,6 +204,26 @@ z::OS.Undo()
 	switch {
 	case OperaGX.IsActive:  OperaGX.FindNext()
 	case Obsidian.IsActive: Obsidian.FindNext()
+	}
+}
+
++!Left:: {
+	switch {
+	case Rider.IsActive:   Rider.Back()
+	case VsCode.IsActive:  VsCode.GoBack()
+	case OperaGX.IsActive: OperaGX.Back()
+	case Discord.IsActive: Discord.Backward()
+	case Chrome.IsActive:  Chrome.Back()
+	}
+}
+
++!Right:: {
+	switch {
+	case Rider.IsActive:   Rider.Forward()
+	case VsCode.IsActive:  VsCode.GoForward()
+	case OperaGX.IsActive: OperaGX.Forward()
+	case Discord.IsActive: Discord.Forward()
+	case Chrome.IsActive:  Chrome.Forward()
 	}
 }
 
@@ -217,20 +251,22 @@ z::OS.Undo()
 	}
 }
 
-<!Home:: {
+!Home:: {
 	switch {
 	case Discord.IsActive: Discord.PreviousSection()
+	default: SendInput("{Blind}{Home}")
 	}
 }
 
-<!End:: {
+!End:: {
 	switch {
 	case Discord.IsActive: Discord.NextSection()
+	default: SendInput("{Blind}{End}")
 	}
 }
 
-^PgUp::OS.MoveToBeginning()
+^PgUp::OS.MoveCursorToFileBeginning()
 
-^PgDn::OS.MoveToEnd()
+^PgDn::OS.MoveCursorToFileEnd()
 
 #HotIf

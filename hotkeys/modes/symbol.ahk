@@ -12,7 +12,7 @@ Insert:: {
 	}
 }
 
-<+4:: {
+<+1:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretAboveWithVirtualSpace()
 	case Goland.IsActive: Goland.CloneCaretAbove()
@@ -20,11 +20,25 @@ Insert:: {
 	}
 }
 
-<+5:: {
+<+3:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretBelowWithVirtualSpace()
 	case Goland.IsActive: Goland.CloneCaretBelow()
 	case VsCode.IsActive: VsCode.CopyCursorDown()
+	}
+}
+
+>+[:: { ; {
+	switch {
+	case Rider.IsActive:  Rider.PrevMethod()
+	case VsCode.IsActive: VsCode.PrevMember()
+	}
+}
+
+>+]:: { ; }
+	switch {
+	case Rider.IsActive:  Rider.NextMethod()
+	case VsCode.IsActive: VsCode.NextMember()
 	}
 }
 
@@ -43,9 +57,9 @@ Insert:: {
 
 <+-::SendInput(":=")
 
-<+>+[::SendInput("«") ; LSft + {
+<+>+[::SendInput("{Blind}{U+00AB}") ; LShift + { => «
 
-<+>+]::SendInput("»") ; LSft + }
+<+>+]::SendInput("{Blind}{U+00BB}") ; LShift + } => »
 
 <+\::SendInput("\n")
 

@@ -23,5 +23,8 @@ class Discord {
 	
 	static PreviousSection() => SendInput("+{F6}")
 	
-	; --- Keybindings ---
+	static Forward() => SendInput("!{Right}")
+	
+	static Backward() => SendInput("!{Left}")
+	
 }

@@ -19,7 +19,6 @@ class Paths {
 	static ScriptDir      => A_ScriptDir
 	static User           => "C:\Users\" . A_UserName
 	static Git            => A_ProgramFiles . "\Git"
-	static Rider          => "C:\Users\" . A_UserName . "\AppData\Local\JetBrains\Toolbox\apps\Rider\ch-0\232.10203.29\bin"
 	
 	static __New() {
 		this._paths.Set(
@@ -40,7 +39,6 @@ class Paths {
 			"ahk/.",    this.ScriptDir,
 			"me",       this.User,
 			"git",      this.Git,
-			"rider",    this.Rider,
 		)
 		
 		this._paths.Default := ""

@@ -88,10 +88,8 @@ class Rider {
 	static ReopenLastClosedTab() => SendInput("+^t")
 	
 	static NewFile() {
-		; modified
-		; name: New...
-		; default: !{Insert}
-		SendInput("^{Insert}")
+		SendInput("{LAlt Down}{Ins}")
+		SendInput("{Blind}{LAlt Up}")
 	}
 	
 	static ExtendSelection() => SendInput("+!{Right}")
@@ -150,6 +148,18 @@ class Rider {
 	static NugetRestore() => SendInput("^{Numpad3}")
 	
 	static ToggleInlayHints() => SendInput("^{Numpad4}")
+	
+	static MoveLineUp() => SendInput("{Blind+#^}!{Up}")
+	
+	static MoveLineDown() => SendInput("{Blind+#^}!{Down}")
+	
+	static Forward() => SendInput("{Blind+#^}!{Right}")
+	
+	static Back() => SendInput("{Blind+#^}!{Left}")
+	
+	static NextMethod() => SendInput("^{Down}")
+	
+	static PrevMethod() => SendInput("^{Up}")
 	
 	; --- Debugger ---
 	

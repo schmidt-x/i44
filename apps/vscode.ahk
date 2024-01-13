@@ -89,7 +89,7 @@ class VsCode {
 		; modified
 		; name: explorer.newFile
 		; default: none
-		SendInput("^{Insert}")
+		SendInput("!{Insert}")
 	}
 	
 	static CopyCursorUp() => SendInput("^!{Up}") ; add cursor above
@@ -105,9 +105,12 @@ class VsCode {
 	static Debug() => SendInput("^+d")
 	
 	static Terminal() {
+		; modified
 		; name: «View: Toggle Terminal»
 		; command: workbench.action.terminal.toggleTerminal
-		SendInput("^``")
+		; reason: focuses Qmk Msys instead
+		; default: ^` (ctrl + `)
+		SendInput("!1")
 	}
 	
 	; --- ---
@@ -116,15 +119,19 @@ class VsCode {
 	
 	static ShrinkSelection() => SendInput("+!{Left}")
 	
-	; --- ---
+	static MoveLineUp() => SendInput("!{Up}")
 	
+	static MoveLineDown() => SendInput("!{Down}")
 	
+	static GoForward() => SendInput("!{Right}")
 	
-	; --- ---
+	static GoBack() => SendInput("!{Left}")
 	
+	static NextMember() => SendInput("^{Down}")
 	
-	static ToTabs() => SendInput("^+4")
-	
+	static PrevMember() => SendInput("^{Up}")
 	
 	static ToggleSourceControl() => SendInput("^+g")
+	
+	
 }

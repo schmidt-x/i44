@@ -5,9 +5,7 @@ class Steam {
 	static Run() => Run(this._fullProcessName)
 	
 	static Close() {
-		steamPID := ProcessExist(this._processName)
-		
-		if steamPID
+		if steamPID := ProcessExist(this._processName)
 			ProcessClose(steamPID)
 	}
 }

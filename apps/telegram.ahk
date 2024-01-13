@@ -11,19 +11,14 @@ class Telegram {
 	static SendMessage() =>	SendInput("{Enter}")
 	
 	static Open() {
-		tgHwnd := WinExist(this._winProcessName)
-		
-		if tgHwnd {
+		if tgHwnd := WinExist(this._winProcessName)
 			WinActivate(tgHwnd)
-		} else {
+		else
 			Run(this._fullProcessName)
-		}
 	}
 	
 	static Close() {
-		tgPID := ProcessExist(this._processName)
-		
-		if tgPID
+		if tgPID := ProcessExist(this._processName)
 			ProcessClose(tgPID)
 	}
 }

@@ -73,4 +73,8 @@ class OperaGX {
 	static FindPrevious() => SendInput("^+g")
 	
 	static FindNext() => SendInput("^g")
+	
+	static Forward() => SendInput("!{Right}")
+	
+	static Back() => SendInput("!{Left}")
 }

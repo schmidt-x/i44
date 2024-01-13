@@ -45,10 +45,6 @@ class OS {
 		SendInput("{WheelDown 2}")
 	}
 	
-	static MoveWindowToLeftScreen() => SendInput("#+{left}")
-	
-	static MoveWindowToRightScreen() => SendInput("#+{right}")
-	
 	static SelectUp() => SendInput("+{up}")
 	
 	static SelectDown() => SendInput("+{down}")
@@ -69,11 +65,11 @@ class OS {
 	
 	static SelectToPageEnd() => SendInput("+{PgDn}")
 	
-	static MoveToBeginning() => SendInput("^{Home}")
+	static MoveCursorToFileBeginning() => SendInput("^{Home}")
 	
-	static MoveToEnd() => SendInput("^{End}")
+	static MoveCursorToFileEnd() => SendInput("^{End}")
 	
-	static SelectToBeginning() => SendInput("+^{Home}")
+	static SelectToFileBeginning() => SendInput("+^{Home}")
 	
-	static SelectToEnd() => SendInput("+^{End}")
+	static SelectToFileEnd() => SendInput("+^{End}")
 }

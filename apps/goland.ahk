@@ -83,10 +83,8 @@ class Goland {
 	static ReopenLastClosedTab() => SendInput("+^t")
 	
 	static NewFile() {
-		; modified
-		; name: New...
-		; default: Alt + Insert
-		SendInput("^{Insert}")
+		SendInput("{LAlt Down}{Ins}")
+		SendInput("{Blind}{LAlt Up}")
 	}
 	
 	static ExtendSelection() => SendInput("+!{Right}")
