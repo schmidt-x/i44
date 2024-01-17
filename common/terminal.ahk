@@ -67,7 +67,6 @@ class Terminal {
 			"sv",      this.sv,
 			"tt",      this.tt,
 			"tb",      this.tb,
-			"rf",      this.rf,
 			"mic",     this.mic,
 			"info",    this.info,
 			"rat",     this.rat,
@@ -90,7 +89,6 @@ class Terminal {
 			"chrome",  this.chrome,
 			"gx",      this.gx,
 			"discord", this.discord,
-			"fdp",     this.fdp,
 		)
 		
 		this._funcs.Default := this.default
@@ -129,12 +127,6 @@ class Terminal {
 		switch {
 		case Rider.IsActive:  Rider.ToggleToolbar()
 		case Goland.IsActive: Goland.ToggleToolbar()
-		}
-	}
-	
-	static rf(*) {
-		switch {
-		case Rider.IsActive: Rider.ReformatCode()
 		}
 	}
 	
@@ -199,10 +191,4 @@ class Terminal {
 	static gx(*) => OperaGX.Run()
 	
 	static discord(*) => Discord.Run()
-	
-	static fdp(*) {
-		switch {
-		case OperaGX.IsActive: OperaGX.ForceDarkPage()
-		}
-	}
 }

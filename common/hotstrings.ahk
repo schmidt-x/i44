@@ -4,15 +4,15 @@
 ; ?  - search everywhere (trigger even if the start is not separated from the previous text)
 
 
-:?::gr:: { 
-	ClipSend("go run main.go")
-}
+; --- dotnet ---
 
 :?::dw:: {
 	ClipSend("dotnet watch --no-hot-reload")
 }
 
-:?O::dusi::dotnet user-secrets init
+:?O::dusi:: {
+	ClipSend("dotnet user-secrets init")
+}
 
 :?O::duss::dotnet user-secrets set "" ""{left 4}
 
@@ -24,13 +24,12 @@
 	ClipSend("dotnet build -c Release")
 }
 
-:?O::cg::<font color=gray></font>{left}^{left}{left 2}
+; --- ---
+
+
+; --- C# ---
 
 :?O::wl::Console.WriteLine();{left 2}
-
-:?O::pl::fmt.Println(){left}
-
-:?O::pf::fmt.Printf("", ){left 4}
 
 :?::rk:: {
 	ClipSend("Console.ReadKey();")
@@ -39,6 +38,34 @@
 :?::dw:: {
 	ClipSend("dotnet watch --no-hot-reload")
 }
+
+:?::rk:: {
+	ClipSend("Console.ReadKey();")
+}
+
+:?::dw:: {
+	ClipSend("dotnet watch --no-hot-reload")
+}
+
+:?O::nie:: {
+	ClipSend("throw new NotImplementedException();")
+}
+
+; --- ---
+
+
+; --- Go ---
+
+:?O::pl::fmt.Println(){left}
+
+:?O::pf::fmt.Printf("", ){left 4}
+
+:?::gr:: { 
+	ClipSend("go run main.go")
+}
+
+; --- ---
+
 
 ; --- git/github ---
 
@@ -123,6 +150,9 @@
 ; --- ---
 
 
+; --- misc ---
+
+:?O::cg::<font color=gray></font>{left}^{left}{left 2}
 
 :?::maps:: {
 	ClipSend("https://www.google.com/maps/@32.8047169,51.095706,15508839m/data=!3m1!1e3?entry=ttu")

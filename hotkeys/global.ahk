@@ -1,12 +1,11 @@
 #SuspendExempt True ; allow hotkeys to be hit even if it's suspended
 
-^<+0:: {
+<+^0:: {
 	Suspend()
-}
-
-*~Esc:: {
 	Mode.SetDefault()
 }
+
+~Escape::Mode.SetDefault()
 
 #SuspendExempt False
 
@@ -32,10 +31,10 @@
 
 ^2:: {
 	switch {
-	case Rider.IsActive:  Rider.Terminal()
-	case Goland.IsActive: Goland.Terminal()
-	case VsCode.IsActive: VsCode.Terminal()
-	case OperaGX.IsActive : OperaGX.ToChillWorkspace()
+	case Rider.IsActive:   Rider.Terminal()
+	case Goland.IsActive:  Goland.Terminal()
+	case VsCode.IsActive:  VsCode.Terminal()
+	case OperaGX.IsActive: OperaGX.ToChillWorkspace()
 	}
 }
 

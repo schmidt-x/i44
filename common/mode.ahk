@@ -9,7 +9,7 @@ class ModeType {
 class Mode {
 	static _current     := unset
 	static _display     := Gui()
-	static _displayEdit := unset
+	static _displayText := unset
 	static _enabled     := true
 	
 	static __New() {
@@ -27,7 +27,7 @@ class Mode {
 		this._display.BackColor := "000000" ; any color (since we're gonna make it transparent)
 		WinSetTransColor(this._display.BackColor . " 240", this._display.Hwnd)
 		this._display.SetFont("s16 c0x5c5c5c", "JetBrains Mono Regular")
-		this._displayEdit := this._display.AddText("Background171717 -E0x255 w90 h27 Center")
+		this._displayText := this._display.AddText("Background171717 -E0x255 w90 h27 Center")
 	}
 	
 	
@@ -120,7 +120,7 @@ class Mode {
 	}
 	
 	static display(layerName) {
-		this._displayEdit.Value := layerName
+		this._displayText.Value := layerName
 	}
 	
 	static hide() {

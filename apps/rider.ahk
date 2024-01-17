@@ -1,7 +1,7 @@
 class Rider {
 	static _processName     := "rider64.exe"
 	static _winProcessName  := "ahk_exe rider64.exe"
-	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\JetBrains\Toolbox\apps\Rider\ch-0\232.10203.29\bin\rider64.exe"
+	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\JetBrains\Toolbox\apps\Rider\ch-0\233.13135.100\bin\rider64.exe"
 	static _projects        := Map()
 	
 	static __New() {
@@ -23,7 +23,7 @@ class Rider {
 		
 		proj := this._projects[projName]
 		
-		if proj == "" {
+		if !proj {
 			Display("Project not found")
 			return
 		} 

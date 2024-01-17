@@ -17,7 +17,7 @@ Enter:: {
 	Terminal.Execute()
 }
 
-Escape:: {
+Esc:: {
 	Terminal.Close()
 }
 

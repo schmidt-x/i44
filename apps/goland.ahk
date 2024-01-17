@@ -1,9 +1,8 @@
 class Goland {
 	static _processName     := "goland64.exe"
 	static _winProcessName  := "ahk_exe goland64.exe"
-	static _fullProcessName := "C:\Users\Schmidt\AppData\Local\JetBrains\Toolbox\apps\Goland\ch-0\223.8617.58\bin\goland64.exe"
-	
-	static _projects := Map()
+	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\JetBrains\Toolbox\apps\Goland\ch-0\233.13135.104\bin\goland64.exe"
+	static _projects        := Map()
 	
 	static __New() {
 		this.init_projects()
@@ -12,17 +11,17 @@ class Goland {
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
-	static Run(project := "") {
-		if StrIsEmptyOrWhiteSpace(project) {
+	static Run(projName := "") {
+		if StrIsEmptyOrWhiteSpace(projName) {
 			if !WinExist(this._winProcessName)
 				Run(this._fullProcessName)
 			
 			return
 		}
 		
-		proj := this._projects[project]
+		proj := this._projects[projName]
 		
-		if proj == "" {
+		if !proj {
 			Display("Project not found")
 			return
 		}

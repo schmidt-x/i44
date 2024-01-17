@@ -51,6 +51,8 @@ Insert:: {
 
 *F15::return
 
+<+7::SendInput("{Blind}{U+2014}") ; —
+
 <+8::SendInput("->")
 
 <+9::SendInput("=>")
