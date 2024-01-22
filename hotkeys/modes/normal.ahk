@@ -54,7 +54,9 @@ e:: {
 	}
 }
 
-g::Terminal.Show()
+g:: {
+	Terminal.Open()
+}
 
 m:: {
 	switch {

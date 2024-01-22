@@ -2,7 +2,11 @@ class QmkMSys {
 	static _fullProcessName         := "C:\QMK_MSYS\conemu\ConEmu64.exe"
 	static _fullProcessNameWithArgs := 'C:\QMK_MSYS\conemu\ConEmu64.exe -NoSingle -NoUpdate -icon "C:\QMK_MSYS\icon.ico" -title "QMK MSYS" -run "C:\QMK_MSYS\usr\bin\bash.exe" -l -i -cur_console:m:""'
 	
-	static Run(folder := "") {
+	static Run(folder := "", &err := "") {
+		if !IsSet(err) {
+			err := ""
+		}
+		
 		if StrIsEmptyOrWhiteSpace(folder) {
 			Run(this._fullProcessNameWithArgs, Paths.Qmk)
 			return
@@ -10,7 +14,7 @@ class QmkMSys {
 		
 		if folder == "." {
 			if !Explorer.TryGetPath(&path) {
-				Display("path not found")
+				err := "path not found"
 				return
 			} 
 			
@@ -19,7 +23,7 @@ class QmkMSys {
 		}
 		
 		if !Paths.TryFind(folder, &p) {
-			Display("folder not found")
+			err := "folder not found"
 			return
 		}
 		

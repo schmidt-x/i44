@@ -11,10 +11,14 @@ class Rider {
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
-	static Run(projName := "") {
+	static Run(projName := "", &err := "") {
+		if !IsSet(err) {
+			err := ""
+		}
+		
 		if StrIsEmptyOrWhiteSpace(projName) {
-			; It doesn't seem to have a way to open the welcome page
-			; (if at least one solution is already opened)
+			; It doesn't seem to have a way to open the Welcome page,
+			; if at least one solution is already opened
 			if !WinExist(this._winProcessName)
 				Run(this._fullProcessName)
 			
@@ -24,7 +28,7 @@ class Rider {
 		proj := this._projects[projName]
 		
 		if !proj {
-			Display("Project not found")
+			err := "project not found"
 			return
 		} 
 		

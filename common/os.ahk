@@ -4,14 +4,18 @@ class OS {
 	
 	static ShutDown() => Run("shutdown /s /t 0")
 	
-	static RunCmd(folder := "") {
+	static RunCmd(folder := "", &err := "") {
+		if !IsSet(err) {
+			err := ""
+		}
+		
 		if StrIsEmptyOrWhiteSpace(folder) {
 			Run("cmd", Paths.User)
 			return
 		}
 		
 		if !Paths.TryFind(folder, &p) {
-			Display("folder not found")
+			err := "folder not found"
 			return
 		}
 		

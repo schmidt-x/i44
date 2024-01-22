@@ -5,9 +5,27 @@
 	Mode.SetDefault()
 }
 
-~Escape::Mode.SetDefault()
-
 #SuspendExempt False
+
++Enter:: {
+	switch {
+	case VsCode.IsActive:   VsCode.InsertLineBelow()
+	case Telegram.IsActive: Telegram.SendMessage()
+	default: SendInput("{Blind}{Enter}")
+	}
+}
+
+^Enter:: {
+	switch {
+	case VsCode.IsActive: VsCode.InsertLineAbove()
+	case Explorer.IsActive: 
+		VsCode.OpenSelected(&err)
+		if err {
+			Display(err)
+		}
+	default: SendInput("{Blind}{Enter}")
+	}
+}
 
 ^+s:: {
 	switch {
@@ -19,13 +37,19 @@
 	}
 }
 
+^0:: {
+	switch {
+	case OperaGX.IsActive: OperaGX.ForceDarkPage()
+	}
+}
+
 ^1:: {
 	switch {
 	case Rider.IsActive:    Rider.Explorer()
 	case Goland.IsActive:   Goland.Project()
 	case VsCode.IsActive:   VsCode.ShowExplorer()
 	case Obsidian.IsActive: Obsidian.ExplorerFocus()
-	case OperaGX.IsActive:  OperaGX.ToMainWorkspace()
+	default: SendInput("{Blind}1")
 	}
 }
 
@@ -34,7 +58,7 @@
 	case Rider.IsActive:   Rider.Terminal()
 	case Goland.IsActive:  Goland.Terminal()
 	case VsCode.IsActive:  VsCode.Terminal()
-	case OperaGX.IsActive: OperaGX.ToChillWorkspace()
+	default: SendInput("{Blind}2")
 	}
 }
 
@@ -72,12 +96,14 @@
 	switch {
 	case Rider.IsActive:  Rider.Structure()
 	case Goland.IsActive: Goland.Structure()
+	case OperaGX.IsActive: OperaGX.ToMainWorkspace()
 	}
 }
 
 ^8:: {
 	switch {
-	case Rider.IsActive: Rider.ILViewer()
+	case Rider.IsActive:   Rider.ILViewer()
+	case OperaGX.IsActive: OperaGX.ToChillWorkspace()
 	}
 }
 

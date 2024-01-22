@@ -38,28 +38,29 @@ class OperaGX {
 		; modified
 		; name: _
 		; default: none
-		SendInput("^1")
+		SendInput("{LAlt Down}1")
+		SendInput("{Blind}{LAlt Up}")
 	}
 	
 	static ToMainWorkspace() {
 		; modified
 		; name: Workspaces shortcuts (main)
 		; default: none
-		SendInput("^2")
+		SendInput("!2")
 	}
 	
 	static ToChillWorkspace() {
 		; modified
 		; name: Workspaces shortcuts (chill)
 		; default: none
-		SendInput("^3")
+		SendInput("!3")
 	}
 	
 	static ForceDarkPage() {
 		; modified
 		; name: _
 		; default: none
-		SendInput("^0")
+		SendInput("!0")
 	}
 	
 	static FocusOnAddressBar() => SendInput("^l")

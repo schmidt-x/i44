@@ -53,11 +53,6 @@ DisplayInfoOnHover() {
 	}
 }
 
-StrIsQuoted(str) {
-	return SubStr(str, 1, 1) = '"' 
-		&& SubStr(str, StrLen(str), 1) = '"'
-}
-
 StrIsEmptyOrWhiteSpace(str) {
 	len := StrLen(str)
 	

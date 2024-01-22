@@ -11,7 +11,7 @@ class Terminal {
 	
 	static IsActive => WinActive(this._terminal.Hwnd)
 	
-	static Show() {
+	static Open() {
 		this._prevWinId := WinExist("A")
 		this._terminal.Show("y1020 x847")
 	}
@@ -22,7 +22,11 @@ class Terminal {
 		this._terminal.Hide()
 	}
 	
-	static Execute() {
+	static Execute(&err := "") {
+		if !IsSet(err) {
+			err := ""
+		}
+		
 		input := this._terminalEdit.Value
 		this.Close()
 		
@@ -35,7 +39,7 @@ class Terminal {
 				
 				if !WinWaitActive(prevWinId, , 0.25) {
 					; give up
-					MsgBox("Focus was stolen!!!")
+					err := "Focus was stolen!!!"
 					this._prevWinId := 0
 					return
 				}
@@ -44,15 +48,17 @@ class Terminal {
 			this._prevWinId := 0
 		}
 		
-		if StrIsEmptyOrWhiteSpace(input)
+		if StrIsEmptyOrWhiteSpace(input) {
+			err := "command is empty"
 			return
+		}
 		
 		; Divide it into just 2 parts and pass the arguments (if any) as a single string,
 		; allowing further functions to handle those arguments the way they need to.
 		parts := StrSplit(input, "`s", , 2)
 		
 		if parts.Length == 1
-			this._funcs[input](this)
+			this._funcs[parts[1]](this)
 		else
 			this._funcs[parts[1]](this, parts[2])
 	}
@@ -103,15 +109,75 @@ class Terminal {
 	}
 	
 	
-	; --- FUNCS ---
+	; --- funcs ---
 	
 	static default(*) {
 		Display("key not found")
 	}
 	
-	static code(args := "") => VsCode.Run(args)
+	static code(args := "") {
+		VsCode.Run(args, &err)
+		if err {
+			Display(err)
+		}
+	}
 	
-	static cmd(args := "") => OS.RunCmd(args)
+	static cmd(args := "") {
+		OS.RunCmd(args, &err)
+		if err {
+			Display(err)
+		}
+	}
+	
+	static mic(*) {
+		Run("D:\Files\123.sesx") ; run Adobe Audition
+	}
+
+	static obsid(*) => Obsidian.Run()
+
+	static exp(args := "") {
+		Explorer.Run(args, &err)
+		if err {
+			Display(err)
+		}
+	}
+
+	static tg(*) => Telegram.Open()
+	
+	static tg_minus(*) => Telegram.Close()
+
+	static stm(*) => Steam.Run()
+	
+	static stm_minus(*) => Steam.Close()
+	
+	static msys(args := "") {
+		QmkMSys.Run(args, &err)
+		if err {
+			Display(err)
+		}
+	}
+	
+	static rider(args := "") {
+		Rider.Run(args, &err)
+		if err {
+			Display(err)
+		}
+	}
+	
+	static goland(args := "") {
+		Goland.Run(args, &err)
+		if err {
+			Display(err)
+		}
+	}
+	
+	static docker(*) => Docker.Run()
+	
+	static chrome(*) => Chrome.Run()
+	
+	static gx(*) => OperaGX.Run()
+	
+	static discord(*) => Discord.Run()
 
 	static sv(*) => RunCurrentScript()
 	
@@ -128,10 +194,6 @@ class Terminal {
 		case Rider.IsActive:  Rider.ToggleToolbar()
 		case Goland.IsActive: Goland.ToggleToolbar()
 		}
-	}
-	
-	static mic(*) { ; run Adobe Audition
-		Run("D:\Files\123.sesx")
 	}
 	
 	static info(*) => DisplayInfoOnHover()
@@ -156,39 +218,14 @@ class Terminal {
 
 	static tgl(*) => Mode.ToggleDisplay()
 	
-	static obsid(*) => Obsidian.Run()
-	
-	static exp(args := "") => Explorer.Run(args)
-	
-	static tg(*) => Telegram.Open()
-	
-	static tg_minus(*) => Telegram.Close()
-	
 	static inlh(*) {
 		switch {
 		case Rider.IsActive: Rider.ToggleInlayHints()
 		}
 	}
 	
-	static stm(*) => Steam.Run()
-	
-	static stm_minus(*) => Steam.Close()
-	
 	static sleep(*) => OS.Sleep()
 	
 	static shdown(*) => OS.ShutDown()
 	
-	static msys(args := "") => QmkMSys.Run(args)
-	
-	static rider(args := "") => Rider.Run(args)
-	
-	static goland(args := "") => Goland.Run(args)
-	
-	static docker(*) => Docker.Run()
-	
-	static chrome(*) => Chrome.Run()
-	
-	static gx(*) => OperaGX.Run()
-	
-	static discord(*) => Discord.Run()
 }

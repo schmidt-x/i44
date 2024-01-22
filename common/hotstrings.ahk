@@ -123,28 +123,20 @@
 	ClipSend("https://docs.qmk.fm/#/")
 }
 
-:?O::qmkk:: { ; list of keys
-	ClipSend("https://docs.qmk.fm/#/keycodes")
-}
-
-:?O::qmkmk:: { ; mod keys
-	ClipSend("https://docs.qmk.fm/#/feature_advanced_keycodes")
-}
-
-:?O::qmktd:: { ; tap dance
-	ClipSend("https://docs.qmk.fm/#/feature_tap_dance")
-}
-
-:?O::qmkmac:: { ; macros
-	ClipSend("https://docs.qmk.fm/#/feature_macros")
-}
-
 :?O::qmkcp:: { ; compile
 	ClipSend("qmk compile -kb ergohaven/k02 -km schmidt-x")
 }
 
-:?O::qmkmods:: { ; mods
+:?O::qmkmods:: { ; modifiers.h
 	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/modifiers.h")
+}
+
+:?O::qmkkc:: { ; keycodes.h
+	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/keycodes.h")
+}
+
+:?O::qmkqkc:: { ; quantum_keycodes.h
+	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/quantum_keycodes.h")
 }
 
 ; --- ---

@@ -6,14 +6,18 @@ class Explorer {
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
-	static Run(folder := "") {
+	static Run(folder := "", &err := "") {
+		if !IsSet(err) {
+			err := ""
+		}
+		
 		if StrIsEmptyOrWhiteSpace(folder) {
 			SendInput("#e")
 			return
 		}
 	
 		if !Paths.TryFind(folder, &path) {
-			Display("folder not found")
+			err := "folder not found"
 			return
 		}
 		
@@ -21,10 +25,10 @@ class Explorer {
 	}
 
 	static TryGetPath(&path, clsid := false) {
+		path := ""
 		explorerHwnd := WinActive(this._winProcessName)
 		
 		if !explorerHwnd {
-			path := ""
 			return false
 		}
 	
@@ -42,7 +46,6 @@ class Explorer {
 			p := window.Document.Folder.Self.Path
 		
 			if !clsid && SubStr(p, 1, 2) == "::" {
-				path := ""
 				return false
 			}
 		
@@ -50,7 +53,6 @@ class Explorer {
 			return true
 		}
 		
-		path := ""
 		return false
 	}
 	

@@ -1,5 +1,7 @@
 #HotIf Mode.IsSelect
 
+~Escape::Mode.SetDefault()
+
 *F13::Mode.SetNormal()
 
 *F14::Mode.SetInsert()

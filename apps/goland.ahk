@@ -11,7 +11,11 @@ class Goland {
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
-	static Run(projName := "") {
+	static Run(projName := "", &err := "") {
+		if !IsSet(err) {
+			err := ""
+		}
+		
 		if StrIsEmptyOrWhiteSpace(projName) {
 			if !WinExist(this._winProcessName)
 				Run(this._fullProcessName)
@@ -22,7 +26,7 @@ class Goland {
 		proj := this._projects[projName]
 		
 		if !proj {
-			Display("Project not found")
+			err := "project not found"
 			return
 		}
 		
