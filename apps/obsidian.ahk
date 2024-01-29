@@ -37,7 +37,6 @@ class Obsidian {
 	
 	static ShowOutline() => SendInput("!3") ; show outline (focus on the right side bar)
 	
-	
 	; --- Text paste ---
 	
 	static PasteBoldLink() => SendInput("[****]({left 4}")
@@ -46,8 +45,15 @@ class Obsidian {
 	
 	; --- 
 	
-	
 	static FindPrevious() => SendInput("+{F3}")
 	
 	static FindNext() => SendInput("{F3}")
+	
+	static NavigateBack() => SendInput("!{Left}")
+	
+	static NavigateForward() => SendInput("!{Right}")
+	
+	static MoveLineUp() => SendInput("+!{Up}")
+	
+	static MoveLineDown() => SendInput("+!{Down}")
 }

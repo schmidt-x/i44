@@ -1,6 +1,6 @@
 #HotIf Mode.IsNormal
 
-F13::return
+*F13::return
 
 *F14::Mode.SetInsert()
 
@@ -44,6 +44,12 @@ c::return
 
 d::return
 
++d:: {
+	switch {
+	case OperaGX.IsActive: OperaGX.ForceDarkPage()
+	}
+}
+
 e:: {
 	switch {
 	case Rider.IsActive:   Rider.ParameterInfo()
@@ -51,6 +57,13 @@ e:: {
 	case VsCode.IsActive:  VsCode.ParameterHints()
 	case OperaGX.IsActive: OperaGX.SpeedDial()
 	case Discord.IsActive: Discord.EditMessage()
+	}
+}
+
++e:: {
+	switch {
+	case OperaGX.IsActive: OperaGX.Extensions()
+	default: SendInput("{Blind}e")
 	}
 }
 
@@ -183,15 +196,17 @@ z::OS.Undo()
 
 ^Up:: {
 	switch {
-	case Rider.IsActive:  Rider.MoveLineUp()
-	case VsCode.IsActive: VsCode.MoveLineUp()
+	case Rider.IsActive:    Rider.MoveLineUp()
+	case VsCode.IsActive:   VsCode.MoveLineUp()
+	case Obsidian.IsActive: Obsidian.MoveLineUp()
 	}
 }
 
 ^Down:: {
 	switch {
-	case Rider.IsActive:  Rider.MoveLineDown()
-	case VsCode.IsActive: VsCode.MoveLineDown()
+	case Rider.IsActive:    Rider.MoveLineDown()
+	case VsCode.IsActive:   VsCode.MoveLineDown()
+	case Obsidian.IsActive: Obsidian.MoveLineDown()
 	}
 }
 
@@ -211,21 +226,23 @@ z::OS.Undo()
 
 +!Left:: {
 	switch {
-	case Rider.IsActive:   Rider.Back()
-	case VsCode.IsActive:  VsCode.GoBack()
-	case OperaGX.IsActive: OperaGX.Back()
-	case Discord.IsActive: Discord.Backward()
-	case Chrome.IsActive:  Chrome.Back()
+	case Rider.IsActive:    Rider.Back()
+	case VsCode.IsActive:   VsCode.GoBack()
+	case OperaGX.IsActive:  OperaGX.Back()
+	case Discord.IsActive:  Discord.Backward()
+	case Chrome.IsActive:   Chrome.Back()
+	case Obsidian.IsActive: Obsidian.NavigateBack()
 	}
 }
 
 +!Right:: {
 	switch {
-	case Rider.IsActive:   Rider.Forward()
-	case VsCode.IsActive:  VsCode.GoForward()
-	case OperaGX.IsActive: OperaGX.Forward()
-	case Discord.IsActive: Discord.Forward()
-	case Chrome.IsActive:  Chrome.Forward()
+	case Rider.IsActive:    Rider.Forward()
+	case VsCode.IsActive:   VsCode.GoForward()
+	case OperaGX.IsActive:  OperaGX.Forward()
+	case Discord.IsActive:  Discord.Forward()
+	case Chrome.IsActive:   Chrome.Forward()
+	case Obsidian.IsActive: Obsidian.NavigateForward()
 	}
 }
 

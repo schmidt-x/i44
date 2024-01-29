@@ -58,9 +58,9 @@ class OperaGX {
 	
 	static ForceDarkPage() {
 		; modified
-		; name: _
 		; default: none
-		SendInput("!0")
+		SendInput("{LAlt Down}0")
+		SendInput("{Blind}{LAlt Up}")
 	}
 	
 	static FocusOnAddressBar() => SendInput("^l")
@@ -78,4 +78,12 @@ class OperaGX {
 	static Forward() => SendInput("!{Right}")
 	
 	static Back() => SendInput("!{Left}")
+	
+	static SwitchToLastTab() {
+		; modified
+		; default: none
+		SendInput("+!d")
+	}
+	
+	static Extensions() => SendInput("+^e")
 }

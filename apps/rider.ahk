@@ -123,6 +123,10 @@ class Rider {
 	
 	static DuplicateLineOrSelection() => SendInput("^d")
 	
+	static StartNewLine() => SendInput("^{Enter}")
+	
+	static StartNewLineBeforeCurrent() => SendInput("+^{Enter}")
+	
 	; --- Tool Windows ---
 	
 	static Explorer() => SendInput("+^e")

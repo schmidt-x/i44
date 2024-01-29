@@ -10,6 +10,7 @@
 +Enter:: {
 	switch {
 	case VsCode.IsActive:   VsCode.InsertLineBelow()
+	case Rider.IsActive:    Rider.StartNewLine()
 	case Telegram.IsActive: Telegram.SendMessage()
 	default: SendInput("{Blind}{Enter}")
 	}
@@ -17,7 +18,6 @@
 
 ^Enter:: {
 	switch {
-	case VsCode.IsActive: VsCode.InsertLineAbove()
 	case Explorer.IsActive: 
 		VsCode.OpenSelected(&err)
 		if err {
@@ -27,7 +27,7 @@
 	}
 }
 
-^+s:: {
++^s:: {
 	switch {
 	case Rider.IsActive:    Rider.OpenSettings()
 	case Goland.IsActive:   Goland.OpenSettings()
@@ -39,7 +39,8 @@
 
 ^0:: {
 	switch {
-	case OperaGX.IsActive: OperaGX.ForceDarkPage()
+	case OperaGX.IsActive: OperaGX.SwitchToLastTab()
+	default: SendInput("{Blind}0")
 	}
 }
 
@@ -68,6 +69,7 @@
 	case Goland.IsActive:   Goland.Debug()
 	case VsCode.IsActive:   VsCode.Debug()
 	case Obsidian.IsActive: Obsidian.ShowOutline()
+	default: SendInput("{Blind}3")
 	}
 }
 
@@ -75,12 +77,14 @@
 	switch {
 	case Rider.IsActive:  Rider.Database()
 	case Goland.IsActive: Goland.Database()
+	default: SendInput("{Blind}4")
 	}
 }
 
 ^5:: {
 	switch {
 	case Rider.IsActive: Rider.UnitTests()
+	default: SendInput("{Blind}5")
 	}
 }
 
@@ -89,14 +93,16 @@
 	case Rider.IsActive:  Rider.Commit()
 	case Goland.IsActive: Goland.Commit()
 	case VsCode.IsActive: VsCode.ToggleSourceControl()
+	default: SendInput("{Blind}6")
 	}
 }
 
 ^7:: {
 	switch {
-	case Rider.IsActive:  Rider.Structure()
-	case Goland.IsActive: Goland.Structure()
+	case Rider.IsActive:   Rider.Structure()
+	case Goland.IsActive:  Goland.Structure()
 	case OperaGX.IsActive: OperaGX.ToMainWorkspace()
+	default: SendInput("{Blind}7")
 	}
 }
 
@@ -104,6 +110,7 @@
 	switch {
 	case Rider.IsActive:   Rider.ILViewer()
 	case OperaGX.IsActive: OperaGX.ToChillWorkspace()
+	default: SendInput("{Blind}8")
 	}
 }
 
