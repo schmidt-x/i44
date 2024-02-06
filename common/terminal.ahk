@@ -90,7 +90,6 @@ class Terminal {
 			"shdown",  this.shdown,
 			"msys",    this.msys,
 			"rider",   this.rider,
-			"goland",  this.goland,
 			"docker",  this.docker,
 			"chrome",  this.chrome,
 			"gx",      this.gx,
@@ -164,13 +163,6 @@ class Terminal {
 		}
 	}
 	
-	static goland(args := "") {
-		Goland.Run(args, &err)
-		if err {
-			Display(err)
-		}
-	}
-	
 	static docker(*) => Docker.Run()
 	
 	static chrome(*) => Chrome.Run()
@@ -184,7 +176,6 @@ class Terminal {
 	static tt(*) {
 		switch {
 		case Rider.IsActive:  Rider.ToTabs()
-		case Goland.IsActive: Goland.ToTabs()
 		case VsCode.IsActive: VsCode.ToTabs()
 		}
 	}
@@ -192,7 +183,6 @@ class Terminal {
 	static tb(*) {
 		switch {
 		case Rider.IsActive:  Rider.ToggleToolbar()
-		case Goland.IsActive: Goland.ToggleToolbar()
 		}
 	}
 	

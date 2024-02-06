@@ -1,7 +1,7 @@
 class Rider {
 	static _processName     := "rider64.exe"
 	static _winProcessName  := "ahk_exe rider64.exe"
-	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\JetBrains\Toolbox\apps\Rider\ch-0\233.13135.100\bin\rider64.exe"
+	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Programs\Rider\bin\rider64.exe"
 	static _projects        := Map()
 	
 	static __New() {

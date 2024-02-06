@@ -30,7 +30,6 @@
 +^s:: {
 	switch {
 	case Rider.IsActive:    Rider.OpenSettings()
-	case Goland.IsActive:   Goland.OpenSettings()
 	case VsCode.IsActive:   VsCode.OpenSettings()
 	case Obsidian.IsActive: Obsidian.OpenSettings()
 	case OperaGX.IsActive:  OperaGX.OpenSettings()
@@ -47,7 +46,6 @@
 ^1:: {
 	switch {
 	case Rider.IsActive:    Rider.Explorer()
-	case Goland.IsActive:   Goland.Project()
 	case VsCode.IsActive:   VsCode.ShowExplorer()
 	case Obsidian.IsActive: Obsidian.ExplorerFocus()
 	default: SendInput("{Blind}1")
@@ -57,7 +55,6 @@
 ^2:: {
 	switch {
 	case Rider.IsActive:   Rider.Terminal()
-	case Goland.IsActive:  Goland.Terminal()
 	case VsCode.IsActive:  VsCode.Terminal()
 	default: SendInput("{Blind}2")
 	}
@@ -66,7 +63,6 @@
 ^3:: {
 	switch {
 	case Rider.IsActive:    Rider.Debug()
-	case Goland.IsActive:   Goland.Debug()
 	case VsCode.IsActive:   VsCode.Debug()
 	case Obsidian.IsActive: Obsidian.ShowOutline()
 	default: SendInput("{Blind}3")
@@ -76,7 +72,6 @@
 ^4:: {
 	switch {
 	case Rider.IsActive:  Rider.Database()
-	case Goland.IsActive: Goland.Database()
 	default: SendInput("{Blind}4")
 	}
 }
@@ -91,7 +86,6 @@
 ^6:: {
 	switch {
 	case Rider.IsActive:  Rider.Commit()
-	case Goland.IsActive: Goland.Commit()
 	case VsCode.IsActive: VsCode.ToggleSourceControl()
 	default: SendInput("{Blind}6")
 	}
@@ -100,7 +94,6 @@
 ^7:: {
 	switch {
 	case Rider.IsActive:   Rider.Structure()
-	case Goland.IsActive:  Goland.Structure()
 	case OperaGX.IsActive: OperaGX.ToMainWorkspace()
 	default: SendInput("{Blind}7")
 	}

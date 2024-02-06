@@ -34,7 +34,6 @@ End::OS.SelectToLineEnd()
 	switch {
 	case Rider.IsActive:  Rider.ExtendSelection()
 	case VsCode.IsActive: VsCode.ExpandSelection()
-	case Goland.IsActive: Goland.ExtendSelection()
 	}
 }
 
@@ -42,7 +41,6 @@ End::OS.SelectToLineEnd()
 	switch {
 	case Rider.IsActive:  Rider.ShrinkSelection()
 	case VsCode.IsActive: VsCode.ShrinkSelection()
-	case Goland.IsActive: Goland.ShrinkSelection()
 	}
 }
 
@@ -60,6 +58,6 @@ s::return
 
 v::OS.Paste()
 
-x::OS.Cut()
+^y::OS.Cut()
 
 #HotIf

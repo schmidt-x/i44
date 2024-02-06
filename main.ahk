@@ -31,7 +31,6 @@ CoordMode("Mouse")
 #Include apps\discord.ahk
 #Include apps\operaGx.ahk
 #Include apps\qmkMSys.ahk
-#Include apps\goland.ahk
 #Include apps\vscode.ahk
 #Include apps\chrome.ahk
 #Include apps\docker.ahk

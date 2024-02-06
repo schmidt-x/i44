@@ -7,7 +7,6 @@
 Insert:: {
 	switch {
 	case Rider.IsActive:  Rider.NewFile()
-	case Goland.IsActive: Goland.NewFile()
 	case VsCode.IsActive: VsCode.NewFile()
 	}
 }
@@ -15,7 +14,6 @@ Insert:: {
 <+1:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretAboveWithVirtualSpace()
-	case Goland.IsActive: Goland.CloneCaretAbove()
 	case VsCode.IsActive: VsCode.CopyCursorUp()
 	}
 }
@@ -23,7 +21,6 @@ Insert:: {
 <+3:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretBelowWithVirtualSpace()
-	case Goland.IsActive: Goland.CloneCaretBelow()
 	case VsCode.IsActive: VsCode.CopyCursorDown()
 	}
 }

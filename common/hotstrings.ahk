@@ -54,15 +54,9 @@
 ; --- ---
 
 
-; --- Go ---
+; --- Rust ---
 
-:?O::pl::fmt.Println(){left}
-
-:?O::pf::fmt.Printf("", ){left 4}
-
-:?::gr:: { 
-	ClipSend("go run main.go")
-}
+:?O::pl::println{!}("");{left 3}
 
 ; --- ---
 
