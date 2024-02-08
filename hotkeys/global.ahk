@@ -11,7 +11,6 @@
 	switch {
 	case VsCode.IsActive:   VsCode.InsertLineBelow()
 	case Rider.IsActive:    Rider.StartNewLine()
-	case Telegram.IsActive: Telegram.SendMessage()
 	default: SendInput("{Blind}{Enter}")
 	}
 }

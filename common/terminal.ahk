@@ -4,6 +4,16 @@ class Terminal {
 	static _funcs        := Map()
 	static _prevWinId    := 0
 	
+	static _width  := 360
+	static _height := 32
+	
+	static _isCenterRelative := true
+	static _posX := 1920 / 2
+	static _posY := 1054
+	
+	static _gui_padd_x := 23
+	static _gui_padd_y := 14
+	
 	static __New() {
 		this.init_funcs()
 		this.init_terminal()
@@ -12,8 +22,13 @@ class Terminal {
 	static IsActive => WinActive(this._terminal.Hwnd)
 	
 	static Open() {
+		static terminal_pos := Format("x{1} y{2}"
+			, this._posX - this._gui_padd_x - (this._isCenterRelative ? this._width  / 2 : 0)
+			, this._posY - this._gui_padd_y - (this._isCenterRelative ? this._height / 2 : 0)
+		)
+		
 		this._prevWinId := WinExist("A")
-		this._terminal.Show("y1020 x847")
+		this._terminal.Show(terminal_pos)
 	}
 	
 	static Close() {
@@ -104,7 +119,9 @@ class Terminal {
 		this._terminal.BackColor := "000000"
 		WinSetTransColor(this._terminal.BackColor . " 230", this._terminal.Hwnd)
 		this._terminal.SetFont("s18 c0xbdbdbd", "JetBrains Mono Regular")
-		this._terminalEdit := this._terminal.AddEdit("Background171717 -E0x255 Center w180 h32")
+		
+		editOpts := Format("Background171717 -E0x255 Center w{1} h{2}", this._width, this._height)
+		this._terminalEdit := this._terminal.AddEdit(editOpts)
 	}
 	
 	

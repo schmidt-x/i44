@@ -8,9 +8,9 @@ MoveMouseToCenter() {
 	MouseMove(x + width/2, y + height/2) ; move mouse to the center
 }
 
-ClipSend(strToSend) {
+ClipSend(str) {
 	prevClip := ClipboardAll()
-	A_Clipboard := strToSend
+	A_Clipboard := str
 	SendInput("{ctrl down}v{ctrl up}")
 	SetTimer(() => A_Clipboard := prevClip, -50)
 }

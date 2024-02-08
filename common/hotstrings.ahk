@@ -58,6 +58,14 @@
 
 :?O::pl::println{!}("");{left 3}
 
+:?O::cr:: {
+	ClipSend("cargo run")
+}
+
+:?O::cch:: {
+	ClipSend("cargo check")
+}
+
 ; --- ---
 
 
@@ -81,6 +89,10 @@
 
 :?O::ghr:: { ; repos
 	ClipSend("https://github.com/schmidt-x?tab=repositories")
+}
+
+:?O::gcm:: {
+	SendInput("git cm `"`"{left}")
 }
 
 ; --- ---
