@@ -23,7 +23,7 @@ class Terminal {
 	
 	static Open() {
 		static terminal_pos := Format("x{1} y{2}"
-			, this._posX - this._gui_padd_x - (this._isCenterRelative ? this._width  / 2 : 0)
+			, this._posX - this._gui_padd_x - (this._isCenterRelative ? this._width / 2 : 0)
 			, this._posY - this._gui_padd_y - (this._isCenterRelative ? this._height / 2 : 0)
 		)
 		

@@ -1,5 +1,7 @@
 #HotIf Mode.IsNSymbol
 
+*F14::Mode.SetInsert()
+
 *F13::Mode.UnsetSybmol()
 
 *F15::return
