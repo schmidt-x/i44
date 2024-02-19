@@ -39,8 +39,6 @@ c::return
 	}
 }
 
-d::return
-
 +d:: {
 	switch {
 	case OperaGX.IsActive: OperaGX.ForceDarkPage()

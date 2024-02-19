@@ -13,10 +13,8 @@ class Paths {
 	static ProjectsRust         => "C:\Projects\Rust"
 	static ProjectsRustTestProj => "C:\Projects\Rust\test_proj"
 	static Qmk                  => "C:\Users\" . A_UserName . "\qmk_firmware"
-	static QmkK02               => "C:\Users\" . A_UserName . "\qmk_firmware\keyboards\ergohaven\k02"
-	static QmkUserMe            => "C:\Users\" . A_UserName . "\qmk_firmware\users\schmidt-x"
-	static VialQmk              => "C:\Users\" . A_UserName . "\vial-qmk"
-	static VialK02              => "C:\Users\" . A_UserName . "\vial-qmk\keyboards\ergohaven\k02"
+	static QmkKbK02             => "C:\Users\" . A_UserName . "\qmk_firmware\keyboards\ergohaven\k02"
+	static QmkUsersMe           => "C:\Users\" . A_UserName . "\qmk_firmware\users\schmidt-x"
 	static ScriptFullPath       => A_ScriptFullPath
 	static ScriptDir            => A_ScriptDir
 	static User                 => "C:\Users\" . A_UserName
@@ -36,10 +34,8 @@ class Paths {
 			"proj/r",      this.ProjectsRust,
 			"proj/r/test", this.ProjectsRustTestProj,
 			"qmk",         this.Qmk,
-			"qmk/.",       this.QmkK02,
-			"qmk/usr/.",   this.QmkUserMe,
-			"vial-qmk",    this.VialQmk,
-			"vial/.",      this.VialK02,
+			"qmk/.",       this.QmkKbK02,
+			"qmk/usr/.",   this.QmkUsersMe,
 			"ahk/.",       this.ScriptDir,
 			"me",          this.User,
 			"git",         this.Git,

@@ -12,6 +12,16 @@ class Mode {
 	static _displayText := unset
 	static _enabled     := true
 	
+	static _width  := 90
+	static _height := 27
+	
+	static _isCenterRelative := false
+	static _posX := 0
+	static _posY := 1000
+	
+	static _gui_padd_x := 20
+	static _gui_padd_y := 12
+	
 	static __New() {
 		this.init_display()
 		
@@ -27,7 +37,9 @@ class Mode {
 		this._display.BackColor := "000000" ; any color (since we're gonna make it transparent)
 		WinSetTransColor(this._display.BackColor . " 240", this._display.Hwnd)
 		this._display.SetFont("s16 c0x5c5c5c", "JetBrains Mono Regular")
-		this._displayText := this._display.AddText("Background171717 -E0x255 w90 h27 Center")
+		
+		textOpts := Format("Background171717 -E0x255 w{1} h{2} Center", this._width, this._height)
+		this._displayText  := this._display.AddText(textOpts)
 	}
 	
 	
@@ -84,12 +96,13 @@ class Mode {
 		if this._current & ModeType.Symbol
 			return
 		
+		prevMode := this._current
 		this._current |= ModeType.Symbol
 		
-		switch {
-		case this._current & ModeType.Normal: this.displayNSymbol()
-		case this._current & ModeType.Insert: this.displayISymbol()
-		case this._current & ModeType.Select: this.displaySSymbol()
+		switch prevMode {
+		case ModeType.Normal: this.displayNSymbol()
+		case ModeType.Insert: this.displayISymbol()
+		case ModeType.Select: this.displaySSymbol()
 		default: this.displayUndef()
 		}
 	}
@@ -128,7 +141,12 @@ class Mode {
 	}
 	
 	static show() {
-		this._display.Show("x-20 y987 NoActivate")
+		static textPos := Format("x{1} y{2} NoActivate"
+			, this._posX - this._gui_padd_x - (this._isCenterRelative ? this._width / 2 : 0)
+			, this._posY - this._gui_padd_y - (this._isCenterRelative ? this._height / 2 : 0)
+		)
+		
+		this._display.Show(textPos)
 	}
 	
 	static displayNormal() => this.display("Normal")
