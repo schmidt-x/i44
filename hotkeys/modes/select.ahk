@@ -52,12 +52,12 @@ PgDn::OS.SelectToPageEnd()
 
 ^PgDn::OS.SelectToFileEnd()
 
-c::OS.Copy()
+v::OS.Copy()
 
-s::return
+r::return
 
-v::OS.Paste()
+>#v::OS.Paste()
 
-^y::OS.Cut()
+>^y::OS.Cut()
 
 #HotIf

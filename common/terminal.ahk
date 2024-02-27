@@ -85,7 +85,7 @@ class Terminal {
 		this._funcs.Set(
 			"code",    this.code,
 			"cmd",     this.cmd,
-			"sv",      this.sv,
+			"rl",      this.rl,
 			"tt",      this.tt,
 			"tb",      this.tb,
 			"mic",     this.mic,
@@ -188,7 +188,7 @@ class Terminal {
 	
 	static discord(*) => Discord.Run()
 
-	static sv(*) => RunCurrentScript()
+	static rl(*) => RunCurrentScript()
 	
 	static tt(*) {
 		switch {

@@ -8,28 +8,26 @@
 
 *F16::Mode.SetMouse()
 
-a:: {
+b:: {
+	switch {
+	case Rider.IsActive:  Rider.GoToDeclarationOrUsages()
+	case VsCode.IsActive:	VsCode.GoToDefinition()
+	}
+}
+
++b:: {
+	switch {
+	case Rider.IsActive:  Rider.GoToImplementation()
+	case VsCode.IsActive: VsCode.GoToImplementation()
+	}
+}
+
+c:: {
 	switch {
 	case OperaGX.IsActive:  OperaGX.FocusOnAddressBar()
 	case Explorer.IsActive: Explorer.FocusOnAddressBar()
 	}
 }
-
-b:: {
-	switch {
-	case Rider.IsActive:  Rider.MoveCaretToMatchingBrace()
-	case VsCode.IsActive: VsCode.GotoBracket()
-	}
-}
-
-^b:: {
-	switch {
-	case Rider.IsActive:  Rider.ToggleBreakpoint()
-	case VsCode.IsActive: VsCode.ToggleBreakpoint()
-	}
-}
-
-c::return
 
 +c:: {
 	switch {
@@ -45,27 +43,9 @@ c::return
 	}
 }
 
-e:: {
-	switch {
-	case Rider.IsActive:   Rider.ParameterInfo()
-	case VsCode.IsActive:  VsCode.ParameterHints()
-	case OperaGX.IsActive: OperaGX.SpeedDial()
-	case Discord.IsActive: Discord.EditMessage()
-	}
-}
+g::Terminal.Open()
 
-+e:: {
-	switch {
-	case OperaGX.IsActive: OperaGX.Extensions()
-	default: SendInput("{Blind}e")
-	}
-}
-
-g:: {
-	Terminal.Open()
-}
-
-m:: {
+h:: {
 	switch {
 	case Rider.IsActive:    Rider.Expand()
 	case VsCode.IsActive:   VsCode.Unfold()
@@ -73,7 +53,7 @@ m:: {
 	}
 }
 
-+m:: {
++h:: {
 	switch {
 	case Rider.IsActive:    Rider.ExpandAll()
 	case VsCode.IsActive:   VsCode.UnfoldAll()
@@ -81,26 +61,42 @@ m:: {
 	}
 }
 
-n:: {
+k:: {
 	switch {
-	case Rider.IsActive:    Rider.Collapse()
-	case VsCode.IsActive:   VsCode.Fold()
-	case Obsidian.IsActive: Obsidian.FoldMore()
-	case OperaGX.IsActive:  OperaGX.NewTab()
-	case Chrome.IsActive:   Chrome.NewTab()
-	case Explorer.IsActive: Explorer.NewTab()
+	case Rider.IsActive:  Rider.MoveCaretToMatchingBrace()
+	case VsCode.IsActive: VsCode.GotoBracket()
 	}
 }
 
-+n:: {
+^k:: {
 	switch {
-	case Rider.IsActive:    Rider.CollapseAll()
-	case VsCode.IsActive:   VsCode.FoldAll()
-	case Obsidian.IsActive: Obsidian.FoldAllHeadingsAndLists()
+	case Rider.IsActive:  Rider.ToggleBreakpoint()
+	case VsCode.IsActive: VsCode.ToggleBreakpoint()
 	}
 }
 
-q:: {
+l:: {
+	switch {
+	case Rider.IsActive:  Rider.QuickDocumentation()
+	case VsCode.IsActive: VsCode.ShowOrFocusHover()
+	}
+}
+
+p:: {
+	switch {
+	case Rider.IsActive:    Rider.ErrorDescription()
+	case Obsidian.IsActive: Obsidian.ToggleReadingView()
+	case OperaGX.IsActive:  OperaGX.ReloadTab()
+	case Chrome.IsActive:   Chrome.ReloadTab()
+	case Discord.IsActive:  Discord.ReplyToMessage()
+	}
+}
+
+r::Mode.SetSelect()
+
+v::return
+
+w:: {
 	switch {
 	case Rider.IsActive:    Rider.CloseTab()
 	case VsCode.IsActive:   VsCode.CloseEditor()
@@ -111,7 +107,7 @@ q:: {
 	}
 }
 
-+q:: {
++w:: {
 	switch {
 	case Rider.IsActive:   Rider.ReopenLastClosedTab()
 	case OperaGX.IsActive: OperaGX.ReopenLastClosedTabOrWindow()
@@ -119,38 +115,37 @@ q:: {
 	}
 }
 
-r:: {
+x:: {
 	switch {
-	case Rider.IsActive:    Rider.ErrorDescription()
-	case Obsidian.IsActive: Obsidian.ToggleReadingView()
-	case OperaGX.IsActive:  OperaGX.ReloadTab()
-	case Chrome.IsActive:   Chrome.ReloadTab()
-	case Discord.IsActive:  Discord.ReplyToMessage()
+	case Rider.IsActive:    Rider.Collapse()
+	case VsCode.IsActive:   VsCode.Fold()
+	case Obsidian.IsActive: Obsidian.FoldMore()
+	case OperaGX.IsActive:  OperaGX.NewTab()
+	case Chrome.IsActive:   Chrome.NewTab()
+	case Explorer.IsActive: Explorer.NewTab()
 	}
 }
 
-s::Mode.SetSelect()
-
-t:: {
++x:: {
 	switch {
-	case Rider.IsActive:  Rider.GoToDeclarationOrUsages()
-	case VsCode.IsActive:	VsCode.GoToDefinition()
+	case Rider.IsActive:    Rider.CollapseAll()
+	case VsCode.IsActive:   VsCode.FoldAll()
+	case Obsidian.IsActive: Obsidian.FoldAllHeadingsAndLists()
 	}
 }
 
-+t:: {
+y:: {
 	switch {
-	case Rider.IsActive:  Rider.GoToImplementation()
-	case VsCode.IsActive: VsCode.GoToImplementation()
+	case Rider.IsActive:   Rider.ParameterInfo()
+	case VsCode.IsActive:  VsCode.ParameterHints()
+	case OperaGX.IsActive: OperaGX.SpeedDial()
+	case Discord.IsActive: Discord.EditMessage()
 	}
 }
 
-v::OS.OpenClipboard()
-
-w:: {
++y:: {
 	switch {
-	case Rider.IsActive:  Rider.QuickDocumentation()
-	case VsCode.IsActive: VsCode.ShowOrFocusHover()
+	case OperaGX.IsActive: OperaGX.Extensions()
 	}
 }
 
@@ -246,14 +241,14 @@ w:: {
 	}
 }
 
-!Home:: {
+<!Home:: {
 	switch {
 	case Discord.IsActive: Discord.PreviousSection()
 	default: SendInput("{Blind}{Home}")
 	}
 }
 
-!End:: {
+<!End:: {
 	switch {
 	case Discord.IsActive: Discord.NextSection()
 	default: SendInput("{Blind}{End}")

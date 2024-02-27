@@ -27,12 +27,6 @@ class OS {
 	
 	; --- Shortcuts ---
 	
-	static OpenClipboard() => SendInput("#v")
-	
-	static Undo() => SendInput("^z")
-	
-	static Redo() => SendInput("^y")
-	
 	static Copy() => SendInput("^c")
 	
 	static Cut() => SendInput("^x")
