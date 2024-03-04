@@ -26,18 +26,9 @@
 
 ; --- ---
 
-
 ; --- C# ---
 
 :?O::wl::Console.WriteLine();{left 2}
-
-:?::rk:: {
-	ClipSend("Console.ReadKey();")
-}
-
-:?::dw:: {
-	ClipSend("dotnet watch --no-hot-reload")
-}
 
 :?::rk:: {
 	ClipSend("Console.ReadKey();")

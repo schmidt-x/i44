@@ -68,4 +68,6 @@ class Explorer {
 	static PreviousTab() => SendInput("^+{tab}")
 	
 	static NewTab() => SendInput("^t")
+	
+	static CreateFolder() => SendInput("+^n")
 }
