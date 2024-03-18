@@ -69,7 +69,11 @@ class OperaGX {
 	
 	static NewTab() => SendInput("^t")
 	
-	static ReloadAllTabs() => SendInput("^+r")
+	static ReloadAllTabs() {
+		; modified
+		; default: None
+		SendInput("^+r")
+	} 
 	
 	static FindPrevious() => SendInput("^+g")
 	

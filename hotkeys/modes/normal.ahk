@@ -143,12 +143,6 @@ y:: {
 	}
 }
 
-+y:: {
-	switch {
-	case OperaGX.IsActive: OperaGX.Extensions()
-	}
-}
-
 ':: {
 	switch {
 	case Rider.IsActive:  Rider.CommentLine()

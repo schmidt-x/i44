@@ -145,5 +145,9 @@ class VsCode {
 	
 	static InsertLineBelow() => SendInput("^{Enter}")
 	
-	
+	static ToTabs() {
+		; modified
+		; default: None
+		SendInput("+^4")
+	} 
 }

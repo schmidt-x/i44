@@ -40,10 +40,11 @@ class Rider {
 	
 	static init_projects() {
 		this._projects.Set(
-			"console", "C:\Projects\CSharp\TestConsole\TestConsole.sln",
-			"web",     "C:\Projects\CSharp\TestWeb\TestWeb.sln",
-			"web2",    "C:\Projects\CSharp\TestWeb2\TestWeb2.sln",
-			"tgbot",   "C:\Projects\CSharp\TestTgBot\TestTgBot.sln"
+			"file",    Paths.ProjectsCSharp . "\FileStorageApi\FileStorageApi.sln",
+			"console", Paths.ProjectsCSharp . "\TestConsole\TestConsole.sln",
+			"web",     Paths.ProjectsCSharp . "\TestWeb\TestWeb.sln",
+			"web2",    Paths.ProjectsCSharp . "\TestWeb2\TestWeb2.sln",
+			"tgbot",   Paths.ProjectsCSharp . "\TestTgBot\TestTgBot.sln"
 		)
 		
 		this._projects.Default := ""

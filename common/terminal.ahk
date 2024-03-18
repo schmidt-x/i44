@@ -72,12 +72,21 @@ class Terminal {
 		; allowing further functions to handle those arguments the way they need to.
 		parts := StrSplit(input, "`s", , 2)
 		
+		if !this._TryFindCommand(parts[1], &func) {
+			err := "command not found"
+			return
+		}
+		
 		if parts.Length == 1
-			this._funcs[parts[1]](this)
+			func(this)
 		else
-			this._funcs[parts[1]](this, parts[2])
+			func(this, parts[2])
 	}
 	
+	static _TryFindCommand(command, &func) {
+		func := this._funcs[command]
+		return func != ""
+	}
 	
 	; --- init ---
 	
@@ -111,7 +120,7 @@ class Terminal {
 			"discord", this.discord,
 		)
 		
-		this._funcs.Default := this.default
+		this._funcs.Default := ""
 	}
 	
 	static init_terminal() {
@@ -126,10 +135,6 @@ class Terminal {
 	
 	
 	; --- funcs ---
-	
-	static default(*) {
-		Display("key not found")
-	}
 	
 	static code(args := "") {
 		VsCode.Run(args, &err)
