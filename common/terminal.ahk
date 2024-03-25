@@ -193,7 +193,7 @@ class Terminal {
 	
 	static discord(*) => Discord.Run()
 
-	static rl(*) => RunCurrentScript()
+	static rl(*) => Reload()
 	
 	static tt(*) {
 		switch {

@@ -15,10 +15,6 @@ ClipSend(str) {
 	SetTimer(() => A_Clipboard := prevClip, -50)
 }
 
-RunCurrentScript() {
-	Run(Paths.ScriptFullPath) ; run the current script
-}
-
 DisplayInfoOnHover() {
 	xPrev := 0
 	yPrev := 0

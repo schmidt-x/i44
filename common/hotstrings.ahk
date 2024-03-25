@@ -166,11 +166,11 @@
 }
 
 :?::gd:: {
-	ClipSend(FormatTime(, "MM.dd.yyyy")) ; get date
+	ClipSend(FormatTime(, "dd.MM.yyyy")) ; get date
 }
 
 :?::gdt:: {
-	ClipSend(FormatTime(, "dd.MM:yyyy hh:mm:ss tt")) ; get date-time
+	ClipSend(FormatTime(, "dd.MM.yyyy hh:mm:ss tt")) ; get date-time
 }
 
 :?::sb:: {

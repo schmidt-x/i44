@@ -25,6 +25,7 @@ b:: {
 c:: {
 	switch {
 	case OperaGX.IsActive:  OperaGX.FocusOnAddressBar()
+	case Chrome.IsActive:   Chrome.FocusOnAddressBar()
 	case Explorer.IsActive: Explorer.FocusOnAddressBar()
 	}
 }

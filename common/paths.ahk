@@ -4,8 +4,7 @@ class Paths {
 	static C                    => "C:\"
 	static D                    => "D:\"
 	static Desktop              => A_Desktop
-	static Study                => "C:\Study"
-	static StudyGit             => "C:\Study\Git"
+	static Study                => "C:\Users\Schmidt\OneDrive\Study"
 	static Torrent              => "D:\Torrent"
 	static Radeon               => "D:\Radeon ReLive\unknown"
 	static Projects             => "C:\Projects"
@@ -26,7 +25,6 @@ class Paths {
 			"D",           this.D,
 			"desk",        A_Desktop,
 			"std",         this.Study,
-			"std/git",     this.StudyGit,
 			"torr",        this.Torrent,
 			"radeon",      this.Radeon,
 			"proj",        this.Projects,

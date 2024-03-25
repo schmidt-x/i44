@@ -36,4 +36,6 @@ class Chrome {
 	static Forward() => SendInput("!{Right}")
 	
 	static Back() => SendInput("!{Left}")
+	
+	static FocusOnAddressBar() => SendInput("^l")
 }
