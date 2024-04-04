@@ -70,4 +70,8 @@ class OS {
 	static SelectToFileBeginning() => SendInput("+^{Home}")
 	
 	static SelectToFileEnd() => SendInput("+^{End}")
+	
+	static SendBlindUp() => SendInput("{Blind}{Up}")
+	
+	static SendBlindDown() => SendInput("{Blind}{Down}")
 }

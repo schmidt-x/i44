@@ -30,6 +30,8 @@ class OperaGX {
 	
 	static ReloadTab() => SendInput("^r")
 	
+	static ReloadWithoutCache() => SendInput("^{F5}")
+	
 	static NextTab() => SendInput("^{PgDn}") ; switch right through tabs
 	
 	static PreviousTab() => SendInput("^{PgUp}") ; switch left through tabs

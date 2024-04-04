@@ -93,6 +93,12 @@ p:: {
 	}
 }
 
++p:: {
+	switch {
+	case OperaGX.IsActive: OperaGX.ReloadWithoutCache()
+	}
+}
+
 r::Mode.SetSelect()
 
 v::return
@@ -162,11 +168,42 @@ y:: {
 
 +Down::OS.ScrollDown()
 
+!Up:: {
+	switch {
+	case Rider.IsActive:  Rider.ScrollTerminalUp()
+	case VsCode.IsActive: VsCode.ScrollTerminalUpByLine()
+	default: OS.SendBlindUp()
+	}
+}
+
+!Down:: {
+	switch {
+	case Rider.IsActive:  Rider.ScrollTerminalDown()
+	case VsCode.IsActive: VsCode.ScrollTerminalDownByLine()
+	default: OS.SendBlindDown()
+	}
+}
+
++!Up:: {
+	switch {
+	case VsCode.IsActive: VsCode.ScrollTerminalUpByPage()
+	default: OS.SendBlindUp()
+	}
+}
+
++!Down:: {
+	switch {
+	case VsCode.IsActive: VsCode.ScrollTerminalDownByPage()
+	default: OS.SendBlindDown()
+	}
+}
+
 ^Up:: {
 	switch {
 	case Rider.IsActive:    Rider.MoveLineUp()
 	case VsCode.IsActive:   VsCode.MoveLineUp()
 	case Obsidian.IsActive: Obsidian.MoveLineUp()
+	default: OS.SendBlindUp()
 	}
 }
 
@@ -175,6 +212,7 @@ y:: {
 	case Rider.IsActive:    Rider.MoveLineDown()
 	case VsCode.IsActive:   VsCode.MoveLineDown()
 	case Obsidian.IsActive: Obsidian.MoveLineDown()
+	default: OS.SendBlindDown()
 	}
 }
 

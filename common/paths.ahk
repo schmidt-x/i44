@@ -12,6 +12,7 @@ class Paths {
 	static ProjectsRust         => "C:\Projects\Rust"
 	static ProjectsRustTestProj => "C:\Projects\Rust\test_proj"
 	static Qmk                  => "C:\Users\" . A_UserName . "\qmk_firmware"
+	static QmkKbI44             => "C:\Users\" . A_Username . "\qmk_firmware\keyboards\ergohaven\imperial44"
 	static QmkKbK02             => "C:\Users\" . A_UserName . "\qmk_firmware\keyboards\ergohaven\k02"
 	static QmkUsersMe           => "C:\Users\" . A_UserName . "\qmk_firmware\users\schmidt-x"
 	static ScriptFullPath       => A_ScriptFullPath
@@ -32,7 +33,8 @@ class Paths {
 			"proj/r",      this.ProjectsRust,
 			"proj/r/test", this.ProjectsRustTestProj,
 			"qmk",         this.Qmk,
-			"qmk/.",       this.QmkKbK02,
+			"qmk/i44",     this.QmkKbI44,
+			"qmk/k02",     this.QmkKbK02,
 			"qmk/usr/.",   this.QmkUsersMe,
 			"ahk/.",       this.ScriptDir,
 			"me",          this.User,

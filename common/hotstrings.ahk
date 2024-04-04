@@ -117,10 +117,15 @@
 ; --- Qmk ---
 
 :?O::qmk:: { ; docs
-	ClipSend("https://docs.qmk.fm/#/")
+	ClipSend("https://docusaurus.qmk.fm/")
+	; ClipSend("https://docs.qmk.fm/#/") ; deprecated
 }
 
-:?O::qmkcp:: { ; compile
+:?O::cpi44:: { ; compile Imperial44
+	ClipSend("qmk compile -kb ergohaven/imperial44 -km schmidt-x")
+}
+
+:?O::cpk02:: { ; compile K:02
 	ClipSend("qmk compile -kb ergohaven/k02 -km schmidt-x")
 }
 

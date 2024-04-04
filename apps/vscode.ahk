@@ -149,5 +149,13 @@ class VsCode {
 		; modified
 		; default: None
 		SendInput("+^4")
-	} 
+	}
+	
+	static ScrollTerminalUpByLine() => SendInput("!^{PgUp}")
+	
+	static ScrollTerminalDownByLine() => SendInput("!^{PgDn}")
+	
+	static ScrollTerminalUpByPage() => SendInput("+{PgUp}")
+	
+	static ScrollTerminalDownByPage() => SendInput("+{PgDn}")
 }

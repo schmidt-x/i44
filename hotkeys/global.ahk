@@ -9,8 +9,8 @@
 
 +Enter:: {
 	switch {
-	case VsCode.IsActive:   VsCode.InsertLineBelow()
-	case Rider.IsActive:    Rider.StartNewLine()
+	case VsCode.IsActive: VsCode.InsertLineBelow()
+	case Rider.IsActive:  Rider.StartNewLine()
 	default: SendInput("{Blind}{Enter}")
 	}
 }

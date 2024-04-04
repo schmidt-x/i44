@@ -12,4 +12,8 @@ Esc:: {
 	Terminal.Close()
 }
 
+^Bs:: {
+	SendInput("{Ctrl Down}{Left}{Del}{Ctrl Up}")
+}
+
 #HotIf

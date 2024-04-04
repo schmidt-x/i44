@@ -170,6 +170,10 @@ class Rider {
 	
 	static PrevMethod() => SendInput("^{Up}")
 	
+	static ScrollTerminalUp() => SendInput("^{Up}")
+	
+	static ScrollTerminalDown() => SendInput("^{Down}")
+	
 	; --- Debugger ---
 	
 	static RerunDebugger() => SendInput("+^{F5}") ; Other/Touchbar/Debugger/Rerun
