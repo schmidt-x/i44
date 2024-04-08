@@ -73,6 +73,7 @@ k:: {
 	switch {
 	case Rider.IsActive:  Rider.ToggleBreakpoint()
 	case VsCode.IsActive: VsCode.ToggleBreakpoint()
+	default: SendInput("{Blind}k")
 	}
 }
 

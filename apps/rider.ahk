@@ -69,9 +69,8 @@ class Rider {
 	
 	static CloseTab() => SendInput("^w")
 	
-	/*
-	* Same shortcut for «Other/Refresh»
-	* Database Explorer/Refresh is also derived */
+	; Same shortcut for «Other/Refresh»
+	; Database Explorer/Refresh is also derived 
 	static ErrorDescription() => SendInput("^{F1}")
 	
 	static GoToDeclarationOrUsages() => SendInput("{F12}")

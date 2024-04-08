@@ -74,4 +74,6 @@ class OS {
 	static SendBlindUp() => SendInput("{Blind}{Up}")
 	
 	static SendBlindDown() => SendInput("{Blind}{Down}")
+	
+	static SendBlindEnter() => SendInput("{Blind}{Enter}")
 }

@@ -11,7 +11,7 @@
 	switch {
 	case VsCode.IsActive: VsCode.InsertLineBelow()
 	case Rider.IsActive:  Rider.StartNewLine()
-	default: SendInput("{Blind}{Enter}")
+	default: OS.SendBlindEnter()
 	}
 }
 
@@ -22,7 +22,7 @@
 		if err {
 			Display(err)
 		}
-	default: SendInput("{Blind}{Enter}")
+		default: OS.SendBlindEnter()
 	}
 }
 

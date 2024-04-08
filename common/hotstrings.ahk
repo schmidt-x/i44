@@ -144,6 +144,19 @@
 ; --- ---
 
 
+; --- Twitch ---
+
+:?O::twch:: {
+	ClipSend("https://www.twitch.tv/directory/category/just-chatting")
+}
+
+:?O::twtr:: {
+	ClipSend("https://www.twitch.tv/directory/category/escape-from-tarkov")
+}
+
+; --- --- 
+
+
 ; --- misc ---
 
 :?O::cg::<font color=gray></font>{left}^{left}{left 2}
