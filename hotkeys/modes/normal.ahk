@@ -8,6 +8,8 @@
 
 *F16::Mode.SetMouse()
 
+*F17::Mode.SetSelect()
+
 b:: {
 	switch {
 	case Rider.IsActive:  Rider.GoToDeclarationOrUsages()
@@ -99,8 +101,6 @@ p:: {
 	case OperaGX.IsActive: OperaGX.ReloadWithoutCache()
 	}
 }
-
-r::Mode.SetSelect()
 
 v::return
 

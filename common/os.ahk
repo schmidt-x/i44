@@ -27,12 +27,6 @@ class OS {
 	
 	; --- Shortcuts ---
 	
-	static Copy() => SendInput("^c")
-	
-	static Cut() => SendInput("^x")
-	
-	static Paste() => SendInput("^v")
-	
 	static ScrollUp() {
 		MoveMouseToCenter()
 		SendInput("{WheelUp 2}")
@@ -43,33 +37,12 @@ class OS {
 		SendInput("{WheelDown 2}")
 	}
 	
-	static SelectUp() => SendInput("+{up}")
-	
-	static SelectDown() => SendInput("+{down}")
-	
-	static SelectLeft() => SendInput("+{left}")
-	
-	static SelectRight() => SendInput("+{right}")
-	
-	static SelectLeftByWord() => SendInput("^+{left}")
-	
-	static SelectRightByWord() => SendInput("^+{right}")
-	
-	static SelectToLineBeginning() => SendInput("+{home}")
-	
-	static SelectToLineEnd() => SendInput("+{end}")
-	
-	static SelectToPageBeginning() => SendInput("+{PgUp}")
-	
-	static SelectToPageEnd() => SendInput("+{PgDn}")
-	
 	static MoveCursorToFileBeginning() => SendInput("^{Home}")
 	
 	static MoveCursorToFileEnd() => SendInput("^{End}")
 	
-	static SelectToFileBeginning() => SendInput("+^{Home}")
 	
-	static SelectToFileEnd() => SendInput("+^{End}")
+	; --- Blind Input ---
 	
 	static SendBlindUp() => SendInput("{Blind}{Up}")
 	

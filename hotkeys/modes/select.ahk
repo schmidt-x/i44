@@ -1,7 +1,5 @@
 #HotIf Mode.IsSelect
 
-~Escape::Mode.SetDefault()
-
 *F13::Mode.SetNormal()
 
 *F14::Mode.SetInsert()
@@ -10,54 +8,30 @@
 
 *F16::Mode.SetMouse()
 
-Up::OS.SelectUp()
+<+>+Up::OS.ScrollUp()
 
-Down::OS.SelectDown()
+<+>+Down::OS.ScrollDown()
 
-+Up::OS.ScrollUp()
-
-+Down::OS.ScrollDown()
-
-Left::OS.SelectLeft()
-
-Right::OS.SelectRight()
-
-^Left::OS.SelectLeftByWord()
-
-^Right::OS.SelectRightByWord()
-
-Home::OS.SelectToLineBeginning()
-
-End::OS.SelectToLineEnd()
-
-+End:: {
+<+>+End:: {
 	switch {
 	case Rider.IsActive:  Rider.ExtendSelection()
 	case VsCode.IsActive: VsCode.ExpandSelection()
 	}
 }
 
-+Home:: {
+<+>+Home:: {
 	switch {
 	case Rider.IsActive:  Rider.ShrinkSelection()
 	case VsCode.IsActive: VsCode.ShrinkSelection()
 	}
 }
 
-PgUp::OS.SelectToPageBeginning()
+<^>+Home:: {
+	return
+}
 
-PgDn::OS.SelectToPageEnd()
-
-^PgUp::OS.SelectToFileBeginning()
-
-^PgDn::OS.SelectToFileEnd()
-
-v::OS.Copy()
-
-r::return
-
->#v::OS.Paste()
-
->^y::OS.Cut()
+<^>+End::{
+	return
+}
 
 #HotIf

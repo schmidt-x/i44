@@ -4,6 +4,7 @@
 
 *F13::Mode.UnsetSybmol()
 
+; sent on returning from SYMB+ to SYMB (QMK)
 *F15::return
 
 Insert:: {
@@ -48,6 +49,8 @@ Insert:: {
 
 *F14::Mode.UnsetSybmol()
 
+; sent on returning from SYMB+ to SYMB 
+; and/or from NORML to SYMB (QMK)
 *F15::return
 
 <+7::SendInput("{Blind}{U+2014}") ; —
@@ -69,6 +72,6 @@ Insert:: {
 
 #HotIf Mode.IsSSymbol
 
-*F13::Mode.UnsetSybmol()
+*F17::Mode.UnsetSybmol()
 
 #HotIf

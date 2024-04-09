@@ -101,7 +101,7 @@ class Rider {
 	static ShrinkSelection() {
 		; modified
 		; name:
-		; default; +^w
+		; default: +^w
 		SendInput("+!{Left}")
 	}
 	
