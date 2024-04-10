@@ -10,7 +10,7 @@
 	ClipSend("dotnet watch --no-hot-reload")
 }
 
-:?O::dusi:: {
+:?::dusi:: {
 	ClipSend("dotnet user-secrets init")
 }
 
@@ -38,7 +38,7 @@
 	ClipSend("dotnet watch --no-hot-reload")
 }
 
-:?O::nie:: {
+:?::nie:: {
 	ClipSend("throw new NotImplementedException();")
 }
 
@@ -49,11 +49,11 @@
 
 :?O::pl::println{!}("");{left 3}
 
-:?O::cr:: {
+:?::cr:: {
 	ClipSend("cargo run")
 }
 
-:?O::cch:: {
+:?::cch:: {
 	ClipSend("cargo check")
 }
 
@@ -62,8 +62,16 @@
 
 ; --- git/github ---
 
+:?::grsh:: {
+	ClipSend("git reset --soft HEAD~")
+}
+
 :?::grs:: {
 	ClipSend("git reset --soft ")
+}
+
+:?::grhh:: {
+	ClipSend("git reset --hard HEAD~")
 }
 
 :?::grh:: {
@@ -74,16 +82,20 @@
 	ClipSend("--recurse-submodules")
 }
 
-:?O::ghm:: { ; me
+:?::ghm:: { ; me
 	ClipSend("https://github.com/schmidt-x")
 }
 
-:?O::ghr:: { ; repos
+:?::ghr:: { ; my repos
 	ClipSend("https://github.com/schmidt-x?tab=repositories")
 }
 
-:?O::gcm:: {
+:?::gcm:: {
 	SendInput("git cm `"`"{left}")
+}
+
+:?::ghqmki44:: {
+	ClipSend("https://github.com/schmidt-x/qmk_firmware/tree/schmidt-x/keyboards/ergohaven/imperial44")
 }
 
 ; --- ---
@@ -116,28 +128,28 @@
 
 ; --- Qmk ---
 
-:?O::qmk:: { ; docs
+:?::qmk:: { ; docs
 	ClipSend("https://docusaurus.qmk.fm/")
-	; ClipSend("https://docs.qmk.fm/#/") ; deprecated
+	; ClipSend("https://docs.qmk.fm/#/") ; deprecated?
 }
 
-:?O::cpi44:: { ; compile Imperial44
+:?::cpi44:: { ; compile Imperial44
 	ClipSend("qmk compile -kb ergohaven/imperial44 -km schmidt-x")
 }
 
-:?O::cpk02:: { ; compile K:02
+:?::cpk02:: { ; compile K:02
 	ClipSend("qmk compile -kb ergohaven/k02 -km schmidt-x")
 }
 
-:?O::qmkmods:: { ; modifiers.h
+:?::qmkmods:: { ; modifiers.h
 	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/modifiers.h")
 }
 
-:?O::qmkkc:: { ; keycodes.h
+:?::qmkkc:: { ; keycodes.h
 	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/keycodes.h")
 }
 
-:?O::qmkqkc:: { ; quantum_keycodes.h
+:?::qmkqkc:: { ; quantum_keycodes.h
 	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/quantum_keycodes.h")
 }
 
@@ -146,11 +158,11 @@
 
 ; --- Twitch ---
 
-:?O::twch:: {
+:?::twch:: {
 	ClipSend("https://www.twitch.tv/directory/category/just-chatting")
 }
 
-:?O::twtr:: {
+:?::twtr:: {
 	ClipSend("https://www.twitch.tv/directory/category/escape-from-tarkov")
 }
 
@@ -169,7 +181,7 @@
 	ClipSend("https://mail.google.com/mail/u/0/#all")
 }
 
-:?O::aaa:: {
+:?::aaa:: {
 	SendInput("// Arrange{Enter 3}// Act{Enter 3}// Assert{Enter}{Up 6}")
 }
 
