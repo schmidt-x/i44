@@ -171,6 +171,10 @@
 
 ; --- misc ---
 
+:?::gxsh:: {
+	ClipSend("opera://settings/keyboardShortcuts")
+}
+
 :?O::cg::<font color=gray></font>{left}^{left}{left 2}
 
 :?::maps:: {

@@ -19,6 +19,7 @@ class Paths {
 	static ScriptDir            => A_ScriptDir
 	static User                 => "C:\Users\" . A_UserName
 	static Git                  => A_ProgramFiles . "\Git"
+	static VsCodeUser           => "C:\Users\" . A_Username . "\AppData\Roaming\Code\User"
 	
 	static __New() {
 		this._paths.Set(
@@ -39,6 +40,7 @@ class Paths {
 			"ahk/.",       this.ScriptDir,
 			"me",          this.User,
 			"git",         this.Git,
+			"code/usr",    this.VsCodeUser,
 		)
 		
 		this._paths.Default := ""

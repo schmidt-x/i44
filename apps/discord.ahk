@@ -1,7 +1,7 @@
 class Discord {
 	static _processName     := "Discord.exe"
 	static _winProcessName  := "ahk_exe Discord.exe"
-	static _fullProcessName := "C:\Users\Schmidt\AppData\Local\Discord\Update.exe --processStart Discord.exe"
+	static _fullProcessName := "C:\Users\" . A_UserName . "\AppData\Local\Discord\Update.exe --processStart Discord.exe"
 	
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
@@ -9,10 +9,9 @@ class Discord {
 	static Run() {
 		if hwnd := WinExist(this._winProcessName) {
 			WinActivate(hwnd)
-			return
+		} else {
+			Run(this._fullProcessName)
 		}
-		
-		Run(this._fullProcessName)
 	}
 	
 	static EditMessage() => SendInput("e")
@@ -27,4 +26,7 @@ class Discord {
 	
 	static Backward() => SendInput("!{Left}")
 	
+	static NavigateToCurrentCall() => SendInput("+!^v")
+	
+	static UploadFile() => SendInput("+^u")
 }

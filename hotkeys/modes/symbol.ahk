@@ -4,8 +4,10 @@
 
 *F13::Mode.UnsetSybmol()
 
-; sent on returning from SYMB+ to SYMB (QMK)
-*F15::return
+*F15:: {
+	; F15 is sent on returning from SYMB+ to SYMB (QMK)
+	return
+}
 
 Insert:: {
 	switch {
@@ -21,6 +23,12 @@ Insert:: {
 	}
 }
 
+>+2:: { ; @
+	switch {
+	case OperaGX.IsActive: OperaGX.DefaultPlaybackSpeed()
+	}
+}
+
 <+3:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretBelowWithVirtualSpace()
@@ -30,15 +38,17 @@ Insert:: {
 
 >+[:: { ; {
 	switch {
-	case Rider.IsActive:  Rider.PrevMethod()
-	case VsCode.IsActive: VsCode.PrevMember()
+	case Rider.IsActive:   Rider.PrevMethod()
+	case VsCode.IsActive:  VsCode.PrevMember()
+	case OperaGX.IsActive: OperaGX.DecreasePlaybackSpeed()
 	}
 }
 
 >+]:: { ; }
 	switch {
-	case Rider.IsActive:  Rider.NextMethod()
-	case VsCode.IsActive: VsCode.NextMember()
+	case Rider.IsActive:   Rider.NextMethod()
+	case VsCode.IsActive:  VsCode.NextMember()
+	case OperaGX.IsActive: OperaGX.IncreasePlaybackSpeed()
 	}
 }
 
@@ -49,9 +59,11 @@ Insert:: {
 
 *F14::Mode.UnsetSybmol()
 
-; sent on returning from SYMB+ to SYMB 
-; and/or from NORML to SYMB (QMK)
-*F15::return
+*F15:: {
+	; F15 is sent on returning from SYMB+ to SYMB 
+	; and/or from NORML to SYMB (QMK)
+	return
+}
 
 <+7::SendInput("{Blind}{U+2014}") ; —
 

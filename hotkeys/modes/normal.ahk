@@ -12,8 +12,9 @@
 
 b:: {
 	switch {
-	case Rider.IsActive:  Rider.GoToDeclarationOrUsages()
-	case VsCode.IsActive:	VsCode.GoToDefinition()
+	case Rider.IsActive:   Rider.GoToDeclarationOrUsages()
+	case VsCode.IsActive:  VsCode.GoToDefinition()
+	case Discord.IsActive: Discord.NavigateToCurrentCall() 
 	}
 }
 
@@ -43,6 +44,7 @@ c:: {
 +d:: {
 	switch {
 	case OperaGX.IsActive: OperaGX.ForceDarkPage()
+	default: SendInput("{Blind}d")
 	}
 }
 
@@ -81,8 +83,9 @@ k:: {
 
 l:: {
 	switch {
-	case Rider.IsActive:  Rider.QuickDocumentation()
-	case VsCode.IsActive: VsCode.ShowOrFocusHover()
+	case Rider.IsActive:   Rider.QuickDocumentation()
+	case VsCode.IsActive:  VsCode.ShowOrFocusHover()
+	case OperaGX.IsActive: OperaGX.ToggleLoopMode()
 	}
 }
 
@@ -99,6 +102,13 @@ p:: {
 +p:: {
 	switch {
 	case OperaGX.IsActive: OperaGX.ReloadWithoutCache()
+	}
+}
+
++s:: {
+	switch {
+	case Discord.IsActive: Discord.UploadFile()
+	default: SendInput("{Blind}s")
 	}
 }
 

@@ -13,14 +13,28 @@ class OperaGX {
 	static Run() {
 		if hwnd := WinExist(this._winProcessName) {
 			WinActivate(hwnd)
-			return
+		} else {
+			Run(this._fullProcessName)
 		}
-		
-		Run(this._fullProcessName)
 	}
 	
 	
 	; --- Shortcuts ---
+	
+	/*
+		Sometimes, it triggers Context Menu on Alt release. Holding Shift helps to prevent it (so far).
+		Make sure that the outer hotkey has Shift in it. 
+		If it doesn't, manually register Shift Down before releasing Alt.
+		
+		Example:
+			Instead of: SendInput("!1")
+			Do: SendInput("{Alt Down}1{Shift Down}{Alt Up}{Shift Up}").
+	
+		
+		Extensions used:
+		- Enhancer for YouTube™ (https://www.mrfdev.com/enhancer-for-youtube)
+	*/
+	
 	
 	static OpenSettings() => SendInput("^{F12}")
 	
@@ -40,8 +54,7 @@ class OperaGX {
 		; modified
 		; name: _
 		; default: none
-		SendInput("{LAlt Down}1")
-		SendInput("{Blind}{LAlt Up}")
+		SendInput("{LAlt Down}1{LAlt Up}")
 	}
 	
 	static ToMainWorkspace() {
@@ -61,20 +74,19 @@ class OperaGX {
 	static ForceDarkPage() {
 		; modified
 		; default: none
-		SendInput("{LAlt Down}0")
-		SendInput("{Blind}{LAlt Up}")
+		SendInput("{LAlt Down}0{LAlt Up}")
 	}
 	
 	static FocusOnAddressBar() => SendInput("^l")
 	
-	static SpeedDial() => SendInput("!{Home}")
+	static SpeedDial() => SendInput("{Alt Down}{Home}{Alt Up}")
 	
 	static NewTab() => SendInput("^t")
 	
 	static ReloadAllTabs() {
 		; modified
 		; default: None
-		SendInput("^+r")
+		SendInput("+^f")
 	} 
 	
 	static FindPrevious() => SendInput("^+g")
@@ -92,4 +104,36 @@ class OperaGX {
 	}
 	
 	static Extensions() => SendInput("+^e")
+	
+	static ToggleLoopMode() {
+		; modified
+		; default: none
+		; extension: Enhancer for YouTube™
+		
+		SendInput("!l")
+	}
+	
+	static IncreasePlaybackSpeed() {
+		; modified
+		; default: none
+		; extension: Enhancer for YouTube™
+		
+		SendInput("{Alt Down}4{Alt Up}")
+	}
+	
+	static DecreasePlaybackSpeed() {
+		; modified
+		; default: none
+		; extension: Enhancer for YouTube™
+		
+		SendInput("{Alt Down}5{Alt Up}")
+	}
+	
+	static DefaultPlaybackSpeed() {
+		; modified
+		; default: none
+		; extension: Enhancer for YouTube™
+		
+		SendInput("{Alt Down}6{Alt Up}")
+	}
 }
