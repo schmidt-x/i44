@@ -1,46 +1,53 @@
 class Paths {
-	static _paths := Map()
 	
-	static C                    => "C:\"
-	static D                    => "D:\"
-	static Desktop              => A_Desktop
-	static Study                => "C:\Users\Schmidt\OneDrive\Study"
-	static Torrent              => "D:\Torrent"
-	static Radeon               => "D:\Radeon ReLive\unknown"
-	static Projects             => "C:\Projects"
-	static ProjectsCSharp       => "C:\Projects\CSharp"
-	static ProjectsRust         => "C:\Projects\Rust"
-	static ProjectsRustTestProj => "C:\Projects\Rust\test_proj"
-	static Qmk                  => "C:\Users\" . A_UserName . "\qmk_firmware"
-	static QmkKbI44             => "C:\Users\" . A_Username . "\qmk_firmware\keyboards\ergohaven\imperial44"
-	static QmkKbK02             => "C:\Users\" . A_UserName . "\qmk_firmware\keyboards\ergohaven\k02"
-	static QmkUsersMe           => "C:\Users\" . A_UserName . "\qmk_firmware\users\schmidt-x"
-	static ScriptFullPath       => A_ScriptFullPath
-	static ScriptDir            => A_ScriptDir
-	static User                 => "C:\Users\" . A_UserName
-	static Git                  => A_ProgramFiles . "\Git"
-	static VsCodeUser           => "C:\Users\" . A_Username . "\AppData\Roaming\Code\User"
+	static Qmk => this._qmk
+	static User => this._user
+	static Desktop => this._desktop
+	static ProjectsCSharp => this._projectsCSharp
+	
+	
+	static _desktop   := A_Desktop
+	static _user      := "C:\Users\" . A_UserName
+	static _study     := this._user . "\OneDrive\Study"
+	static _torrent   := "D:\Torrent"
+	static _radeon    := "D:\Radeon ReLive\unknown"
+	static _scriptDir := A_ScriptDir
+	
+	static _projects        := "D:\Projects"
+	static _projectsCSharp  := this._projects . "\CSharp"
+	static _projectsRust    := this._projects . "\Rust"
+	static _rustTestProject := this._projectsRust . "\test_proj"
+	
+	static _qmk          := this._user . "\qmk_firmware"
+	static _qmkKeyboards := this._qmk . "\keyboards"
+	static _qmkUsers     := this._qmk . "\users"
+	static _qmkKbI44     := this._qmkKeyboards . "\ergohaven\imperial44"
+	static _qmkKbK02     := this._qmkKeyboards . "\ergohaven\k02"
+	static _qmkUsersMe   := this._qmkUsers . "\schmidt-x"
+	
+	static _vsCodeUser := this._user . "\AppData\Roaming\Code\User"
+	
+	
+	static _paths := Map()
 	
 	static __New() {
 		this._paths.Set(
-			"C",           this.C,
-			"D",           this.D,
-			"desk",        A_Desktop,
-			"std",         this.Study,
-			"torr",        this.Torrent,
-			"radeon",      this.Radeon,
-			"proj",        this.Projects,
-			"proj/c#",     this.ProjectsCSharp,
-			"proj/r",      this.ProjectsRust,
-			"proj/r/test", this.ProjectsRustTestProj,
-			"qmk",         this.Qmk,
-			"qmk/i44",     this.QmkKbI44,
-			"qmk/k02",     this.QmkKbK02,
-			"qmk/usr/.",   this.QmkUsersMe,
-			"ahk/.",       this.ScriptDir,
-			"me",          this.User,
-			"git",         this.Git,
-			"code/usr",    this.VsCodeUser,
+			"desk",        this._desktop,
+			"std",         this._study,
+			"torr",        this._torrent,
+			"radeon",      this._radeon,
+			"proj",        this._projects,
+			"proj/c#",     this._projectsCSharp,
+			"proj/r",      this._projectsRust,
+			"proj/r/test", this._rustTestProject,
+			"qmk",         this._qmk,
+			"qmk/i44",     this._qmkKbI44,
+			"qmk/k02",     this._qmkKbK02,
+			"qmk/usr",     this._qmkUsers,
+			"qmk/usr/.",   this._qmkUsersMe,
+			"ahk/i44",     this._scriptDir,
+			"me",          this._user,
+			"code/usr",    this._vsCodeUser,
 		)
 		
 		this._paths.Default := ""

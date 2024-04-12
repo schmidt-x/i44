@@ -44,6 +44,7 @@ c:: {
 +d:: {
 	switch {
 	case OperaGX.IsActive: OperaGX.ForceDarkPage()
+	case Discord.IsActive: Discord.DisconnectFromVoice()
 	default: SendInput("{Blind}d")
 	}
 }
@@ -86,6 +87,7 @@ l:: {
 	case Rider.IsActive:   Rider.QuickDocumentation()
 	case VsCode.IsActive:  VsCode.ShowOrFocusHover()
 	case OperaGX.IsActive: OperaGX.ToggleLoopMode()
+	case Discord.IsActive: Discord.ToggleMemberListOrVoiceTextChat()
 	}
 }
 

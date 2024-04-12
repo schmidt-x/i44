@@ -118,6 +118,7 @@ class Terminal {
 			"chrome",  this.chrome,
 			"gx",      this.gx,
 			"discord", this.discord,
+			"calc",    this.calc,
 		)
 		
 		this._funcs.Default := ""
@@ -239,5 +240,7 @@ class Terminal {
 	static sleep(*) => OS.Sleep()
 	
 	static shdown(*) => OS.ShutDown()
+	
+	static calc(*) => OS.RunCalc()
 	
 }

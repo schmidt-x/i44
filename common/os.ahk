@@ -22,6 +22,8 @@ class OS {
 		Run("cmd", p)
 	}
 	
+	static RunCalc() => Run("calc")
+	
 	static GetProcessName() => WinGetProcessName("A")
 	
 	

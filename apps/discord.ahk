@@ -14,6 +14,16 @@ class Discord {
 		}
 	}
 	
+	
+	; --- Shortcuts ---
+	
+	/*
+		Apparently, custom keybindings are «wildcard».
+		If you send '+!d', it'll catch all the following keybindings:
+		'+!d', '+d', '!d', and even 'd'
+	*/
+	
+	
 	static EditMessage() => SendInput("e")
 	
 	static ReplyToMessage() => SendInput("r")
@@ -29,4 +39,13 @@ class Discord {
 	static NavigateToCurrentCall() => SendInput("+!^v")
 	
 	static UploadFile() => SendInput("+^u")
+	
+	static ToggleMemberListOrVoiceTextChat() => SendInput("^u")
+	
+	static DisconnectFromVoice() {
+		; modified
+		; default: none
+		
+		SendInput("{F22}")
+	}
 }
