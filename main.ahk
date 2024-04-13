@@ -10,20 +10,9 @@ CoordMode("ToolTip")
 ; do the same for the Mouse
 CoordMode("Mouse")
 
-#Include hotkeys\global.ahk
-#Include hotkeys\apps.ahk
-#Include hotkeys\modes\normal.ahk
-#Include hotkeys\modes\insert.ahk
-#Include hotkeys\modes\symbol.ahk
-#Include hotkeys\modes\mouse.ahk
-#Include hotkeys\modes\select.ahk
-
-#Include common\hotstrings.ahk
-#Include common\functions.ahk
-#Include common\os.ahk
-#Include common\terminal.ahk
+#Include system\paths.ahk
+#Include common\helper.ahk
 #Include common\mode.ahk
-#Include common\paths.ahk
 
 #Include apps\telegram.ahk
 #Include apps\obsidian.ahk
@@ -36,3 +25,15 @@ CoordMode("Mouse")
 #Include apps\docker.ahk
 #Include apps\rider.ahk
 #Include apps\steam.ahk
+
+#Include terminal.ahk
+
+#Include hotkeys\global.ahk
+#Include hotkeys\apps.ahk
+#Include hotkeys\modes\normal.ahk
+#Include hotkeys\modes\insert.ahk
+#Include hotkeys\modes\symbol.ahk
+#Include hotkeys\modes\mouse.ahk
+#Include hotkeys\modes\select.ahk
+#Include hotstrings.ahk
+

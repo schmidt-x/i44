@@ -11,18 +11,18 @@
 	switch {
 	case VsCode.IsActive: VsCode.InsertLineBelow()
 	case Rider.IsActive:  Rider.StartNewLine()
-	default: OS.SendBlindEnter()
+	default: Helper.SendBlindEnter()
 	}
 }
 
 ^Enter:: {
 	switch {
-	case Explorer.IsActive: 
+	case Explorer.IsActive:
 		VsCode.OpenSelected(&err)
 		if err {
-			Display(err)
+			Helper.Display(err)
 		}
-		default: OS.SendBlindEnter()
+	default: Helper.SendBlindEnter()
 	}
 }
 

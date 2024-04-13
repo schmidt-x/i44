@@ -7,18 +7,18 @@ class VsCode {
 	static IsActive => WinActive(this._winProcessName)
 	
 	
-	static Run(folder := "", &err := "") {
+	static Run(folder, &err) {
 		if !IsSet(err) {
 			err := ""
 		}
 		
-		if StrIsEmptyOrWhiteSpace(folder) {
+		if Helper.StrIsEmptyOrWhiteSpace(folder) {
 			Run(this._fullProcessName)
 			return
 		}
 		
 		if folder == "." {
-			if !Explorer.TryGetPath(&p) {
+			if !Paths.TryGet(&p) {
 				err := "path not found"
 				return
 			}
@@ -27,7 +27,7 @@ class VsCode {
 			return
 		}
 		
-		if !Paths.TryFind(folder, &p) {
+		if !Paths.TryGetFolderPath(folder, &p) {
 			err := "folder not found"
 			return
 		}
@@ -35,22 +35,11 @@ class VsCode {
 		Run(Format('"{1}" "{2}"', this._fullProcessName, p))
 	}
 	
-	static OpenSelected(&err := "") {
-		if !IsSet(err) {
-			err := ""
-		}
-		
-		prevClip := ClipboardAll()
-		A_Clipboard := ""
-		SendInput("^+c")
-		
-		if !ClipWait(1) {
-			err := "time out"
+	static OpenSelected(&err) {
+		path := Paths.GetSelected(&err)
+		if err {
 			return
 		}
-		
-		path := A_Clipboard
-		SetTimer(() => A_Clipboard := prevClip, -50)
 		
 		Run(Format('"{1}" {2}', this._fullProcessName, path))
 	}

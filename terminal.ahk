@@ -63,7 +63,7 @@ class Terminal {
 			this._prevWinId := 0
 		}
 		
-		if StrIsEmptyOrWhiteSpace(input) {
+		if Helper.StrIsEmptyOrWhiteSpace(input) {
 			err := "command is empty"
 			return
 		}
@@ -110,8 +110,6 @@ class Terminal {
 			"inlh",    this.inlh,
 			"stm",     this.stm,
 			"stm-",    this.stm_minus,
-			"sleep",   this.sleep,
-			"shdown",  this.shdown,
 			"msys",    this.msys,
 			"rider",   this.rider,
 			"docker",  this.docker,
@@ -140,14 +138,14 @@ class Terminal {
 	static code(args := "") {
 		VsCode.Run(args, &err)
 		if err {
-			Display(err)
+			Helper.Display(err)
 		}
 	}
 	
 	static cmd(args := "") {
-		OS.RunCmd(args, &err)
+		Helper.RunCmd(args, &err)
 		if err {
-			Display(err)
+			Helper.Display(err)
 		}
 	}
 	
@@ -160,7 +158,7 @@ class Terminal {
 	static exp(args := "") {
 		Explorer.Run(args, &err)
 		if err {
-			Display(err)
+			Helper.Display(err)
 		}
 	}
 
@@ -175,14 +173,14 @@ class Terminal {
 	static msys(args := "") {
 		QmkMSys.Run(args, &err)
 		if err {
-			Display(err)
+			Helper.Display(err)
 		}
 	}
 	
 	static rider(args := "") {
 		Rider.Run(args, &err)
 		if err {
-			Display(err)
+			Helper.Display(err)
 		}
 	}
 	
@@ -209,7 +207,7 @@ class Terminal {
 		}
 	}
 	
-	static info(*) => DisplayInfoOnHover()
+	static info(*) => Helper.DisplayInfoOnHover()
 	
 	static rat(*) {
 		switch {
@@ -237,10 +235,10 @@ class Terminal {
 		}
 	}
 	
-	static sleep(*) => OS.Sleep()
+	static calc(*) => Helper.RunCalc()
 	
-	static shdown(*) => OS.ShutDown()
-	
-	static calc(*) => OS.RunCalc()
+}
+
+class Cmd {
 	
 }

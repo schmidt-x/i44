@@ -11,16 +11,17 @@ class Rider {
 	static ProcessName => this._processName
 	static IsActive => WinActive(this._winProcessName)
 	
-	static Run(projName := "", &err := "") {
+	static Run(projName, &err) {
 		if !IsSet(err) {
 			err := ""
 		}
 		
-		if StrIsEmptyOrWhiteSpace(projName) {
+		if Helper.StrIsEmptyOrWhiteSpace(projName) {
 			; It doesn't seem to have a way to open the Welcome page,
 			; if at least one solution is already opened
-			if !WinExist(this._winProcessName)
+			if !WinExist(this._winProcessName) {
 				Run(this._fullProcessName)
+			}
 			
 			return
 		}

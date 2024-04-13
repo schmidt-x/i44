@@ -4,7 +4,7 @@ Enter:: {
 	Terminal.Execute(&err)
 	
 	if err {
-		Display(err)
+		Helper.Display(err)
 	}
 }
 

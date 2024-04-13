@@ -53,8 +53,64 @@ class Paths {
 		this._paths.Default := ""
 	}
 	
-	static TryFind(folderName, &path) {
+	static TryGetFolderPath(folderName, &path) { ; -> bool
 		path := this._paths[folderName]
 		return path != ""
+	}
+	
+	static TryGet(&path, clsid := false) { ; -> bool
+		if !IsSet(path) {
+			path := ""
+		}
+		
+		explorerHwnd := WinActive("ahk_exe explorer.exe")
+		
+		if !explorerHwnd {
+			return false
+		}
+	
+		title := WinGetTitle(explorerHwnd)
+		
+		if !StrLen(title) {
+			path := this._desktop
+			return true
+		}
+	
+		for window in ComObject("Shell.Application").Windows {
+			if window.hwnd != explorerHwnd || window.Document.Folder.Self.Name != title {
+				continue
+			}
+			
+			p := window.Document.Folder.Self.Path
+		
+			if !clsid && SubStr(p, 1, 2) == "::" {
+				return false
+			}
+		
+			path := p
+			return true
+		}
+		
+		return false
+	}
+	
+	static GetSelected(&err) { ; -> string
+		if !IsSet(err) {
+			err := ""
+		}
+		
+		prevClip := ClipboardAll()
+		A_Clipboard := ""
+		SendInput("+^c")
+		
+		if not ClipWait(0.5) {
+			err := "timed out"
+			path := ""
+		} else {
+			path := A_Clipboard
+		}
+		
+		SetTimer(() => A_Clipboard := prevClip, -50)
+		return path
 	}
 }

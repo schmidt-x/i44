@@ -10,10 +10,9 @@ class Chrome {
 	static Run() {
 		if winHwnd := WinExist(this._winProcessName) {
 			WinActivate(winHwnd)
-			return
+		} else {
+			Run(this._fullProcessName)
 		}
-		
-		Run(this._fullProcessName)
 	}
 	
 	
