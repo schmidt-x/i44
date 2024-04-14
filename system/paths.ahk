@@ -64,18 +64,17 @@ class Paths {
 		}
 		
 		explorerHwnd := WinActive("ahk_exe explorer.exe")
-		
 		if !explorerHwnd {
 			return false
 		}
 	
-		title := WinGetTitle(explorerHwnd)
-		
-		if !StrLen(title) {
+		if explorerHwnd == DllCall("GetShellWindow") {
 			path := this._desktop
 			return true
 		}
-	
+		
+		title := WinGetTitle(explorerHwnd)
+		
 		for window in ComObject("Shell.Application").Windows {
 			if window.hwnd != explorerHwnd || window.Document.Folder.Self.Name != title {
 				continue
