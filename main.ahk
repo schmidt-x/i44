@@ -1,13 +1,19 @@
 #Requires AutoHotkey v2.0
 #Hotstring EndChars `t`s
-; #NoTrayIcon
 #SingleInstance
 #UseHook
 
-; set the ToolTip position relative to the screen
-CoordMode("ToolTip")
 
-; do the same for the Mouse
+Splitpath(A_AhkPath, &__name, &__dir)
+__uia := "AutoHotkey64_UIA.exe"
+
+if (__name !== __uia) {
+	Run(Format('"{1}\{2}" "{3}"', __dir, __uia, A_ScriptFullPath))
+	return
+}
+
+
+CoordMode("ToolTip")
 CoordMode("Mouse")
 
 #Include system\paths.ahk

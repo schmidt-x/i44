@@ -5,6 +5,10 @@
 	Mode.SetDefault()
 }
 
++!^0:: {
+	Reload()
+}
+
 #SuspendExempt False
 
 +Enter:: {

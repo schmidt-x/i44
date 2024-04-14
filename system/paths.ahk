@@ -25,7 +25,7 @@ class Paths {
 	static _qmkKbK02     := this._qmkKeyboards . "\ergohaven\k02"
 	static _qmkUsersMe   := this._qmkUsers . "\schmidt-x"
 	
-	static _vsCodeUser := this._user . "\AppData\Roaming\Code\User"
+	static _vsCodeUser := A_AppData . "\Code\User"
 	
 	
 	static _paths := Map()
