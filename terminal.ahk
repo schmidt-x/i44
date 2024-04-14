@@ -11,8 +11,8 @@ class Terminal {
 	static _posX := 1920 / 2
 	static _posY := 1054
 	
-	static _gui_padd_x := 23
-	static _gui_padd_y := 14
+	static _gui_padd_x := unset
+	static _gui_padd_y := unset
 	
 	static __New() {
 		this.init_funcs()
@@ -130,6 +130,15 @@ class Terminal {
 		
 		editOpts := Format("Background171717 -E0x255 Center w{1} h{2}", this._width, this._height)
 		this._terminalEdit := this._terminal.AddEdit(editOpts)
+		
+		; get the actual size of the window, including its title bar, menu and borders
+		this._terminal.Show("Hide")
+		this._terminal.GetPos(, , &actualWidth, &actualHeight)
+		
+		; calculate padding added by Gui
+		this._gui_padd_x := (actualWidth - this._width) / 2
+		this._gui_padd_y := (actualHeight - this._height) / 2
+		this._terminal.Hide()
 	}
 	
 	

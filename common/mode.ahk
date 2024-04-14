@@ -19,8 +19,8 @@ class Mode {
 	static _posX := 0
 	static _posY := 1000
 	
-	static _gui_padd_x := 20
-	static _gui_padd_y := 12
+	static _gui_padd_x := unset
+	static _gui_padd_y := unset
 	
 	static __New() {
 		this.init_display()
@@ -40,6 +40,14 @@ class Mode {
 		
 		textOpts := Format("Background171717 -E0x255 w{1} h{2} Center", this._width, this._height)
 		this._displayText  := this._display.AddText(textOpts)
+		
+		; get the actual size of the window, including its title bar, menu and borders
+		this._display.Show("Hide")
+		this._display.GetPos(, , &width, &height)
+		
+		; calculate padding added by Gui
+		this._gui_padd_x := (width - this._width) / 2
+		this._gui_padd_y := (height - this._height) / 2
 	}
 	
 	
