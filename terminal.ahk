@@ -35,6 +35,15 @@ class Terminal {
 		this._terminalEdit.Value := ""
 		Sleep(1)
 		this._terminal.Hide()
+		
+		; Sometimes, the focus might be stolen by FileExplorer. Hence, we explicitly
+		; activate a previous window (if any).
+		; Also, if we were focused on the desktop before opening the terminal,
+		; focus will not be returned back to the desktop, if we have any window opened.
+		if this._prevWinId {
+			WinActivate(this._prevWinId)
+			this._prevWinId := 0
+		}
 	}
 	
 	static Execute(&err := "") {
@@ -45,24 +54,6 @@ class Terminal {
 		input := this._terminalEdit.Value
 		this.Close()
 		
-		if this._prevWinId {
-			prevWinId := this._prevWinId
-			
-			; sometimes, explorer.exe might steal the focus
-			if !WinWaitActive(prevWinId, , 0.25) {
-				WinActivate(prevWinId)
-				
-				if !WinWaitActive(prevWinId, , 0.25) {
-					; give up
-					err := "Focus was stolen!!!"
-					this._prevWinId := 0
-					return
-				}
-			}
-			
-			this._prevWinId := 0
-		}
-		
 		if Helper.StrIsEmptyOrWhiteSpace(input) {
 			err := "command is empty"
 			return
@@ -72,7 +63,8 @@ class Terminal {
 		; allowing further functions to handle those arguments the way they need to.
 		parts := StrSplit(input, "`s", , 2)
 		
-		if !this._TryFindCommand(parts[1], &func) {
+		func := this._funcs[parts[1]]
+		if not func {
 			err := "command not found"
 			return
 		}
@@ -83,10 +75,6 @@ class Terminal {
 			func(this, parts[2])
 	}
 	
-	static _TryFindCommand(command, &func) {
-		func := this._funcs[command]
-		return func != ""
-	}
 	
 	; --- init ---
 	
@@ -245,9 +233,5 @@ class Terminal {
 	}
 	
 	static calc(*) => Helper.RunCalc()
-	
-}
-
-class Cmd {
 	
 }
