@@ -17,6 +17,7 @@ CoordMode("ToolTip")
 CoordMode("Mouse")
 
 #Include system\paths.ahk
+#Include system\constants.ahk
 #Include common\helper.ahk
 #Include common\mode.ahk
 
@@ -35,7 +36,6 @@ CoordMode("Mouse")
 #Include terminal.ahk
 
 #Include hotkeys\global.ahk
-#Include hotkeys\apps.ahk
 #Include hotkeys\modes\normal.ahk
 #Include hotkeys\modes\insert.ahk
 #Include hotkeys\modes\symbol.ahk

@@ -11,74 +11,96 @@ class Terminal {
 	static _posX := 1920 / 2
 	static _posY := 1054
 	
-	static _gui_padd_x := unset
-	static _gui_padd_y := unset
+	static _guiPaddX := unset
+	static _guiPaddY := unset
 	
 	static __New() {
-		this.init_funcs()
-		this.init_terminal()
+		this._InitFuncs()
+		this._InitTerminal()
+		
+		OnMessage(WM_KEYDOWN, (wParam, lParam, msg, hwnd)
+			=> this._OnKEYDOWN(this, wParam, lParam, msg, hwnd))
+		
 	}
 	
 	static IsActive => WinActive(this._terminal.Hwnd)
 	
 	static Open() {
-		static terminal_pos := Format("x{1} y{2}"
-			, this._posX - this._gui_padd_x - (this._isCenterRelative ? this._width / 2 : 0)
-			, this._posY - this._gui_padd_y - (this._isCenterRelative ? this._height / 2 : 0)
+		static opts := Format("x{1} y{2}"
+			, this._posX - this._guiPaddX - (this._isCenterRelative ? this._width / 2 : 0)
+			, this._posY - this._guiPaddY - (this._isCenterRelative ? this._height / 2 : 0)
 		)
 		
 		this._prevWinId := WinExist("A")
-		this._terminal.Show(terminal_pos)
+		this._terminal.Show(opts)
 	}
 	
-	static Close() {
+	
+	; --- private ---
+	
+	static _OnKEYDOWN(_this, wParam, lParam, msg, hwnd) {
+		if not _this.IsActive {
+			return
+		}
+		
+		switch wParam {
+		case VK_ESCAPE: _this._Close()
+		case VK_RETURN: _this._Execute()
+		case VK_BACK, GetKeyState("LCtrl", "P"): SendInput("{Blind}+{Left}{Del}")
+		default: return
+		}
+		
+		return 0
+	}
+	
+	static _Close() {
 		this._terminalEdit.Value := ""
 		Sleep(1)
 		this._terminal.Hide()
 		
-		; Sometimes, the focus might be stolen by FileExplorer. Hence, we explicitly
-		; activate a previous window (if any).
-		; Also, if we were focused on the desktop before opening the terminal,
-		; focus will not be returned back to the desktop, if we have any window opened.
+		; Sometimes, the focus might be stolen by FileExplorer. Or if we were
+		; focused on the desktop before opening the terminal, focus will not 
+		; be returned back to the desktop, if we have any window opened.
+		; Hence, we explicitly activate the previous window (if any).
 		if this._prevWinId {
 			WinActivate(this._prevWinId)
 			this._prevWinId := 0
 		}
 	}
 	
-	static Execute(&err := "") {
-		if !IsSet(err) {
-			err := ""
-		}
-		
+	static _Execute() {
 		input := this._terminalEdit.Value
-		this.Close()
+		this._Close()
 		
 		if Helper.StrIsEmptyOrWhiteSpace(input) {
-			err := "command is empty"
+			this._DisplayError("command is empty")
 			return
 		}
 		
 		; Divide it into just 2 parts and pass the arguments (if any) as a single string,
 		; allowing further functions to handle those arguments the way they need to.
-		parts := StrSplit(input, "`s", , 2)
+		parts := StrSplit(input, A_Space, , 2)
 		
 		func := this._funcs[parts[1]]
 		if not func {
-			err := "command not found"
+			this._DisplayError("command not found")
 			return
 		}
 		
-		if parts.Length == 1
+		if parts.Length == 1 {
 			func(this)
-		else
+		} else {
 			func(this, parts[2])
+		}
+	}
+	
+	static _DisplayError(err) {
+		; TODO: display in the terminal window or something
+		Helper.Display(err)
 	}
 	
 	
-	; --- init ---
-	
-	static init_funcs() {
+	static _InitFuncs() {
 		this._funcs.Set(
 			"code",    this.code,
 			"cmd",     this.cmd,
@@ -110,10 +132,10 @@ class Terminal {
 		this._funcs.Default := ""
 	}
 	
-	static init_terminal() {
+	static _InitTerminal() {
 		this._terminal.Opt("+AlwaysOnTop -Caption +ToolWindow")
 		this._terminal.BackColor := "000000"
-		WinSetTransColor(this._terminal.BackColor . " 230", this._terminal.Hwnd)
+		WinSetTransColor(this._terminal.BackColor . " 250", this._terminal.Hwnd)
 		this._terminal.SetFont("s18 c0xbdbdbd", "JetBrains Mono Regular")
 		
 		editOpts := Format("Background171717 -E0x255 Center w{1} h{2}", this._width, this._height)
@@ -124,8 +146,8 @@ class Terminal {
 		this._terminal.GetPos(, , &actualWidth, &actualHeight)
 		
 		; calculate padding added by Gui
-		this._gui_padd_x := (actualWidth - this._width) / 2
-		this._gui_padd_y := (actualHeight - this._height) / 2
+		this._guiPaddX := (actualWidth - this._width) / 2
+		this._guiPaddY := (actualHeight - this._height) / 2
 		this._terminal.Hide()
 	}
 	
