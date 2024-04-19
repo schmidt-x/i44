@@ -15,7 +15,7 @@
 	switch {
 	case VsCode.IsActive: VsCode.InsertLineBelow()
 	case Rider.IsActive:  Rider.StartNewLine()
-	default: Helper.SendBlindEnter()
+	default: SendBlindEnter()
 	}
 }
 
@@ -24,9 +24,9 @@
 	case Explorer.IsActive:
 		VsCode.OpenSelected(&err)
 		if err {
-			Helper.Display(err)
+			Display(err)
 		}
-	default: Helper.SendBlindEnter()
+	default: SendBlindEnter()
 	}
 }
 

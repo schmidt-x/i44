@@ -49,7 +49,7 @@ c:: {
 	}
 }
 
-g::Terminal.Open()
+g::CommandRunner.Open()
 
 h:: {
 	switch {
@@ -132,6 +132,7 @@ w:: {
 	case Rider.IsActive:   Rider.ReopenLastClosedTab()
 	case OperaGX.IsActive: OperaGX.ReopenLastClosedTabOrWindow()
 	case VsCode.IsActive:  VsCode.ReopenLastClosedTab()
+	case Chrome.IsActive:  Chrome.ReopenLastClosedTab()
 	}
 }
 
@@ -177,15 +178,15 @@ y:: {
 	}
 }
 
-+Up::Helper.ScrollUp()
++Up::ScrollUp()
 
-+Down::Helper.ScrollDown()
++Down::ScrollDown()
 
 !Up:: {
 	switch {
 	case Rider.IsActive:  Rider.ScrollTerminalUp()
 	case VsCode.IsActive: VsCode.ScrollTerminalUpByLine()
-	default: Helper.SendBlindUp()
+	default: SendBlindUp()
 	}
 }
 
@@ -193,21 +194,21 @@ y:: {
 	switch {
 	case Rider.IsActive:  Rider.ScrollTerminalDown()
 	case VsCode.IsActive: VsCode.ScrollTerminalDownByLine()
-	default: Helper.SendBlindDown()
+	default: SendBlindDown()
 	}
 }
 
 +!Up:: {
 	switch {
 	case VsCode.IsActive: VsCode.ScrollTerminalUpByPage()
-	default: Helper.SendBlindUp()
+	default: SendBlindUp()
 	}
 }
 
 +!Down:: {
 	switch {
 	case VsCode.IsActive: VsCode.ScrollTerminalDownByPage()
-	default: Helper.SendBlindDown()
+	default: SendBlindDown()
 	}
 }
 
@@ -216,7 +217,7 @@ y:: {
 	case Rider.IsActive:    Rider.MoveLineUp()
 	case VsCode.IsActive:   VsCode.MoveLineUp()
 	case Obsidian.IsActive: Obsidian.MoveLineUp()
-	default: Helper.SendBlindUp()
+	default: SendBlindUp()
 	}
 }
 
@@ -225,7 +226,7 @@ y:: {
 	case Rider.IsActive:    Rider.MoveLineDown()
 	case VsCode.IsActive:   VsCode.MoveLineDown()
 	case Obsidian.IsActive: Obsidian.MoveLineDown()
-	default: Helper.SendBlindDown()
+	default: SendBlindDown()
 	}
 }
 
@@ -301,8 +302,8 @@ y:: {
 	}
 }
 
-^PgUp::Helper.MoveCursorToFileBeginning()
+^PgUp::MoveCursorToFileBeginning()
 
-^PgDn::Helper.MoveCursorToFileEnd()
+^PgDn::MoveCursorToFileEnd()
 
 #HotIf

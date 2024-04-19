@@ -8,9 +8,9 @@
 
 *F16::Mode.SetMouse()
 
-<+>+Up::Helper.ScrollUp()
+<+>+Up::ScrollUp()
 
-<+>+Down::Helper.ScrollDown()
+<+>+Down::ScrollDown()
 
 <+>+End:: {
 	switch {
