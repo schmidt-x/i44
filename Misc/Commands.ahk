@@ -2,55 +2,108 @@ class Commands {
 	
 	static __New() {
 		CommandRunner.AddCommands(
-			"mic",  this._Mic,
-			"calc", this._RunCalc,
-			"tt",   this._Tt,
-			"tb",   this._Tb,
-			"rat",  this._Rat,
-			"bs",   this._Bs,
-			"rb",   this._Rp,
-			"inlh", this._Inlh,
+			"calc",  this._Calc,
+			"tt",    this._Tt.Bind(this),
+			"tb",    this._Tb.Bind(this),
+			"rat",   this._Rat.Bind(this),
+			"bs",    this._Bs.Bind(this),
+			"rp",    this._Rp.Bind(this),
+			"inlh",  this._Inlh.Bind(this),
+			"adobe", this._Adobe.Bind(this)
 		)
 	}
 	
-	static _Mic(*) => Run("D:\Files\123.sesx") ; run Adobe Audition
-	
-	static _RunCalc(*) => Run("calc")
-	
-	static _Tt(*) {
-		switch {
-		case Rider.IsActive:  Rider.ToTabs()
-		case VsCode.IsActive: VsCode.ToTabs()
+	; TODO: move to class
+	static _Adobe(&args, _, &err) {
+		processPath := "C:\Program Files\Adobe\Adobe Audition CC\Adobe Audition CC.exe"
+		
+		switch args {
+		case "mic":
+			Run(Format('"{1}" "D:\Files\123.sesx"', processPath))
+		case "":
+			Run(processPath)
+		default:
+			err := Format("
+			(
+			Arg «{1}» is not supported.`n
+			Supported args:
+			mic `t Open microphone
+			)", args)
 		}
 	}
 	
-	static _Tb(*) {
-		switch {
-		case Rider.IsActive:  Rider.ToggleToolbar()
+	static _Calc(*) => Run("calc")
+	
+	static _Tt(&_, hwnd, &err) {
+		switch app := WinGetProcessName(hwnd) {
+		case Rider.ProcessName:
+			WinActivate(hwnd)
+			Rider.ToTabs()
+		case VsCode.ProcessName:
+			WinActivate(hwnd)
+			VsCode.ToTabs()
+		default: 
+			this._NotSupportedCommand(app, &err, Rider.ProcessName, VsCode.ProcessName)
 		}
 	}
 	
-	static _Rat(*) {
-		switch {
-		case OperaGX.IsActive: OperaGX.ReloadAllTabs()
+	static _Tb(&_, hwnd, &err) {
+		switch app := WinGetProcessName(hwnd) {
+		case Rider.ProcessName:
+			WinActivate(hwnd)
+			Rider.ToggleToolbar()
+		default:
+			this._NotSupportedCommand(app, &err, Rider.ProcessName)
 		}
 	}
 	
-	static _Bs(*) {
-		switch {
-		case Rider.IsActive: Rider.BuildSolution()
+	static _Rat(&_, hwnd, &err) {
+		switch app := WinGetProcessName(hwnd) {
+		case OperaGX.ProcessName:
+			WinActivate(hwnd)
+			OperaGX.ReloadAllTabs()
+		default:
+			this._NotSupportedCommand(app, &err, OperaGX.ProcessName)
 		}
+	}
+	
+	static _Bs(&_, hwnd, &err) {
+		switch app := WinGetProcessName(hwnd) {
+		case Rider.ProcessName:
+			WinActivate(hwnd)
+			Rider.BuildSolution()
+		default: 
+			this._NotSupportedCommand(app, &err, Rider.ProcessName)
+		}
+		
 	}
 
-	static _Rp(*) {
-		switch {
-		case Rider.IsActive: Rider.NugetRestore()
+	static _Rp(&_, hwnd, &err) {
+		switch app := WinGetProcessName(hwnd) {
+		case Rider.ProcessName:
+			WinActivate(hwnd)
+			Rider.NugetRestore()
+		default: 
+			this._NotSupportedCommand(app, &err, Rider.ProcessName)
 		}
 	}
 	
-	static _Inlh(*) {
-		switch {
-		case Rider.IsActive: Rider.ToggleInlayHints()
+	static _Inlh(&_, hwnd, &err) {
+		switch app := WinGetProcessName(hwnd) {
+		case Rider.ProcessName:
+			WinActivate(hwnd)
+			Rider.ToggleInlayHints()
+		default: 
+			this._NotSupportedCommand(app, &err, Rider.ProcessName)
+		}
+	}
+	
+	
+	static _NotSupportedCommand(app, &err, supportedList*) {
+		err := Format("App «{1}» does not support this command.`n`nApps supporting:", app)
+		
+		for app in supportedList {
+			err .= "`n- " app
 		}
 	}
 }
