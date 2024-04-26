@@ -97,7 +97,7 @@
 ^7:: {
 	switch {
 	case Rider.IsActive:   Rider.Structure()
-	case OperaGX.IsActive: OperaGX.ToMainWorkspace()
+	case OperaGX.IsActive: OperaGX.ToWorkspace1()
 	default: SendInput("{Blind}7")
 	}
 }
@@ -105,8 +105,15 @@
 ^8:: {
 	switch {
 	case Rider.IsActive:   Rider.ILViewer()
-	case OperaGX.IsActive: OperaGX.ToChillWorkspace()
+	case OperaGX.IsActive: OperaGX.ToWorkspace2()
 	default: SendInput("{Blind}8")
+	}
+}
+
+^9:: {
+	switch {
+	case OperaGX.IsActive: OperaGX.ToWorkspace3()
+	default: SendInput("{Blind}9")
 	}
 }
 

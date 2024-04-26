@@ -84,10 +84,11 @@ k:: {
 
 l:: {
 	switch {
-	case Rider.IsActive:   Rider.QuickDocumentation()
-	case VsCode.IsActive:  VsCode.ShowOrFocusHover()
-	case OperaGX.IsActive: OperaGX.ToggleLoopMode()
-	case Discord.IsActive: Discord.ToggleMemberListOrVoiceTextChat()
+	case Rider.IsActive:    Rider.QuickDocumentation()
+	case VsCode.IsActive:   VsCode.ShowOrFocusHover()
+	case OperaGX.IsActive:  OperaGX.ToggleLoopMode()
+	case Discord.IsActive:  Discord.ToggleMemberListOrVoiceTextChat()
+	case Explorer.IsActive: Explorer.OpenContextMenu()
 	}
 }
 
