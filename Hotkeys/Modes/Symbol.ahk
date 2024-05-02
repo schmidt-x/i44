@@ -2,7 +2,7 @@
 
 *F14::Mode.SetInsert()
 
-*F13::Mode.UnsetSybmol()
+*F13::Mode.DelSymbol()
 
 *F15:: {
 	; F15 is sent on returning from SYMB+ to SYMB (QMK)
@@ -57,7 +57,7 @@ Insert:: {
 
 #HotIf Mode.IsISymbol
 
-*F14::Mode.UnsetSybmol()
+*F14::Mode.DelSymbol()
 
 *F15:: {
 	; F15 is sent on returning from SYMB+ to SYMB 
@@ -84,6 +84,6 @@ Insert:: {
 
 #HotIf Mode.IsSSymbol
 
-*F17::Mode.UnsetSybmol()
+*F17::Mode.DelSymbol()
 
 #HotIf

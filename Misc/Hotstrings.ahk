@@ -171,6 +171,8 @@
 
 ; --- misc ---
 
+:?O::dll::DllCall(""){Left 2}
+
 :?::gxsh:: {
 	ClipSend("opera://settings/keyboardShortcuts")
 }

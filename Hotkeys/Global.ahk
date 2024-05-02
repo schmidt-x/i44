@@ -1,8 +1,15 @@
 #SuspendExempt True ; allow hotkeys to be hit even if it's suspended
 
 <+^0:: {
-	Suspend()
-	Mode.SetDefault()
+	if A_IsSuspended {
+		Suspend(false)
+		; I44.EnableAhk()
+		Mode.SetDefault()
+	} else {
+		Suspend(true)
+		; I44.DisableAhk()
+		Mode.SetNone()
+	}
 }
 
 +!^0:: {

@@ -17,7 +17,6 @@ CoordMode("Mouse")
 
 
 #Include <System\Paths>
-#Include <System\Constants>
 #Include <Common\Helpers>
 #Include <Misc\CommandRunner>
 #Include <Misc\Mode>

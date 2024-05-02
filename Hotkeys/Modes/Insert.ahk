@@ -2,7 +2,7 @@
 
 *F13::Mode.SetNormal()
 
-*F15::Mode.SetSymbol()
+*F15::Mode.AddSymbol()
 
 *F16::Mode.SetMouse()
 
