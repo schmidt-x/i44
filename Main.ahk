@@ -8,7 +8,7 @@ __uia := "AutoHotkey64_UIA.exe"
 
 if (__name !== __uia) {
 	Run(Format('"{1}\{2}" "{3}"', __dir, __uia, A_ScriptFullPath))
-	return
+	ExitApp()
 }
 
 

@@ -75,7 +75,6 @@ class Commands {
 		default: 
 			this._NotSupportedCommand(app, &err, Rider.ProcessName)
 		}
-		
 	}
 
 	static _Rp(&_, hwnd, &err) {
