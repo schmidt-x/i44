@@ -21,6 +21,7 @@ CoordMode("Mouse")
 #Include <Misc\CommandRunner>
 #Include <Misc\Mode>
 #Include <Apps\All>
+#Include <Keyboards\I44>
 
 #Include Hotkeys\Global.ahk
 #Include Hotkeys\Modes\Normal.ahk
@@ -34,4 +35,19 @@ CoordMode("Mouse")
 
 
 Mode.Show()
+
+I44.EnableAhk(&err)
+ThrowIfError(err)
+
+OnExit(DisableAhk)
+
+
+
+DisableAhk(exitReason, exitCode) {
+	if exitReason == "Reload" || exitCode == "Single" {
+		return
+	}
+	
+	I44.DisableAhk(&_)
+}
 

@@ -9,7 +9,8 @@ class Commands {
 			"bs",    this._Bs.Bind(this),
 			"rp",    this._Rp.Bind(this),
 			"inlh",  this._Inlh.Bind(this),
-			"adobe", this._Adobe.Bind(this)
+			"adobe", this._Adobe.Bind(this),
+			"hid",   this._Hid.Bind(this),
 		)
 	}
 	
@@ -97,6 +98,28 @@ class Commands {
 		}
 	}
 	
+	static _Hid(&args, _, &err) {
+		switch args {
+			case "ping":
+				if I44.Ping(&ms) {
+					err := (ms " ms") ; TODO: add &msg parameter
+				} else {
+					err := "Keyboard not responding."
+				}
+				
+			default:
+				err := "
+				(
+				Wrong argument.`n
+				Supported args:
+				ping `t Ping the keyboard
+				)"
+		}
+	}
+	
+	
+	
+	; --- helpers ---
 	
 	static _NotSupportedCommand(app, &err, supportedList*) {
 		err := Format("App «{1}» does not support this command.`n`nApps supporting:", app)

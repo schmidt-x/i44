@@ -14,7 +14,7 @@ b:: {
 	switch {
 	case Rider.IsActive:   Rider.GoToDeclarationOrUsages()
 	case VsCode.IsActive:  VsCode.GoToDefinition()
-	case Discord.IsActive: Discord.NavigateToCurrentCall() 
+	case Discord.IsActive: Discord.NavigateToCurrentCall()
 	}
 }
 

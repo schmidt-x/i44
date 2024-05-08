@@ -3,11 +3,17 @@
 <+^0:: {
 	if A_IsSuspended {
 		Suspend(false)
-		; I44.EnableAhk()
+		I44.EnableAhk(&err)
+		if err {
+			MsgBox(err.Message)
+		}
 		Mode.SetDefault()
 	} else {
 		Suspend(true)
-		; I44.DisableAhk()
+		I44.DisableAhk(&err)
+		if err {
+			MsgBox(err.Message)
+		}
 		Mode.SetNone()
 	}
 }
