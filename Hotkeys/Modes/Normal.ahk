@@ -38,6 +38,7 @@ c:: {
 	case Rider.IsActive:   Rider.DuplicateLineOrSelection()
 	case VsCode.IsActive:  VsCode.CopyLineDown()
 	case OperaGX.IsActive: OperaGX.DuplicateTab()
+	case WindowsTerminal.IsActive: WindowsTerminal.DuplicateTab()
 	}
 }
 
@@ -125,6 +126,7 @@ w:: {
 	case OperaGX.IsActive:  OperaGX.CloseTab()
 	case Chrome.IsActive:   Chrome.CloseTab()
 	case Explorer.IsActive: Explorer.CloseTab()
+	case WindowsTerminal.IsActive: WindowsTerminal.ClosePane()
 	}
 }
 
@@ -145,6 +147,7 @@ x:: {
 	case OperaGX.IsActive:  OperaGX.NewTab()
 	case Chrome.IsActive:   Chrome.NewTab()
 	case Explorer.IsActive: Explorer.NewTab()
+	case WindowsTerminal.IsActive : WindowsTerminal.NewTab()
 	}
 }
 
@@ -187,6 +190,7 @@ y:: {
 	switch {
 	case Rider.IsActive:  Rider.ScrollTerminalUp()
 	case VsCode.IsActive: VsCode.ScrollTerminalUpByLine()
+	case WindowsTerminal.IsActive: WindowsTerminal.ScrollUp()
 	default: SendBlindUp()
 	}
 }
@@ -195,6 +199,7 @@ y:: {
 	switch {
 	case Rider.IsActive:  Rider.ScrollTerminalDown()
 	case VsCode.IsActive: VsCode.ScrollTerminalDownByLine()
+	case WindowsTerminal.IsActive: WindowsTerminal.ScrollDown()
 	default: SendBlindDown()
 	}
 }
@@ -202,6 +207,7 @@ y:: {
 +!Up:: {
 	switch {
 	case VsCode.IsActive: VsCode.ScrollTerminalUpByPage()
+	case WindowsTerminal.IsActive: WindowsTerminal.ScrollPageUp()
 	default: SendBlindUp()
 	}
 }
@@ -209,6 +215,7 @@ y:: {
 +!Down:: {
 	switch {
 	case VsCode.IsActive: VsCode.ScrollTerminalDownByPage()
+	case WindowsTerminal.IsActive: WindowsTerminal.ScrollPageDown()
 	default: SendBlindDown()
 	}
 }
@@ -253,6 +260,7 @@ y:: {
 	case Discord.IsActive:  Discord.Backward()
 	case Chrome.IsActive:   Chrome.Back()
 	case Obsidian.IsActive: Obsidian.NavigateBack()
+	default: SendBlindLeft()
 	}
 }
 
@@ -264,6 +272,7 @@ y:: {
 	case Discord.IsActive:  Discord.Forward()
 	case Chrome.IsActive:   Chrome.Forward()
 	case Obsidian.IsActive: Obsidian.NavigateForward()
+	default: SendBlindRight()
 	}
 }
 
@@ -275,6 +284,7 @@ y:: {
 	case OperaGX.IsActive:  OperaGX.PreviousTab()
 	case Chrome.IsActive:   Chrome.PreviousTab()
 	case Explorer.IsActive: Explorer.PreviousTab()
+	case WindowsTerminal.IsActive: WindowsTerminal.PreviousTab()
 	}
 }
 
@@ -286,6 +296,7 @@ y:: {
 	case OperaGX.IsActive:  OperaGX.NextTab()
 	case Chrome.IsActive:   Chrome.NextTab()
 	case Explorer.IsActive: Explorer.NextTab()
+	case WindowsTerminal.IsActive: WindowsTerminal.NextTab()
 	}
 }
 
