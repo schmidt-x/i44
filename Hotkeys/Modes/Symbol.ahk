@@ -23,16 +23,16 @@ Insert:: {
 	}
 }
 
->+2:: { ; @
-	switch {
-	case OperaGX.IsActive: OperaGX.DefaultPlaybackSpeed()
-	}
-}
-
 <+3:: {
 	switch {
 	case Rider.IsActive:  Rider.CloneCaretBelowWithVirtualSpace()
 	case VsCode.IsActive: VsCode.CopyCursorDown()
+	}
+}
+
+>+2:: { ; @
+	switch {
+	case OperaGX.IsActive: OperaGX.DefaultPlaybackSpeed()
 	}
 }
 

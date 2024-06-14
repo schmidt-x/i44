@@ -119,7 +119,7 @@
 	ClipSend("https://www.youtube.com/feed/history")
 }
 
-:?::ytp:: { ; «435» playlist
+:?::ytpl:: { ; «huh» playlist
 	ClipSend("https://www.youtube.com/playlist?list=PLKRJNM-FYYn5cVrzOf7PKa4IPZSC8_v9y")
 }
 
@@ -241,4 +241,8 @@
 
 :?::urb:: {
 	ClipSend("https://www.urbandictionary.com/")
+}
+
+:?::ahkdocs:: {
+	ClipSend("https://www.autohotkey.com/docs/v2/")
 }

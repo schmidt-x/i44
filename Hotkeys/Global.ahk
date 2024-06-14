@@ -37,11 +37,13 @@
 	case Explorer.IsActive:
 		VsCode.OpenSelected(&err)
 		if err {
-			Display(err)
+			MsgBox(err.Message)
 		}
 	default: SendBlindEnter()
 	}
 }
+
++^LButton::DragWindow()
 
 +^s:: {
 	switch {
