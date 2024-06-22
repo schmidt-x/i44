@@ -85,9 +85,15 @@ k:: {
 
 l:: {
 	switch {
-	case Rider.IsActive:    Rider.QuickDocumentation()
-	case VsCode.IsActive:   VsCode.ShowOrFocusHover()
-	case OperaGX.IsActive:  OperaGX.ToggleLoopMode()
+	case Rider.IsActive:  Rider.QuickDocumentation()
+	case VsCode.IsActive: VsCode.ShowOrFocusHover()
+	
+	case hwnd := OperaGX.IsActive:
+		title := WinGetTitle(hwnd)
+		switch {
+		case OperaGX.IsYoutube(title): OperaGX.ToggleLoopMode()
+		}
+		
 	case Discord.IsActive:  Discord.ToggleMemberListOrVoiceTextChat()
 	case Explorer.IsActive: Explorer.OpenContextMenu()
 	}

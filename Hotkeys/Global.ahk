@@ -1,4 +1,4 @@
-#SuspendExempt True ; allow hotkeys to be hit even if it's suspended
+#SuspendExempt True
 
  <+^0:: {
 	if A_IsSuspended {
@@ -23,6 +23,8 @@
 }
 
 #SuspendExempt False
+
+
 
 +Enter:: {
 	switch {

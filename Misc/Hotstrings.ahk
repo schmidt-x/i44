@@ -6,23 +6,15 @@
 
 ; --- dotnet ---
 
-:?::dw:: {
-	ClipSend("dotnet watch --no-hot-reload")
-}
+:X?::dw::ClipSend("dotnet watch --no-hot-reload")
 
-:?::dusi:: {
-	ClipSend("dotnet user-secrets init")
-}
+:X?::dusi::ClipSend("dotnet user-secrets init")
 
 :?O::duss::dotnet user-secrets set "" ""{left 4}
 
-:?::dr:: {
-	ClipSend("dotnet run")
-}
+:X?::dr::ClipSend("dotnet run")
 
-:?::dbr:: { 
-	ClipSend("dotnet build -c Release")
-}
+:X?::dbr::ClipSend("dotnet build -c Release")
 
 ; --- ---
 
@@ -30,17 +22,11 @@
 
 :?O::wl::Console.WriteLine();{left 2}
 
-:?::rk:: {
-	ClipSend("Console.ReadKey();")
-}
+:X?::rk::ClipSend("Console.ReadKey();")
 
-:?::dw:: {
-	ClipSend("dotnet watch --no-hot-reload")
-}
+:X?::dw::ClipSend("dotnet watch --no-hot-reload")
 
-:?::nie:: {
-	ClipSend("throw new NotImplementedException();")
-}
+:X?::nie::ClipSend("throw new NotImplementedException();")
 
 ; --- ---
 
@@ -49,122 +35,73 @@
 
 :?O::pl::println{!}("");{left 3}
 
-:?::cr:: {
-	ClipSend("cargo run")
-}
+:X?::cr::ClipSend("cargo run")
 
-:?::cch:: {
-	ClipSend("cargo check")
-}
+:X?::cch::ClipSend("cargo check")
 
 ; --- ---
 
 
 ; --- git/github ---
 
-:?::grsh:: {
-	ClipSend("git reset --soft HEAD~")
-}
+:X?::grsh::ClipSend("git reset --soft HEAD~")
 
-:?::grs:: {
-	ClipSend("git reset --soft ")
-}
+:X?::grs::ClipSend("git reset --soft ")
 
-:?::grhh:: {
-	ClipSend("git reset --hard HEAD~")
-}
+:X?::grhh::ClipSend("git reset --hard HEAD~")
 
-:?::grh:: {
-	ClipSend("git reset --hard ")
-}
+:X?::grh::ClipSend("git reset --hard ")
 
-:?::-rs:: {
-	ClipSend("--recurse-submodules")
-}
+:X?::-rs::ClipSend("--recurse-submodules")
 
-:?::ghm:: { ; me
-	ClipSend("https://github.com/schmidt-x")
-}
+:X?::ghm::ClipSend("https://github.com/schmidt-x")
 
-:?::ghr:: { ; my repos
-	ClipSend("https://github.com/schmidt-x?tab=repositories")
-}
+:X?::ghr::ClipSend("https://github.com/schmidt-x?tab=repositories")
 
-:?::gcm:: {
-	SendInput("git cm `"`"{left}")
-}
+:?O::gcm::git cm `"`"{left}
 
-:?::ghqmki44:: {
-	ClipSend("https://github.com/schmidt-x/qmk_firmware/tree/schmidt-x/keyboards/ergohaven/imperial44")
-}
+:X?::ghqmki44::ClipSend("https://github.com/schmidt-x/qmk_firmware/tree/schmidt-x/keyboards/ergohaven/imperial44")
 
-:?::ghahk:: {
-	ClipSend("https://github.com/AutoHotkey/AutoHotkey")
-}
+:X?::ghahk::ClipSend("https://github.com/AutoHotkey/AutoHotkey")
 
 ; --- ---
 
 
 ; --- Youtube ---
 
-:?::yt:: {
-	ClipSend("https://www.youtube.com/")
-}
+:X?::yt::ClipSend("https://www.youtube.com/")
 
-:?::ytwl:: { ; watch later
-	ClipSend("https://www.youtube.com/playlist?list=WL")
-}
+:X?::ytwl::ClipSend("https://www.youtube.com/playlist?list=WL")
 
-:?::ythis:: { ; watch history
-	ClipSend("https://www.youtube.com/feed/history")
-}
+:X?::ythis::ClipSend("https://www.youtube.com/feed/history")
 
-:?::ytpl:: { ; «huh» playlist
-	ClipSend("https://www.youtube.com/playlist?list=PLKRJNM-FYYn5cVrzOf7PKa4IPZSC8_v9y")
-}
+:X?::ytpl::ClipSend("https://www.youtube.com/playlist?list=PLKRJNM-FYYn5cVrzOf7PKa4IPZSC8_v9y")
 
 ; --- ---
 
 
 ; --- Qmk ---
 
-:?::qmk:: { ; docs
-	ClipSend("https://docusaurus.qmk.fm/")
-	; ClipSend("https://docs.qmk.fm/#/") ; deprecated?
-}
+:X?::qmkdocs::ClipSend("https://docs.qmk.fm/#/")
 
-:?::cpi44:: {
-	ClipSend("qmk compile -kb ergohaven/imperial44 -km schmidt-x")
-}
+:X?::cpi44::ClipSend("qmk compile -kb ergohaven/imperial44 -km schmidt-x")
 
-:?::cpk02:: {
-	ClipSend("qmk compile -kb ergohaven/k02 -km schmidt-x")
-}
+:X?::cpk02::ClipSend("qmk compile -kb ergohaven/k02 -km schmidt-x")
 
-:?::qmkmods:: {
-	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/modifiers.h")
-}
+:X?::qmkmods::ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/modifiers.h")
 
-:?::qmkkc:: {
-	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/keycodes.h")
-}
+:X?::qmkkc::ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/keycodes.h")
 
-:?::qmkqkc:: {
-	ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/quantum_keycodes.h")
-}
+:X?::qmkqkc::ClipSend("https://github.com/qmk/qmk_firmware/blob/master/quantum/quantum_keycodes.h")
 
 ; --- ---
 
 
 ; --- Twitch ---
 
-:?::twch:: {
-	ClipSend("https://www.twitch.tv/directory/category/just-chatting")
-}
+:X?::twch::ClipSend("https://www.twitch.tv/directory/category/just-chatting")
 
-:?::twtr:: {
-	ClipSend("https://www.twitch.tv/directory/category/escape-from-tarkov")
-}
+:X?::twtr::ClipSend("https://www.twitch.tv/directory/category/escape-from-tarkov")
 
 ; --- --- 
 
@@ -173,9 +110,7 @@
 
 :?O::dll::DllCall(""){Left 2}
 
-:?::gxsh:: {
-	ClipSend("opera://settings/keyboardShortcuts")
-}
+:X?::gxsh::ClipSend("opera://settings/keyboardShortcuts")
 
 :?::cg:: {
 	switch {
@@ -183,17 +118,11 @@
 	}
 }
 
-:?::maps:: {
-	ClipSend("https://www.google.com/maps/@32.8047169,51.095706,15508839m/data=!3m1!1e3?entry=ttu")
-}
+:X?::maps::ClipSend("https://www.google.com/maps/@32.8047169,51.095706,15508839m/data=!3m1!1e3?entry=ttu")
 
-:?::gm:: {
-	ClipSend("https://mail.google.com/mail/u/0/#all")
-}
+:X?::gm::ClipSend("https://mail.google.com/mail/u/0/#all")
 
-:?::aaa:: {
-	SendInput("// Arrange{Enter 3}// Act{Enter 3}// Assert{Enter}{Up 6}")
-}
+:?O::aaa::// Arrange{Enter 3}// Act{Enter 3}// Assert{Enter}{Up 6}
 
 :?::bl:: {
 	switch {
@@ -201,17 +130,11 @@
 	}
 }
 
-:?::gt:: {
-	ClipSend(FormatTime(, "hh:mm:ss tt")) ; get time
-}
+:X?::gt::ClipSend(FormatTime(, "hh:mm:ss tt")) ; get time
 
-:?::gd:: {
-	ClipSend(FormatTime(, "dd.MM.yyyy")) ; get date
-}
+:X?::gd::ClipSend(FormatTime(, "dd.MM.yyyy")) ; get date
 
-:?::gdt:: {
-	ClipSend(FormatTime(, "dd.MM.yyyy hh:mm:ss tt")) ; get date-time
-}
+:X?::gdt::ClipSend(FormatTime(, "dd.MM.yyyy hh:mm:ss tt")) ; get date-time
 
 :?::sb:: {
 	switch {
@@ -231,18 +154,11 @@
 	
 	Sender(item, *) {
 		ClipSend(item)
-		_menu := ""
 	}
 }
 
-:?::tz:: {
-	ClipSend("https://www.timeanddate.com/time/zone/")
-}
+:X?::tz::ClipSend("https://www.timeanddate.com/time/zone/")
 
-:?::urb:: {
-	ClipSend("https://www.urbandictionary.com/")
-}
+:X?::urb::ClipSend("https://www.urbandictionary.com/")
 
-:?::ahkdocs:: {
-	ClipSend("https://www.autohotkey.com/docs/v2/")
-}
+:X?::ahkd::ClipSend("https://www.autohotkey.com/docs/v2/")
