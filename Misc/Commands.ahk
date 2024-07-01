@@ -9,33 +9,14 @@ class Commands {
 			"bs",    this._Bs.Bind(this),
 			"rp",    this._Rp.Bind(this),
 			"inlh",  this._Inlh.Bind(this),
-			"adobe", this._Adobe.Bind(this),
 			"hid",   this._Hid.Bind(this),
 		)
 	}
 	
-	; TODO: move to class
-	static _Adobe(&args, _, &err) {
-		processPath := "C:\Program Files\Adobe\Adobe Audition CC\Adobe Audition CC.exe"
-		
-		switch args {
-		case "mic":
-			Run(Format('"{1}" "D:\Files\123.sesx"', processPath))
-		case "":
-			Run(processPath)
-		default:
-			err := Format("
-			(
-			Arg «{1}» is not supported.`n
-			Supported args:
-			mic `t Open microphone
-			)", args)
-		}
-	}
 	
 	static _Calc(*) => Run("calc")
 	
-	static _Tt(&_, hwnd, &err) {
+	static _Tt(&_, hwnd, &msg) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
@@ -44,76 +25,72 @@ class Commands {
 			WinActivate(hwnd)
 			VsCode.ToTabs()
 		default: 
-			this._NotSupportedCommand(app, &err, Rider.ProcessName, VsCode.ProcessName)
+			this._NotSupportedCommand(app, &msg, Rider.ProcessName, VsCode.ProcessName)
 		}
 	}
 	
-	static _Tb(&_, hwnd, &err) {
+	static _Tb(&_, hwnd, &msg) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
 			Rider.ToggleToolbar()
 		default:
-			this._NotSupportedCommand(app, &err, Rider.ProcessName)
+			this._NotSupportedCommand(app, &msg, Rider.ProcessName)
 		}
 	}
 	
-	static _Rat(&_, hwnd, &err) {
+	static _Rat(&_, hwnd, &msg) {
 		switch app := WinGetProcessName(hwnd) {
 		case OperaGX.ProcessName:
 			WinActivate(hwnd)
 			OperaGX.ReloadAllTabs()
 		default:
-			this._NotSupportedCommand(app, &err, OperaGX.ProcessName)
+			this._NotSupportedCommand(app, &msg, OperaGX.ProcessName)
 		}
 	}
 	
-	static _Bs(&_, hwnd, &err) {
+	static _Bs(&_, hwnd, &msg) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
 			Rider.BuildSolution()
 		default: 
-			this._NotSupportedCommand(app, &err, Rider.ProcessName)
+			this._NotSupportedCommand(app, &msg, Rider.ProcessName)
 		}
 	}
 
-	static _Rp(&_, hwnd, &err) {
+	static _Rp(&_, hwnd, &msg) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
 			Rider.NugetRestore()
 		default: 
-			this._NotSupportedCommand(app, &err, Rider.ProcessName)
+			this._NotSupportedCommand(app, &msg, Rider.ProcessName)
 		}
 	}
 	
-	static _Inlh(&_, hwnd, &err) {
+	static _Inlh(&_, hwnd, &msg) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
 			Rider.ToggleInlayHints()
 		default: 
-			this._NotSupportedCommand(app, &err, Rider.ProcessName)
+			this._NotSupportedCommand(app, &msg, Rider.ProcessName)
 		}
 	}
 	
-	static _Hid(&args, _, &err) {
+	static _Hid(&args, _, &msg) {
 		switch args {
-			case "ping":
-				if I44.Ping(&ms) {
-					err := (ms " ms") ; TODO: add &msg parameter
-				} else {
-					err := "Keyboard not responding."
-				}
-				
-			default:
-				err := "
-				(
-				Wrong argument.`n
-				Supported args:
-				ping `t Ping the keyboard
-				)"
+		case "ping":
+			msg := I44.Ping(&ms) ? (ms " ms") : "Keyboard not responding."
+		
+		default:
+			msg := "
+			(
+			Wrong argument.`n
+			Supported args:
+			ping `t Ping the keyboard
+			)"
 		}
 	}
 	
@@ -121,11 +98,11 @@ class Commands {
 	
 	; --- helpers ---
 	
-	static _NotSupportedCommand(app, &err, supportedList*) {
-		err := Format("App «{1}» does not support this command.`n`nApps supporting:", app)
+	static _NotSupportedCommand(app, &msg, supportedList*) {
+		msg := Format("App «{1}» does not support this command.`n`nApps supporting:", app)
 		
 		for app in supportedList {
-			err .= "`n- " app
+			msg .= "`n- " app
 		}
 	}
 }

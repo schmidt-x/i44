@@ -82,7 +82,7 @@
 
 ; --- Qmk ---
 
-:X?::qmkdocs::ClipSend("https://docs.qmk.fm/#/")
+:X?::qmkd::ClipSend("https://docs.qmk.fm/#/")
 
 :X?::cpi44::ClipSend("qmk compile -kb ergohaven/imperial44 -km schmidt-x")
 
