@@ -7,13 +7,14 @@ Splitpath(A_AhkPath, &__name, &__dir)
 __uia := "AutoHotkey64_UIA.exe"
 
 if (__name !== __uia) {
-	Run(Format('"{1}\{2}" "{3}"', __dir, __uia, A_ScriptFullPath))
+	Run(Format('"{}\{}" "{}"', __dir, __uia, A_ScriptFullPath))
 	ExitApp()
 }
 
+InstallKeybdHook(true, true)
 
-CoordMode("ToolTip")
-CoordMode("Mouse")
+CoordMode("ToolTip", "Screen")
+CoordMode("Mouse", "Screen")
 
 
 #Include <System\Paths>

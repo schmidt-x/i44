@@ -6,13 +6,15 @@
 
 F3:: {
 	switch {
-	case Rider.IsActive: Rider.StopDebugger()
+	case Rider.IsActive:  Rider.StopDebugger()
+	case VsCode.IsActive: VsCode.StopDebugger()
 	}
 }
 
 F4:: {
 	switch {
-	case Rider.IsActive: Rider.RerunDebugger()
+	case Rider.IsActive:  Rider.RerunDebugger()
+	case VsCode.IsActive: VsCode.RestartDebugger()
 	}
 }
 
@@ -22,19 +24,22 @@ F4:: {
 
 F6:: {
 	switch {
-	case Rider.IsActive: Rider.StepOut()
+	case Rider.IsActive:  Rider.StepOut()
+	case VsCode.IsActive: VsCode.StepOut()
 	}
 }
 
 F7:: {
 	switch {
 	case Rider.IsActive: Rider.StepOver()
+	case VsCode.IsActive: VsCode.StepOver()
 	}
 }
 
 F8:: {
 	switch {
-	case Rider.IsActive: Rider.StepInto()
+	case Rider.IsActive:  Rider.StepInto()
+	case VsCode.IsActive: VsCode.StepInto()
 	}
 }
 

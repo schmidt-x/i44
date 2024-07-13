@@ -82,7 +82,7 @@
 
 ; --- Qmk ---
 
-:X?::qmkdocs::ClipSend("https://docs.qmk.fm/#/")
+:X?::qmkd::ClipSend("https://docs.qmk.fm/#/")
 
 :X?::cpi44::ClipSend("qmk compile -kb ergohaven/imperial44 -km schmidt-x")
 
@@ -162,3 +162,11 @@
 :X?::urb::ClipSend("https://www.urbandictionary.com/")
 
 :X?::ahkd::ClipSend("https://www.autohotkey.com/docs/v2/")
+
+:X?:``ahk::SendInput("``````ahk+{`n 2}``````{Up}")
+
+:X?::kt::ClipSend("https://key-test.com/")
+
+:X?::guid::ClipSend(NewGuidStr())
+
+:O?::mb::MsgBox(){Left}
