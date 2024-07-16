@@ -45,10 +45,9 @@ OnExit(DisableAhk)
 
 
 DisableAhk(exitReason, exitCode) {
-	if exitReason == "Reload" || exitCode == "Single" {
-		return
+	switch exitReason {
+		case "Reload", "Single": return
+		default: I44.DisableAhk(&_)
 	}
-	
-	I44.DisableAhk(&_)
 }
 

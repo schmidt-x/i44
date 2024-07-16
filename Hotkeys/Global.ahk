@@ -1,6 +1,6 @@
 #SuspendExempt True
 
- <+^0:: {
+<+^0:: {
 	if A_IsSuspended {
 		Suspend(0)
 		I44.EnableAhk(&err)
@@ -23,7 +23,6 @@
 }
 
 #SuspendExempt False
-
 
 
 +Enter:: {

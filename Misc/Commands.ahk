@@ -12,6 +12,7 @@ class Commands {
 			"hid",   this._Hid.Bind(this),
 			"b2h",   this._B2H.Bind(this),
 			"b2d",   this._B2D.Bind(this),
+			"fkeys", this._Fkeys.Bind(this),
 		)
 	}
 	
@@ -106,6 +107,57 @@ class Commands {
 		output := (res == -1) ? "Invalid input." : res
 	}
 	
+	; TODO: 
+	static _Fkeys(&args, _, &output) {
+		if StrIsEmptyOrWhiteSpace(args) {
+			output := GetSupportedCommands()
+			return
+		}
+		
+		command := StrSplit(args, A_Space)[1]
+		
+		switch command {
+			case "show":
+				output := GetOutputValues()
+			
+			case "--on":
+				SetFilterKeys(true)
+				output := "Updated values:`n`n" GetOutputValues()
+			
+			case "--off":
+				SetFilterKeys(false)
+				output := "Updated values:`n`n" GetOutputValues()
+			
+			case "set":
+				output := "TODO"
+			
+			default:
+				output := Format("Invalid command «{}».`n`n{}", command, GetSupportedCommands())
+		}
+		
+		GetSupportedCommands() {
+			return "
+			(
+				show `tShow the FilterKeys values.
+				set  `tSet the FilterKeys values.
+				--on `tTurn FilterKeys On.
+				--off`tTurn FilterKeys Off.
+			)"
+		}
+		
+		GetOutputValues() {
+			FKF_FILTERKEYSON := 0x01
+			FKF_AVAILABLE    := 0x02
+			onBitMask := FKF_AVAILABLE | FKF_FILTERKEYSON
+				
+			fKeys := GetFilterKeys()
+			state := fKeys.Flags & onBitMask == onBitMask
+				
+			return Format(
+				"State:`t{}`nWait:`t{}ms`nDelay:`t{}ms`nRepeat:`t{}ms`nBounce:`t{}ms",
+				state, fKeys.WaitMSec, fKeys.DelayMSec, fKeys.RepeatMSec, fKeys.BounceMSec)
+		}
+	}
 	
 	; --- helpers ---
 	
