@@ -44,10 +44,11 @@ OnExit(DisableAhk)
 
 
 
-DisableAhk(exitReason, exitCode) {
-	switch exitReason {
-		case "Reload", "Single": return
-		default: I44.DisableAhk(&_)
+DisableAhk(exitReason, _) {
+	if exitReason == "Reload" || exitReason == "Single" {
+		return
 	}
+	
+	I44.DisableAhk(&_)
 }
 

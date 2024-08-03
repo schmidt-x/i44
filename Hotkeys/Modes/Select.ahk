@@ -26,12 +26,8 @@
 	}
 }
 
-<^>+Home:: {
-	return
-}
+<^>+Home::return
 
-<^>+End::{
-	return
-}
+<^>+End::return
 
 #HotIf

@@ -40,6 +40,7 @@
 		if err {
 			MsgBox(err.Message)
 		}
+	case Rider.IsActive: Rider.Execute()
 	default: SendBlindEnter()
 	}
 }
@@ -64,6 +65,13 @@
 	}
 }
 
+!0:: {
+	switch {
+	case Rider.IsActive: SendInput("!^0")
+	default: SendInput("{Blind}0")
+	}
+}
+
 ^1:: {
 	switch {
 	case Rider.IsActive:    Rider.Explorer()
@@ -74,11 +82,25 @@
 	}
 }
 
+!1:: {
+	switch {
+	case Rider.IsActive: SendInput("!^2")
+	default: SendInput("{Blind}1")
+	}
+}
+
 ^2:: {
 	switch {
 	case Rider.IsActive:  Rider.Terminal()
 	case VsCode.IsActive: VsCode.Terminal()
 	case WindowsTerminal.IsActive: WindowsTerminal.SwitchToTab1()
+	default: SendInput("{Blind}2")
+	}
+}
+
+!2:: {
+	switch {
+	case Rider.IsActive: SendInput("!^3")
 	default: SendInput("{Blind}2")
 	}
 }
@@ -93,10 +115,24 @@
 	}
 }
 
+!3:: {
+	switch {
+	case Rider.IsActive: SendInput("!^4")
+	default: SendInput("{Blind}3")
+	}
+}
+
 ^4:: {
 	switch {
 	case Rider.IsActive:  Rider.Database()
 	case WindowsTerminal.IsActive: WindowsTerminal.SwitchToTab3()
+	default: SendInput("{Blind}4")
+	}
+}
+
+!4:: {
+	switch {
+	case Rider.IsActive: SendInput("!^5")
 	default: SendInput("{Blind}4")
 	}
 }
@@ -109,12 +145,32 @@
 	}
 }
 
+!5:: {
+	switch {
+	case Rider.IsActive: SendInput("!^6")
+	default: SendInput("{Blind}5")
+	}
+}
+
 ^6:: {
 	switch {
 	case Rider.IsActive:  Rider.Commit()
 	case VsCode.IsActive: VsCode.ToggleSourceControl()
 	case WindowsTerminal.IsActive: WindowsTerminal.SwitchToTab5()
 	default: SendInput("{Blind}6")
+	}
+}
+
+!6:: {
+	switch {
+	case Rider.IsActive: SendInput("!^7")
+	default: SendInput("{Blind}6")
+	}
+}
+
++^6:: {
+	switch {
+	case Rider.IsActive: Rider.Git()
 	}
 }
 

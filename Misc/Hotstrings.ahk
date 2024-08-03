@@ -97,6 +97,13 @@
 ; --- ---
 
 
+; --- Docker ---
+
+:X?::dockd::ClipSend("https://docs.docker.com/reference/cli/docker/")
+
+; --- ---
+
+
 ; --- Twitch ---
 
 :X?::twch::ClipSend("https://www.twitch.tv/directory/category/just-chatting")
