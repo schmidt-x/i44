@@ -77,6 +77,8 @@
 
 :X?::ytpl::ClipSend("https://www.youtube.com/playlist?list=PLKRJNM-FYYn5cVrzOf7PKa4IPZSC8_v9y")
 
+:X?::ytsub::ClipSend("https://www.youtube.com/feed/subscriptions")
+
 ; --- ---
 
 

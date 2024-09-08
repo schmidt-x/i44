@@ -57,6 +57,11 @@ Insert:: {
 
 #HotIf Mode.IsISymbol
 
+*F13:: {
+	; is sent on SYMB down to NORML (SMB_NRM)
+	return
+}
+
 *F14::Mode.DelSymbol()
 
 *F15:: {

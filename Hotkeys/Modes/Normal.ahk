@@ -50,7 +50,11 @@ c:: {
 	}
 }
 
-g::CommandRunner.Open()
+g:: {
+	if not CommandRunner.IsActive {
+		CommandRunner.Open()
+	}
+}
 
 h:: {
 	switch {

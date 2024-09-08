@@ -67,7 +67,7 @@
 
 !0:: {
 	switch {
-	case Rider.IsActive: SendInput("!^0")
+	case Rider.IsActive: Rider.SelectLastTab()
 	default: SendInput("{Blind}0")
 	}
 }
@@ -84,7 +84,7 @@
 
 !1:: {
 	switch {
-	case Rider.IsActive: SendInput("!^2")
+	case Rider.IsActive: Rider.SelectTab1()
 	default: SendInput("{Blind}1")
 	}
 }
@@ -100,7 +100,7 @@
 
 !2:: {
 	switch {
-	case Rider.IsActive: SendInput("!^3")
+	case Rider.IsActive: Rider.SelectTab2()
 	default: SendInput("{Blind}2")
 	}
 }
@@ -117,7 +117,7 @@
 
 !3:: {
 	switch {
-	case Rider.IsActive: SendInput("!^4")
+	case Rider.IsActive: Rider.SelectTab3()
 	default: SendInput("{Blind}3")
 	}
 }
@@ -132,7 +132,7 @@
 
 !4:: {
 	switch {
-	case Rider.IsActive: SendInput("!^5")
+	case Rider.IsActive: Rider.SelectTab4()
 	default: SendInput("{Blind}4")
 	}
 }
@@ -147,7 +147,7 @@
 
 !5:: {
 	switch {
-	case Rider.IsActive: SendInput("!^6")
+	case Rider.IsActive: Rider.SelectTab5()
 	default: SendInput("{Blind}5")
 	}
 }
@@ -163,7 +163,7 @@
 
 !6:: {
 	switch {
-	case Rider.IsActive: SendInput("!^7")
+	case Rider.IsActive: Rider.SelectTab6()
 	default: SendInput("{Blind}6")
 	}
 }
