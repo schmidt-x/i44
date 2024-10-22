@@ -3,7 +3,7 @@
 #SingleInstance
 #UseHook
 
-Splitpath(A_AhkPath, &__name, &__dir)
+SplitPath(A_AhkPath, &__name, &__dir)
 __uia := "AutoHotkey64_UIA.exe"
 
 if (__name !== __uia) {

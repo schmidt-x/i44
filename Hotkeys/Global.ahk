@@ -18,9 +18,9 @@
 	}
 }
 
-+!^0:: {
-	Reload()
-}
++!^0::Reload()
+
++#!^0::ExitApp()
 
 #SuspendExempt False
 
@@ -45,7 +45,13 @@
 	}
 }
 
-+^LButton::DragWindow()
++^LButton::DragWindow("LButton")
+
+F21:: {
+	SendInput("{RAlt Down}{Tab}")
+	KeyWait(A_ThisHotkey)
+	SendInput("{LButton}{RAlt Up}")
+}
 
 +^s:: {
 	switch {
