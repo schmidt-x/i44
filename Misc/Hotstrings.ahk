@@ -176,6 +176,9 @@
 
 :X?::kt::ClipSend("https://key-test.com/")
 
-:X?::guid::ClipSend(NewGuidStr())
+:CX?::guid::ClipSend(NewGuidStr(), false)
+:CX?::Guid::ClipSend(NewGuidStr(true), false)
 
 :O?::mb::MsgBox(){Left}
+
+:X?::idk::ClipSend("¯\_(ツ)_/¯")

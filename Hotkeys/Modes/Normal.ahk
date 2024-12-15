@@ -126,21 +126,6 @@ p:: {
 	}
 }
 
-+r:: {
-	switch {
-	case Obs.IsAtcive: Obs.ToggleVirtualCamera()
-	}
-}
-
-class Obs {
-	static _processName    := "obs64.exe"
-	static _winProcessName := "ahk_exe " this._processName
-	
-	static IsAtcive => WinActive(this._winProcessName)
-	
-	static ToggleVirtualCamera() => SendInput("{Blind^!#}r")
-}
-
 v::return
 
 w:: {

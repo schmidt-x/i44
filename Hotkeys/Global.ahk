@@ -45,7 +45,7 @@
 	}
 }
 
-+^LButton::DragWindow("LButton")
++LButton::DragWindow("LButton")
 
 F21:: {
 	SendInput("{RAlt Down}{Tab}")

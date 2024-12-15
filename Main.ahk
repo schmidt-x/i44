@@ -42,8 +42,6 @@ ThrowIfError(err)
 
 OnExit(DisableAhk)
 
-
-
 DisableAhk(exitReason, _) {
 	if exitReason == "Reload" || exitReason == "Single" {
 		return
