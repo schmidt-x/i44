@@ -328,4 +328,10 @@ y:: {
 
 ^PgDn::MoveCursorToFileEnd()
 
++XButton1:: {
+	I44.SetMouseLayer(&err)
+	if err
+		MsgBox("Failed to set mouse layer: " err.Message)
+}
+
 #HotIf

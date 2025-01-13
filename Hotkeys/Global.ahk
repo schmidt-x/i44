@@ -46,12 +46,7 @@
 }
 
 +LButton::DragWindow("LButton")
-
-F21:: {
-	SendInput("{RAlt Down}{Tab}")
-	KeyWait(A_ThisHotkey)
-	SendInput("{LButton}{RAlt Up}")
-}
+F21::DragWindow(ThisHotkey)
 
 +^s:: {
 	switch {
@@ -190,7 +185,7 @@ F21:: {
 
 ^8:: {
 	switch {
-	case Rider.IsActive:   Rider.ILViewer()
+	case Rider.IsActive:   Rider.IL()
 	case OperaGX.IsActive: OperaGX.ToWorkspace2()
 	default: SendInput("{Blind}8")
 	}

@@ -16,6 +16,10 @@ InstallKeybdHook(true, true)
 CoordMode("ToolTip", "Screen")
 CoordMode("Mouse", "Screen")
 
+SetKeyDelay(-1, -1)
+; ProcessSetPriority("High")
+A_HotkeyInterval := 0
+
 
 #Include <System\Paths>
 #Include <Common\Helpers>
@@ -40,9 +44,11 @@ Mode.Show()
 I44.EnableAhk(&err)
 ThrowIfError(err)
 
-OnExit(DisableAhk)
+OnExit(_DisableAhk)
+OnMessage(0x0218, _On_WM_POWERBROADCAST)
 
-DisableAhk(exitReason, _) {
+
+_DisableAhk(exitReason, _) {
 	if exitReason == "Reload" || exitReason == "Single" {
 		return
 	}
@@ -50,3 +56,20 @@ DisableAhk(exitReason, _) {
 	I44.DisableAhk(&_)
 }
 
+_On_WM_POWERBROADCAST(wParam, lParam, msg, hwnd) {
+	if wParam != 0x12 ; PBT_APMRESUMEAUTOMATIC
+		return
+	
+	device := I44.NewDevice()
+	device.Open(&err)
+	ThrowIfError(err)
+	
+	try {
+		device.Write([], &err)
+		ThrowIfError(err)
+		
+		I44.Default(&err, device)
+		ThrowIfError(err)
+		
+	} finally device.Close()
+}

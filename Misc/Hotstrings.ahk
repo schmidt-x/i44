@@ -141,9 +141,9 @@
 
 :X?::gt::ClipSend(FormatTime(, "hh:mm:ss tt")) ; get time
 
-:X?::gd::ClipSend(FormatTime(, "dd.MM.yyyy")) ; get date
+:X?::gd::ClipSend(FormatTime(, "dd-MMM-yy")) ; get date
 
-:X?::gdt::ClipSend(FormatTime(, "dd.MM.yyyy hh:mm:ss tt")) ; get date-time
+:X?::gdt::ClipSend(FormatTime(, "dd-MMM-yy hh:mm:ss tt")) ; get date-time
 
 :?::sb:: {
 	switch {
