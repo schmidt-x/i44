@@ -1,3 +1,6 @@
+#Include Commands\FKeys.ahk
+#Include Commands\New.ahk
+
 class Commands {
 	
 	static __New() {
@@ -12,14 +15,15 @@ class Commands {
 			"hid",   this._Hid.Bind(this),
 			"b2h",   this._B2H.Bind(this),
 			"b2d",   this._B2D.Bind(this),
-			"fkeys", this._Fkeys.Bind(this),
+			"fkeys", FKeys.Handle.Bind(FKeys),
+			"new",   New.Handle.Bind(New),
 		)
 	}
 	
 	
 	static _Calc(*) => Run("calc")
 	
-	static _Tt(&_, hwnd, &output) {
+	static _Tt(_, hwnd, &output) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
@@ -32,7 +36,7 @@ class Commands {
 		}
 	}
 	
-	static _Tb(&_, hwnd, &output) {
+	static _Tb(_, hwnd, &output) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
@@ -42,7 +46,7 @@ class Commands {
 		}
 	}
 	
-	static _Rat(&_, hwnd, &output) {
+	static _Rat(_, hwnd, &output) {
 		switch app := WinGetProcessName(hwnd) {
 		case OperaGX.ProcessName:
 			WinActivate(hwnd)
@@ -52,7 +56,7 @@ class Commands {
 		}
 	}
 	
-	static _Bs(&_, hwnd, &output) {
+	static _Bs(_, hwnd, &output) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
@@ -62,7 +66,7 @@ class Commands {
 		}
 	}
 
-	static _Rp(&_, hwnd, &output) {
+	static _Rp(_, hwnd, &output) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
@@ -72,7 +76,7 @@ class Commands {
 		}
 	}
 	
-	static _Inlh(&_, hwnd, &output) {
+	static _Inlh(_, hwnd, &output) {
 		switch app := WinGetProcessName(hwnd) {
 		case Rider.ProcessName:
 			WinActivate(hwnd)
@@ -82,81 +86,55 @@ class Commands {
 		}
 	}
 	
-	static _Hid(&args, _, &output) {
-		switch args {
-		case "ping":
-			output := I44.Ping(&ms) ? (ms " ms") : "Keyboard not responding."
-		
-		default:
-			output := "
-			(
-			Wrong argument.`n
-			Supported args:
-			ping `t Ping the keyboard
-			)"
-		}
-	}
-	
-	static _B2H(&args, _, &output) {
-		res := Bin2Hex(args)
-		output := (res == "") ? "Invalid input." : res
-	}
-	
-	static _B2D(&args, _, &output) {
-		res := Bin2Dec(args)
-		output := (res == -1) ? "Invalid input." : res
-	}
-	
-	; TODO: 
-	static _Fkeys(&args, _, &output) {
-		if StrIsEmptyOrWhiteSpace(args) {
-			output := GetSupportedCommands()
+	static _Hid(args, _, &output) {
+		if not args.Next(&arg) {
+			output := GetHelp()
 			return
 		}
 		
-		command := StrSplit(args, A_Space)[1]
-		
-		switch command {
-			case "show":
-				output := GetOutputValues()
+		switch arg.Value {
+			case "ping":
+				output := I44.Ping(&ms, &us) ? Format("{} ms`n{} us", ms, us) : "Keyboard not responsive."
 			
-			case "--on":
-				SetFilterKeys(true)
-				output := "Updated values:`n`n" GetOutputValues()
-			
-			case "--off":
-				SetFilterKeys(false)
-				output := "Updated values:`n`n" GetOutputValues()
-			
-			case "set":
-				output := "TODO"
+			case "-h", "--help":
+				output := GetHelp()
 			
 			default:
-				output := Format("Invalid command «{}».`n`n{}", command, GetSupportedCommands())
+				output := Format("Invalid argument '{}'.", arg.Value)
 		}
 		
-		GetSupportedCommands() {
-			return "
-			(
-				show `tShow the FilterKeys values.
-				set  `tSet the FilterKeys values.
-				--on `tTurn FilterKeys On.
-				--off`tTurn FilterKeys Off.
-			)"
+		return
+		
+		GetHelp() => "
+		(
+			Usage: hid [OPTIONS] COMMAND
+			
+			Commands:
+			hid:  Ping the keyboard
+			
+			Options:
+			-h, --help:  Print usage
+		)"
+	}
+	
+	static _B2H(args, _, &output) {
+		if not args.Next(&arg) {
+			output := "Empty input."
+			return
 		}
 		
-		GetOutputValues() {
-			FKF_FILTERKEYSON := 0x01
-			FKF_AVAILABLE    := 0x02
-			onBitMask := FKF_AVAILABLE | FKF_FILTERKEYSON
-				
-			fKeys := GetFilterKeys()
-			state := fKeys.Flags & onBitMask == onBitMask
-				
-			return Format(
-				"State:`t{}`nWait:`t{}ms`nDelay:`t{}ms`nRepeat:`t{}ms`nBounce:`t{}ms",
-				state, fKeys.WaitMSec, fKeys.DelayMSec, fKeys.RepeatMSec, fKeys.BounceMSec)
+		res := Bin2Hex(arg.Value)
+		output := (res != "") ? res : "Invalid input."
+	}
+	
+	static _B2D(args, _, &output) {
+		if not args.Next(&arg) {
+			output := "Empty input."
+			return
 		}
+		
+		res := Bin2Dec(arg.Value)
+		output := res != -1 ? res : "Invalid input."
 	}
 	
 	; --- helpers ---
