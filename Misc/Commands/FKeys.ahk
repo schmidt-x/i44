@@ -4,7 +4,7 @@ class FKeys {
 	 */
 	static Handle(args, _, &output) {
 		if not args.Next(&arg) {
-			output := this._GetHelp()
+			output := this._GetUsage()
 			return
 		}
 		
@@ -17,14 +17,14 @@ class FKeys {
 				SetFilterKeys(false)
 				output := this._GetOutputValues()
 			
-			case "status":
+			case "st", "status":
 				output := this._GetOutputValues()
 				
 			case "set":
 				this._SetOptions(args, &output)
 			
 			case "-h", "--help":
-				output := this._GetHelp()
+				output := this._GetUsage()
 			
 			default: 
 				output := Format("Invalid command '{}'.", arg.Value)
@@ -125,20 +125,18 @@ class FKeys {
 		)", state, fKeys.WaitMSec, fKeys.DelayMSec, fKeys.RepeatMSec, fKeys.BounceMSec)
 	}
 	
-	static _GetHelp() => "
+	static _GetUsage() => "
 		(
 			Usage: fkeys [OPTIONS] COMMAND
 			
 			Commands:
-			on:      Enable FilterKeys
-			off:     Disable FilterKeys
-			status:  Show FilterKeys values
-			set:     Set FilterKeys values
+			on:          Enable FilterKeys
+			off:         Disable FilterKeys
+			st, status:  Show FilterKeys values
+			set:         Set FilterKeys values
 			
 			Global Options:
 			-h, --help:  Print usage
-			
-			Run 'fkeys COMMAND --help' for more information on a command.
 		)"
 	
 	static _GetHelpForSet() => Format("

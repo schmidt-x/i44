@@ -58,6 +58,8 @@ F21::DragWindow(ThisHotkey)
 	}
 }
 
+#e::ComObject("Shell.Application").Explore(Paths.Desktop)
+
 ^0:: {
 	switch {
 	case OperaGX.IsActive: OperaGX.SwitchToLastTab()
