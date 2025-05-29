@@ -230,24 +230,6 @@ y:: {
 	}
 }
 
-^Up:: {
-	switch {
-	case Rider.IsActive:    Rider.MoveLineUp()
-	case VsCode.IsActive:   VsCode.MoveLineUp()
-	case Obsidian.IsActive: Obsidian.MoveLineUp()
-	default: SendBlindUp()
-	}
-}
-
-^Down:: {
-	switch {
-	case Rider.IsActive:    Rider.MoveLineDown()
-	case VsCode.IsActive:   VsCode.MoveLineDown()
-	case Obsidian.IsActive: Obsidian.MoveLineDown()
-	default: SendBlindDown()
-	}
-}
-
 +Left:: { ; inverted ^Left
 	switch {
 	case OperaGX.IsActive:  OperaGX.FindPrevious()
