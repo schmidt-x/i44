@@ -198,7 +198,6 @@ y:: {
 
 !Up:: {
 	switch {
-	case Rider.IsActive:  Rider.ScrollTerminalUp()
 	case VsCode.IsActive: VsCode.ScrollTerminalUpByLine()
 	case WindowsTerminal.IsActive: WindowsTerminal.ScrollUp()
 	default: SendBlindUp()
@@ -207,7 +206,6 @@ y:: {
 
 !Down:: {
 	switch {
-	case Rider.IsActive:  Rider.ScrollTerminalDown()
 	case VsCode.IsActive: VsCode.ScrollTerminalDownByLine()
 	case WindowsTerminal.IsActive: WindowsTerminal.ScrollDown()
 	default: SendBlindDown()

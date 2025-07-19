@@ -127,7 +127,7 @@
 	}
 }
 
-:X?::maps::ClipSend("https://www.google.com/maps/@32.8047169,51.095706,15508839m/data=!3m1!1e3?entry=ttu")
+:X?::maps::ClipSend("https://www.google.com/maps/")
 
 :X?::gm::ClipSend("https://mail.google.com/mail/u/0/#all")
 
@@ -173,6 +173,8 @@
 :X?::ahkd::ClipSend("https://www.autohotkey.com/docs/v2/")
 
 :X?:``ahk::SendInput("``````ahk+{`n 2}``````{Up}")
+
+:X?:``cs::SendInput("``````csharp+{`n 2}``````{Up}")
 
 :X?::kt::ClipSend("https://key-test.com/")
 

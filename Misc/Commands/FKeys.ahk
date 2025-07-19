@@ -1,4 +1,11 @@
+#Include <Misc\CommandRunner>
+
 class FKeys {
+	
+	static __New() {
+		CommandRunner.AddCommands("fkeys", this.Handle.Bind(this))
+	}
+	
 	/**
 	 * @param {CommandRunner.ArgsIter} args
 	 */

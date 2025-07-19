@@ -1,3 +1,4 @@
+#Include <Misc\CommandRunner>
 #Include Commands\FKeys.ahk
 #Include Commands\New.ahk
 
@@ -7,6 +8,7 @@ class Commands {
 		CommandRunner.AddCommands(
 			"calc",  this._Calc,
 			"tt",    this._Tt.Bind(this),
+			"ts",    this._Ts.Bind(this),
 			"tb",    this._Tb.Bind(this),
 			"rat",   this._Rat.Bind(this),
 			"bs",    this._Bs.Bind(this),
@@ -15,8 +17,6 @@ class Commands {
 			"hid",   this._Hid.Bind(this),
 			"b2h",   this._B2H.Bind(this),
 			"b2d",   this._B2D.Bind(this),
-			"fkeys", FKeys.Handle.Bind(FKeys),
-			"new",   New.Handle.Bind(New),
 		)
 	}
 	
@@ -33,6 +33,16 @@ class Commands {
 			VsCode.ToTabs()
 		default: 
 			this._NotSupportedCommand(app, &output, Rider.ProcessName, VsCode.ProcessName)
+		}
+	}
+	
+	static _Ts(_, hwnd, &output) {
+		switch app := WinGetProcessName(hwnd) {
+		case VsCode.ProcessName:
+			WinActivate(hwnd)
+			VsCode.ToSpaces()
+		default:
+			this._NotSupportedCommand(app, &output, VsCode.ProcessName)
 		}
 	}
 	

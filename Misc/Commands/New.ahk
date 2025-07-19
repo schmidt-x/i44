@@ -1,7 +1,12 @@
+#Include <Misc\CommandRunner>
 #Include <Apps\VsCode>
 #Include <Apps\Explorer>
 
 class New {
+	static __New() {
+		CommandRunner.AddCommands("new", This.Handle.Bind(This))
+	}
+	
 	/**
 	 * @param {CommandRunner.ArgsIter} args
 	 */
